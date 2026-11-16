@@ -1,0 +1,649 @@
+<title>Carrière Territoriale</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout : app iPhone une colonne — grand titre, cartes groupées façon Réglages iOS, barre d'onglets fixe en bas. */
+:root{
+  --bg:#f2f3f8; --surface:#ffffff; --surface-2:#f7f8fc; --ink:#141829; --muted:#61677d; --line:#e0e3ee;
+  --accent:#2944c2; --accent-ink:#ffffff; --accent-soft:#e7ebfb;
+  --ok:#1d8656; --ok-soft:#e3f4ec; --warn:#a96200; --warn-soft:#fbf0de; --bad:#c03a3a; --bad-soft:#fbe7e7;
+  --stamp:#a8344a;
+  --tabbar:rgba(248,249,252,.88);
+  --f-ui:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Arial,sans-serif;
+  --f-data:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0c0e16; --surface:#171a26; --surface-2:#1d2130; --ink:#eef0f8; --muted:#9aa1b8; --line:#2a2f42;
+  --accent:#8fa3ff; --accent-ink:#0c0e16; --accent-soft:#1f2645;
+  --ok:#5fd19a; --ok-soft:#14301f; --warn:#f0b257; --warn-soft:#33270f; --bad:#ff8a8a; --bad-soft:#3a1717;
+  --stamp:#ff8fa3; --tabbar:rgba(20,23,34,.88); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c0e16; --surface:#171a26; --surface-2:#1d2130; --ink:#eef0f8; --muted:#9aa1b8; --line:#2a2f42;
+  --accent:#8fa3ff; --accent-ink:#0c0e16; --accent-soft:#1f2645;
+  --ok:#5fd19a; --ok-soft:#14301f; --warn:#f0b257; --warn-soft:#33270f; --bad:#ff8a8a; --bad-soft:#3a1717;
+  --stamp:#ff8fa3; --tabbar:rgba(20,23,34,.88); color-scheme:dark}
+
+*{box-sizing:border-box}
+html,body{background:var(--bg)}
+body{color:var(--ink);font-family:var(--f-ui);font-size:16px;line-height:1.4;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.app{max-width:620px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:8px calc(96px + env(safe-area-inset-bottom,0px))}
+h1{font-family:var(--f-display);font-size:34px;line-height:1.1;font-weight:800;letter-spacing:-.02em;margin:14px 0 4px;text-wrap:balance}
+h2{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:24px 4px 8px}
+.sub{color:var(--muted);font-size:15px;margin:0 0 6px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:36px}
+.topbar .who{font-size:13px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.iconbtn{border:0;background:var(--accent-soft);color:var(--accent);width:36px;height:36px;border-radius:50%;display:grid;place-items:center;cursor:pointer;flex:none}
+.iconbtn svg{width:20px;height:20px}
+
+.group{background:var(--surface);border-radius:var(--r);overflow:hidden}
+.row{display:flex;align-items:center;gap:12px;padding:12px 16px;border-top:1px solid var(--line);min-height:48px}
+.row:first-child{border-top:0}
+.row .lbl{flex:1;min-width:0}
+.row .lbl small{display:block;color:var(--muted);font-size:13px}
+.row .val{color:var(--muted);text-align:right;font-variant-numeric:tabular-nums;min-width:0}
+.row.tap{cursor:pointer}
+.row.tap::after{content:"";width:8px;height:8px;border-right:2px solid var(--line);border-top:2px solid var(--line);transform:rotate(45deg);flex:none;margin-left:2px}
+button.row{width:100%;background:none;border-left:0;border-right:0;border-bottom:0;font:inherit;color:inherit;text-align:left}
+.empty{padding:20px 16px;color:var(--muted);font-size:15px;text-align:center}
+
+.hero{background:var(--accent);color:var(--accent-ink);border-radius:20px;padding:18px 18px 16px;display:grid;gap:14px}
+.hero .grade{font-weight:700;font-size:19px;line-height:1.25;text-wrap:balance}
+.hero .meta{opacity:.85;font-size:14px}
+.hero .nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.hero .num b{display:block;font-size:24px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.hero .num span{font-size:12px;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+.stamp{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-data);font-size:12px;font-weight:700;letter-spacing:.04em;border:1.5px solid currentColor;border-radius:6px;padding:2px 7px;text-transform:uppercase}
+.hero .stamp{color:var(--accent-ink);opacity:.95}
+
+.countdown{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;padding:16px}
+.ring{width:64px;height:64px}
+.ring circle{fill:none;stroke-width:7}
+.ring .bgc{stroke:var(--line)}
+.ring .fg{stroke:var(--accent);stroke-linecap:round;transition:stroke-dashoffset .6s ease}
+.countdown b{font-size:17px}
+.countdown p{margin:2px 0 0;color:var(--muted);font-size:14px}
+
+.banner{display:flex;gap:10px;align-items:flex-start;background:var(--warn-soft);color:var(--warn);border-radius:12px;padding:12px 14px;font-size:14px;margin-top:12px}
+.banner button{margin-left:auto;flex:none}
+.note{font-size:13px;color:var(--muted);margin:8px 4px 0;line-height:1.45}
+
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:3px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok)} .pill.warn{background:var(--warn-soft);color:var(--warn)} .pill.bad{background:var(--bad-soft);color:var(--bad)}
+
+.timeline{list-style:none;margin:0;padding:6px 0}
+.timeline li{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;padding:10px 16px;position:relative}
+.timeline li::before{content:"";position:absolute;left:29px;top:0;bottom:0;width:2px;background:var(--line)}
+.timeline li:first-child::before{top:50%} .timeline li:last-child::before{bottom:50%}
+.dot{width:18px;height:18px;border-radius:50%;background:var(--surface);border:2px solid var(--line);position:relative;z-index:1;justify-self:center}
+.timeline li.done .dot{background:var(--muted);border-color:var(--muted)}
+.timeline li.now .dot{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.timeline .t1{font-weight:600}
+.timeline .t2{font-size:13px;color:var(--muted)}
+.timeline .im{font-family:var(--f-data);font-size:13px;text-align:right;font-variant-numeric:tabular-nums}
+.timeline .im small{display:block;color:var(--ok);font-family:var(--f-ui)}
+
+.bars{display:grid;gap:12px;padding:16px}
+.bar .top{display:flex;justify-content:space-between;font-size:15px;margin-bottom:6px;gap:8px}
+.bar .top b{font-variant-numeric:tabular-nums}
+.track{height:10px;border-radius:6px;background:var(--surface-2);overflow:hidden;display:flex}
+.track i{display:block;height:100%}
+
+.payslip{padding:4px 0}
+.payslip .row{min-height:40px;padding:9px 16px;font-size:15px}
+.payslip .row .val{color:var(--ink);font-family:var(--f-data);font-size:14px}
+.payslip .row.minus .val{color:var(--bad)}
+.payslip .row.total{background:var(--surface-2);font-weight:700}
+.payslip .row.total .val{font-weight:700;font-size:16px}
+.net{display:flex;align-items:baseline;justify-content:space-between;padding:18px 16px 6px;gap:12px}
+.net b{font-size:34px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.net span{color:var(--muted);font-size:14px}
+
+.btn{border:0;border-radius:12px;padding:12px 16px;font:600 16px/1 var(--f-ui);cursor:pointer;background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:var(--accent-soft);color:var(--accent)}
+.btn.danger{background:var(--bad-soft);color:var(--bad)}
+.btn.small{padding:8px 12px;font-size:14px;border-radius:10px}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.btnrow .btn{flex:1 1 140px}
+.add{display:flex;align-items:center;gap:8px;color:var(--accent);font-weight:600;padding:12px 16px;border:0;background:none;font:inherit;font-weight:600;cursor:pointer;width:100%;border-top:1px solid var(--line)}
+.group > .add:first-child{border-top:0}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.row.tap:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+.check{width:24px;height:24px;border-radius:50%;border:2px solid var(--line);background:none;flex:none;cursor:pointer;display:grid;place-items:center;padding:0}
+.check.on{background:var(--ok);border-color:var(--ok)}
+.check.on::after{content:"";width:6px;height:11px;border:solid var(--surface);border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.row.faded .lbl{opacity:.5;text-decoration:line-through}
+
+/* Tab bar */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--tabbar);-webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);border-top:1px solid var(--line);padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
+.tabbar nav{max-width:620px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
+.tabbar button{border:0;background:none;color:var(--muted);font:500 11px/1.2 var(--f-ui);display:grid;justify-items:center;gap:3px;padding:4px 0;cursor:pointer}
+.tabbar button svg{width:26px;height:26px}
+.tabbar button[aria-current="page"]{color:var(--accent)}
+
+/* Sheet */
+.scrim{position:fixed;inset:0;background:rgba(10,12,20,.45);z-index:40;opacity:0;transition:opacity .2s}
+.scrim.on{opacity:1}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:41;background:var(--bg);border-radius:18px 18px 0 0;max-height:92%;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .25s ease}
+.sheet.on{transform:none}
+.sheet header{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:14px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line)}
+.sheet header b{font-size:17px;text-align:center;flex:1}
+.sheet header button{border:0;background:none;color:var(--accent);font:inherit;font-size:17px;cursor:pointer;padding:4px}
+.sheet header .save{font-weight:700}
+.sheet .body{overflow:auto;padding:12px max(16px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));-webkit-overflow-scrolling:touch}
+.sheet .inner{max-width:620px;margin:0 auto}
+.field{display:flex;align-items:center;gap:12px;padding:10px 16px;border-top:1px solid var(--line);min-height:48px}
+.field:first-child{border-top:0}
+.field label{flex:0 0 42%;font-size:15px}
+.field input,.field select,.field textarea{flex:1;min-width:0;border:0;background:none;color:var(--ink);font:16px var(--f-ui);text-align:right;padding:4px 0}
+.field textarea{text-align:left;resize:vertical;min-height:70px}
+.field.col{flex-direction:column;align-items:stretch;gap:6px}
+.field.col label{flex:none}
+.field.col textarea{border:1px solid var(--line);border-radius:10px;padding:8px;font-family:var(--f-data);font-size:13px}
+select{-webkit-appearance:none;appearance:none}
+.gridtbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.gridtbl th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600;text-align:left;padding:10px 8px}
+.gridtbl td{padding:4px 8px;border-top:1px solid var(--line)}
+.gridtbl input{width:100%;border:0;background:var(--surface-2);border-radius:8px;padding:8px;font:15px var(--f-data);color:var(--ink);text-align:right}
+.gridtbl td:first-child{font-weight:600;width:52px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-size:14px;z-index:60;opacity:0;transition:opacity .2s;pointer-events:none;max-width:90%}
+.toast.on{opacity:1}
+.sync{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.sync i{width:7px;height:7px;border-radius:50%;background:var(--muted);display:inline-block}
+.sync.cloud i{background:var(--ok)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+
+<div class="app" id="app"><p class="sub" style="padding-top:40px">Chargement de votre dossier…</p></div>
+
+<div class="tabbar"><nav id="tabs" aria-label="Sections">
+  <button data-tab="accueil" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-6h4v6"/></svg>Accueil</button>
+  <button data-tab="carriere"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4v-5H4zM10 20h4v-9h-4zM16 20h4V5h-4z"/></svg>Carrière</button>
+  <button data-tab="salaire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 6.5A7 7 0 1 0 17.5 17.5"/><path d="M4 10.5h9M4 13.5h9"/></svg>Salaire</button>
+  <button data-tab="conges"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Congés</button>
+  <button data-tab="suivi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><path d="m3.5 6 1.2 1.2L7 5M3.5 12l1.2 1.2L7 11M3.5 18l1.2 1.2L7 17"/></svg>Suivi</button>
+</nav></div>
+
+<div class="scrim" id="scrim" hidden></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+  <header><button id="sheetCancel" type="button">Annuler</button><b id="sheetTitle"></b><button id="sheetSave" class="save" type="button">OK</button></header>
+  <div class="body"><div class="inner" id="sheetBody"></div></div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<input type="file" id="importFile" accept="application/json,.json" hidden>
+
+<script>
+(function(){
+"use strict";
+/* ---------- Référentiel ---------- */
+const POINT_DEFAUT = 4.92278; // valeur mensuelle brute du point d'indice depuis le 1er juillet 2023
+const MOIS = ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc."];
+const GRILLES = {
+  c1:{nom:"Échelle C1", durees:[12,24,24,24,24,24,24,36,36,48,48,null]},
+  c2:{nom:"Échelle C2", durees:[12,24,24,24,24,24,24,36,36,48,48,null]},
+  bcn:{nom:"Catégorie B – 1er grade (NES)", durees:[24,24,24,24,24,24,36,36,36,36,48,48,null]},
+  perso:{nom:"Grille personnalisée", durees:[24,24,24,24,24,null]}
+};
+const TYPES_ABS = {CA:"Congé annuel",RTT:"RTT",CET:"Jour CET",MAL:"Maladie",AUT:"Autre absence"};
+const FILIERES = ["Administrative","Technique","Culturelle","Sportive","Médico-sociale","Sociale","Médico-technique","Animation","Police municipale","Sapeurs-pompiers"];
+
+function exemple(){
+  return {
+    v:1, exemple:true,
+    profil:{nom:"Camille Exemple",collectivite:"Commune de Saint-Exemple",categorie:"C",filiere:"Administrative",
+      cadre:"Adjoints administratifs territoriaux",grade:"Adjoint administratif principal de 2e classe",statut:"Titulaire",
+      echelon:6,dateEchelon:"2025-03-01",dateEntree:"2016-09-01",quotite:100},
+    grille:{nom:"Échelle C2 (exemple)",echelons:[
+      {d:12,im:368},{d:24,im:369},{d:24,im:370},{d:24,im:372},{d:24,im:376},{d:24,im:381},
+      {d:24,im:390},{d:36,im:400},{d:36,im:412},{d:48,im:430},{d:48,im:450},{d:null,im:473}]},
+    remu:{point:POINT_DEFAUT,nbi:0,ifse:260,cia:300,sft:0,residence:0,pas:0},
+    conges:{annee:2026,joursSemaine:5,rtt:0,cet:6,reportCA:0,absences:[
+      {id:uid(),type:"CA",du:"2026-02-16",au:"2026-02-20",note:"Vacances d'hiver"},
+      {id:uid(),type:"CA",du:"2026-07-20",au:"2026-08-07",note:"Été"},
+      {id:uid(),type:"CA",du:"2026-12-28",au:"2026-12-31",note:"Fêtes"}]},
+    formations:[
+      {id:uid(),titre:"Formation d'intégration (cat. C)",organisme:"CNFPT",date:"2016-11-14",heures:30,type:"Intégration"},
+      {id:uid(),titre:"Accueil du public et gestion des tensions",organisme:"CNFPT",date:"2024-05-21",heures:14,type:"Professionnalisation"},
+      {id:uid(),titre:"Tableur : perfectionnement",organisme:"CNFPT",date:"2026-03-10",heures:14,type:"Perfectionnement"}],
+    cpf:{solde:120,majore:false},
+    echeances:[
+      {id:uid(),titre:"Entretien professionnel annuel",date:"2026-12-08",fait:false},
+      {id:uid(),titre:"Inscription à l'examen pro d'adjoint principal de 1re classe",date:"2027-01-20",fait:false},
+      {id:uid(),titre:"Déposer la demande de jours CET",date:"2026-12-15",fait:false}],
+    journal:[
+      {id:uid(),date:"2025-03-01",titre:"Arrêté d'avancement au 6e échelon"},
+      {id:uid(),date:"2023-01-01",titre:"Nomination au grade d'adjoint administratif principal de 2e classe"},
+      {id:uid(),date:"2017-09-01",titre:"Titularisation"}]
+  };
+}
+function vide(){
+  const s=exemple(); s.exemple=false;
+  s.profil={nom:"",collectivite:"",categorie:"C",filiere:"Administrative",cadre:"",grade:"",statut:"Titulaire",echelon:1,dateEchelon:iso(new Date()),dateEntree:iso(new Date()),quotite:100};
+  s.grille={nom:GRILLES.c1.nom,echelons:GRILLES.c1.durees.map(d=>({d,im:null}))};
+  s.remu={point:POINT_DEFAUT,nbi:0,ifse:0,cia:0,sft:0,residence:0,pas:0};
+  s.conges={annee:new Date().getFullYear(),joursSemaine:5,rtt:0,cet:0,reportCA:0,absences:[]};
+  s.formations=[]; s.cpf={solde:0,majore:false}; s.echeances=[]; s.journal=[];
+  return s;
+}
+
+/* ---------- Utilitaires ---------- */
+function uid(){return Math.random().toString(36).slice(2,10)}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function pd(s){if(!s)return null;const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)}
+function iso(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+function today(){const t=new Date();return new Date(t.getFullYear(),t.getMonth(),t.getDate())}
+function addMonths(d,m){const r=new Date(d.getFullYear(),d.getMonth()+m,1);const last=new Date(r.getFullYear(),r.getMonth()+1,0).getDate();r.setDate(Math.min(d.getDate(),last));return r}
+function fdate(d,short){if(!d)return"—";if(typeof d==="string")d=pd(d);return d.getDate()+" "+MOIS[d.getMonth()]+(short?"":" "+d.getFullYear())}
+function eur(n,dec=2){return (isFinite(n)?n:0).toLocaleString("fr-FR",{minimumFractionDigits:dec,maximumFractionDigits:dec})+" €"}
+function num(v,def=0){const n=parseFloat(String(v).replace(",","."));return isFinite(n)?n:def}
+function daysBetween(a,b){return Math.round((b-a)/864e5)}
+function duree(mois){const a=Math.floor(mois/12),m=mois%12;const p=[];if(a)p.push(a+(a>1?" ans":" an"));if(m)p.push(m+" mois");return p.join(" ")||"0 mois"}
+function ord(n){return n===1?"1er":n+"e"}
+function relDays(n){if(n===0)return"aujourd'hui";if(n===1)return"demain";if(n===-1)return"hier";if(n>0){if(n<60)return"dans "+n+" jours";return"dans "+duree(Math.round(n/30.44))}return"il y a "+(-n<60?-n+" jours":duree(Math.round(-n/30.44)))}
+
+/* Jours fériés (métropole) */
+function paques(y){const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;return new Date(y,mo-1,da)}
+const ferCache={};
+function feries(y){if(ferCache[y])return ferCache[y];const p=paques(y),add=n=>{const d=new Date(p);d.setDate(d.getDate()+n);return iso(d)};
+  ferCache[y]=new Set([y+"-01-01",add(1),y+"-05-01",y+"-05-08",add(39),add(50),y+"-07-14",y+"-08-15",y+"-11-01",y+"-11-11",y+"-12-25"]);return ferCache[y]}
+function joursOuvres(du,au,jps){const a=pd(du),b=pd(au);if(!a||!b||b<a)return[];const out=[];const d=new Date(a);
+  while(d<=b){const wd=d.getDay();const ouvre=jps>=6?wd!==0:(wd>=1&&wd<=Math.min(jps,5));if(ouvre&&!feries(d.getFullYear()).has(iso(d)))out.push(new Date(d));d.setDate(d.getDate()+1)}return out}
+function nbJours(a,jps){if(a.jours!=null&&a.jours!=="")return num(a.jours);return joursOuvres(a.du,a.au,jps).length}
+
+/* ---------- Stockage : privé par personne (claude.ai) ou local (iPhone) ---------- */
+let S=null, store={mode:"local"}, saveT=null;
+const LS_KEY="carriere-fpt-v1";
+function lsGet(){try{return JSON.parse(localStorage.getItem(LS_KEY)||"null")}catch(e){return null}}
+function lsSet(v){try{localStorage.setItem(LS_KEY,JSON.stringify(v))}catch(e){}}
+async function initStore(){
+  const c=window.claude;
+  if(c&&typeof c.use==="function"){
+    try{
+      const timeout=new Promise(r=>setTimeout(()=>r(null),6000));
+      const db=await Promise.race([c.use("db"),timeout]);
+      const user=db?await Promise.race([c.use("user"),timeout]):null;
+      const id=user?await user.id():null;
+      if(db&&id){
+        const ref=db.collection("data/users/"+id).doc("carriere");
+        const snap=await Promise.race([ref.get(),new Promise((_,j)=>setTimeout(()=>j(new Error("délai")),10000))]);
+        store={mode:"cloud",ref};
+        return snap.exists?snap.data():null;
+      }
+    }catch(e){/* bascule en local */}
+  }
+  return lsGet();
+}
+function save(){
+  lsSet(S);
+  clearTimeout(saveT);
+  if(store.mode==="cloud"){saveT=setTimeout(()=>{store.ref.set(JSON.parse(JSON.stringify(S))).catch(()=>toast("Enregistrement en ligne impossible : copie conservée sur cet appareil"))},700)}
+}
+function commit(){save();render()}
+
+/* ---------- Calculs métier ---------- */
+function carriere(){
+  const p=S.profil,g=S.grille.echelons,n=Math.max(1,Math.min(p.echelon,g.length));
+  const debut=pd(p.dateEchelon)||today();
+  const cur=g[n-1]||{d:null,im:null};
+  const t=today();
+  let prochain=null,prog=1;
+  if(cur.d){prochain=addMonths(debut,cur.d);const tot=daysBetween(debut,prochain);prog=Math.max(0,Math.min(1,daysBetween(debut,t)/tot))}
+  const futur=[];let d=debut;
+  for(let i=n-1;i<g.length;i++){futur.push({ech:i+1,date:new Date(d),im:g[i].im,d:g[i].d});if(!g[i].d)break;d=addMonths(d,g[i].d)}
+  const passes=[];for(let i=0;i<n-1;i++)passes.push({ech:i+1,im:g[i].im});
+  return {n,cur,debut,prochain,prog,futur,passes,dernier:!cur.d,im:cur.im||0};
+}
+function anciennete(){const a=pd(S.profil.dateEntree);if(!a)return"—";const t=today();let m=(t.getFullYear()-a.getFullYear())*12+(t.getMonth()-a.getMonth());if(t.getDate()<a.getDate())m--;return duree(Math.max(0,m))}
+function paie(imOverride){
+  const r=S.remu,q=num(S.profil.quotite,100)/100,pt=num(r.point,POINT_DEFAUT);
+  const im=imOverride!=null?imOverride:carriere().im;
+  const ti=im*pt*q, nbi=num(r.nbi)*pt*q, ir=ti*num(r.residence)/100, sft=num(r.sft);
+  const primes=(num(r.ifse)+num(r.cia)/12)*q;
+  const brut=ti+nbi+ir+sft+primes;
+  const cnracl=(ti+nbi)*0.111;
+  const rafp=Math.min(primes+ir+sft,ti*0.20)*0.05;
+  const csg=brut*0.9825*0.092, crds=brut*0.9825*0.005;
+  const ret=cnracl+rafp+csg+crds;
+  const net=brut-ret, pas=net*num(r.pas)/100;
+  return {im,ti,nbi,ir,sft,primes,brut,cnracl,rafp,csg,crds,ret,net,pas,netApres:net-pas};
+}
+function conges(){
+  const c=S.conges,jps=num(c.joursSemaine,5),an=num(c.annee,today().getFullYear());
+  const droitCA=Math.round(5*jps*10)/10;
+  const abs=c.absences.filter(a=>(a.du||"").startsWith(String(an)));
+  const pris={CA:0,RTT:0,CET:0,MAL:0,AUT:0};let horsPeriode=0;
+  abs.forEach(a=>{pris[a.type]=(pris[a.type]||0)+nbJours(a,jps);
+    if(a.type==="CA")joursOuvres(a.du,a.au,jps).forEach(d=>{const m=d.getMonth();if(m<4||m>9)horsPeriode++})});
+  const fract=horsPeriode>=8?2:horsPeriode>=5?1:0;
+  const totalCA=droitCA+fract+num(c.reportCA);
+  return {an,jps,droitCA,fract,horsPeriode,totalCA,pris,restCA:totalCA-pris.CA,rtt:num(c.rtt),restRTT:num(c.rtt)-pris.RTT,cet:num(c.cet),restCET:num(c.cet)-pris.CET,abs};
+}
+
+/* ---------- Rendu ---------- */
+let tab="accueil";
+const app=document.getElementById("app");
+function render(){
+  const v={accueil:vAccueil,carriere:vCarriere,salaire:vSalaire,conges:vConges,suivi:vSuivi}[tab];
+  app.innerHTML=v();
+  document.querySelectorAll("#tabs button").forEach(b=>b.setAttribute("aria-current",b.dataset.tab===tab?"page":"false"));
+}
+function bannerEx(){return S.exemple?`<div class="banner"><span>Ce sont des <b>données d'exemple</b>. Remplacez-les par votre situation.</span><button class="btn small" data-act="demarrer">Commencer</button></div>`:""}
+function syncTag(){return `<span class="sync ${store.mode==="cloud"?"cloud":""}"><i></i>${store.mode==="cloud"?"Synchronisé à votre compte":"Enregistré sur cet appareil"}</span>`}
+
+function vAccueil(){
+  const p=S.profil,c=carriere(),pay=paie(),cg=conges(),t=today();
+  const C=2*Math.PI*28;
+  const prochaines=S.echeances.filter(e=>!e.fait&&e.date).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,3);
+  const auto=[];
+  if(c.prochain)auto.push({titre:"Passage au "+ord(c.n+1)+" échelon",date:iso(c.prochain),auto:true});
+  const list=[...auto,...prochaines].sort((a,b)=>a.date.localeCompare(b.date)).slice(0,4);
+  return `
+  <div class="topbar"><span class="who">${esc(p.collectivite||"Ma collectivité")}</span><button class="iconbtn" data-act="profil" aria-label="Modifier le profil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></button></div>
+  <h1>${esc(p.nom?("Bonjour "+p.nom.split(" ")[0]):"Ma carrière")}</h1>
+  ${bannerEx()}
+  <h2>Situation administrative</h2>
+  <div class="hero">
+    <div><span class="stamp">Cat. ${esc(p.categorie)} · ${esc(p.statut)}</span></div>
+    <div><div class="grade">${esc(p.grade||"Grade à renseigner")}</div><div class="meta">${esc(p.cadre||"Cadre d'emplois")} · Filière ${esc(p.filiere.toLowerCase())}</div></div>
+    <div class="nums">
+      <div class="num"><b>${ord(c.n)}</b><span>Échelon</span></div>
+      <div class="num"><b>${c.im||"—"}</b><span>Indice majoré</span></div>
+      <div class="num"><b>${Math.round(pay.net).toLocaleString("fr-FR")} €</b><span>Net estimé</span></div>
+    </div>
+  </div>
+  <h2>Prochain échelon</h2>
+  <div class="group"><div class="countdown">
+    <svg class="ring" viewBox="0 0 64 64" aria-hidden="true"><circle class="bgc" cx="32" cy="32" r="28"/><circle class="fg" cx="32" cy="32" r="28" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-c.prog)}" transform="rotate(-90 32 32)"/></svg>
+    <div>${c.dernier?`<b>Échelon terminal atteint</b><p>Visez un avancement de grade ou une promotion interne.</p>`:
+      `<b>${ord(c.n+1)} échelon le ${fdate(c.prochain)}</b><p>${relDays(daysBetween(t,c.prochain))} · ${Math.round(c.prog*100)} % de la durée de l'échelon (${duree(c.cur.d)})${c.futur[1]&&c.futur[1].im&&c.im?` · +${c.futur[1].im-c.im} points d'IM`:""}</p>`}</div>
+  </div></div>
+  <h2>À venir</h2>
+  <div class="group">${list.length?list.map(e=>{const n=daysBetween(t,pd(e.date));return `<div class="row"><div class="lbl">${esc(e.titre)}<small>${fdate(e.date)}${e.auto?" · calculé":""}</small></div><span class="pill ${n<0?"bad":n<=30?"warn":""}">${relDays(n)}</span></div>`}).join(""):`<div class="empty">Aucune échéance. Ajoutez-en dans l'onglet Suivi.</div>`}</div>
+  <h2>En bref</h2>
+  <div class="group">
+    <div class="row"><div class="lbl">Ancienneté dans la fonction publique</div><div class="val">${anciennete()}</div></div>
+    <div class="row"><div class="lbl">Congés annuels restants ${cg.an}</div><div class="val">${fmtJ(cg.restCA)}</div></div>
+    <div class="row"><div class="lbl">Compte personnel de formation</div><div class="val">${num(S.cpf.solde)} h</div></div>
+  </div>
+  <p class="note">${syncTag()}</p>`;
+}
+function fmtJ(n){n=Math.round(n*10)/10;return n.toLocaleString("fr-FR")+(Math.abs(n)>1?" jours":" jour")}
+
+function vCarriere(){
+  const c=carriere(),g=S.grille,t=today();
+  const items=[...c.passes.map(x=>({...x,etat:"done"})),...c.futur.map((x,i)=>({...x,etat:i===0?"now":"next"}))];
+  return `<h1>Carrière</h1><p class="sub">${esc(g.nom)} · ${g.echelons.length} échelons</p>${bannerEx()}
+  <h2>Déroulé des échelons</h2>
+  <div class="group"><ol class="timeline">${items.map((x,i)=>{
+    const prev=items[i-1];const gain=(x.etat==="next"&&x.im&&c.im)?x.im-c.im:0;
+    let t2="";
+    if(x.etat==="done")t2="Échelon franchi";
+    else if(x.etat==="now")t2="Depuis le "+fdate(x.date)+(x.d?" · durée "+duree(x.d):" · échelon terminal");
+    else t2=(x.date<=t?"Prévu le ":"Le ")+fdate(x.date)+(x.d?" · durée "+duree(x.d):" · terminal");
+    return `<li class="${x.etat}"><span class="dot"></span><div><div class="t1">${ord(x.ech)} échelon</div><div class="t2">${t2}</div></div><div class="im">${x.im?"IM "+x.im:"IM —"}${gain>0?`<small>+${eur(gain*num(S.remu.point,POINT_DEFAUT)*num(S.profil.quotite,100)/100,0)}/mois</small>`:""}</div></li>`}).join("")}</ol></div>
+  <p class="note">Dates calculées à partir de la date d'effet de votre échelon actuel et des durées de la grille, sans bonification ni report (temps partiel sans effet, mais disponibilité ou congé parental peuvent décaler). L'arrêté de votre collectivité fait foi.</p>
+  <div class="btnrow"><button class="btn ghost" data-act="grille">Modifier la grille</button><button class="btn ghost" data-act="profil">Grade et échelon</button></div>
+  <h2>Avancement de grade et promotion</h2>
+  <div class="group">
+    <div class="row"><div class="lbl">Avancement de grade<small>Selon les ratios promus/promouvables et les lignes directrices de gestion (LDG) de votre collectivité.</small></div></div>
+    <div class="row"><div class="lbl">Examen professionnel<small>Ouvre l'inscription sur le tableau d'avancement plus tôt que l'ancienneté seule.</small></div></div>
+    <div class="row"><div class="lbl">Promotion interne et concours<small>Pour changer de cadre d'emplois ou de catégorie. Calendrier publié par votre centre de gestion.</small></div></div>
+  </div>
+  <h2>Historique et arrêtés</h2>
+  <div class="group">${S.journal.slice().sort((a,b)=>(b.date||"").localeCompare(a.date||"")).map(j=>`<button class="row tap" data-act="journal" data-id="${j.id}"><div class="lbl">${esc(j.titre)}<small>${fdate(j.date)}${j.note?" · "+esc(j.note):""}</small></div></button>`).join("")}
+  <button class="add" data-act="journal">+ Ajouter un arrêté ou un événement</button></div>`;
+}
+
+function vSalaire(){
+  const p=paie(),r=S.remu,c=carriere();
+  const next=c.futur[1]&&c.futur[1].im?paie(c.futur[1].im):null;
+  const line=(l,v,cls="")=>`<div class="row ${cls}"><div class="lbl">${l}</div><div class="val">${cls==="minus"?"− ":""}${eur(v)}</div></div>`;
+  const tot=p.brut||1;
+  return `<h1>Salaire</h1><p class="sub">Estimation mensuelle · IM ${p.im||"—"} · quotité ${num(S.profil.quotite,100)} %</p>${bannerEx()}
+  <div class="group" style="margin-top:16px">
+    <div class="net"><div><span>Net à payer estimé</span><br><b>${eur(p.net,0)}</b></div><div style="text-align:right"><span>Brut</span><br><strong style="font-variant-numeric:tabular-nums">${eur(p.brut,0)}</strong></div></div>
+    <div class="bars"><div class="bar"><div class="top"><span>Répartition du brut</span></div>
+      <div class="track" role="img" aria-label="Traitement ${Math.round(p.ti/tot*100)} %, primes ${Math.round(p.primes/tot*100)} %, autres ${Math.round((p.nbi+p.ir+p.sft)/tot*100)} %">
+        <i style="width:${p.ti/tot*100}%;background:var(--accent)"></i><i style="width:${p.primes/tot*100}%;background:var(--ok)"></i><i style="width:${(p.nbi+p.ir+p.sft)/tot*100}%;background:var(--warn)"></i></div>
+      <div class="legend"><span><i style="background:var(--accent)"></i>Traitement</span><span><i style="background:var(--ok)"></i>Régime indemnitaire</span><span><i style="background:var(--warn)"></i>NBI, résidence, SFT</span></div></div></div>
+  </div>
+  <h2>Détail façon bulletin de paie</h2>
+  <div class="group payslip">
+    ${line(`Traitement indiciaire <small>${p.im} × ${num(r.point).toLocaleString("fr-FR",{maximumFractionDigits:5})} €</small>`,p.ti)}
+    ${p.nbi?line(`NBI <small>${num(r.nbi)} points</small>`,p.nbi):""}
+    ${p.ir?line(`Indemnité de résidence <small>${num(r.residence)} %</small>`,p.ir):""}
+    ${p.sft?line("Supplément familial de traitement",p.sft):""}
+    ${line(`RIFSEEP <small>IFSE ${eur(num(r.ifse),0)} + CIA ${eur(num(r.cia),0)}/an lissé</small>`,p.primes)}
+    <div class="row total"><div class="lbl">Total brut</div><div class="val">${eur(p.brut)}</div></div>
+    ${line("Retenue pension CNRACL <small>11,10 %</small>",p.cnracl,"minus")}
+    ${line("RAFP <small>5 % des primes</small>",p.rafp,"minus")}
+    ${line("CSG <small>9,2 % sur 98,25 %</small>",p.csg,"minus")}
+    ${line("CRDS <small>0,5 % sur 98,25 %</small>",p.crds,"minus")}
+    <div class="row total"><div class="lbl">Net avant impôt</div><div class="val">${eur(p.net)}</div></div>
+    ${p.pas?line(`Prélèvement à la source <small>${num(r.pas)} %</small>`,p.pas,"minus")+`<div class="row total"><div class="lbl">Net après impôt</div><div class="val">${eur(p.netApres)}</div></div>`:""}
+  </div>
+  ${next?`<h2>Au prochain échelon</h2><div class="group"><div class="row"><div class="lbl">${ord(c.n+1)} échelon · IM ${next.im}<small>${fdate(c.prochain)}</small></div><div class="val"><span class="pill ok">+${eur(next.net-p.net,0)} net</span></div></div></div>`:""}
+  <div class="btnrow"><button class="btn" data-act="remu">Modifier primes et paramètres</button></div>
+  <p class="note">Estimation pour un fonctionnaire affilié à la CNRACL (hors cotisations mutuelle, transfert primes/points, GIPA ou heures supplémentaires). Pour un contractuel, les cotisations diffèrent (IRCANTEC, sécurité sociale). Votre bulletin de paie fait foi.</p>`;
+}
+
+function vConges(){
+  const c=conges(),S2=S.conges;
+  const bar=(lbl,pris,total,color)=>{const pct=total>0?Math.min(100,pris/total*100):0;return `<div class="bar"><div class="top"><span>${lbl}</span><b>${fmtJ(total-pris)} restants</b></div><div class="track"><i style="width:${pct}%;background:${color}"></i></div><div class="top" style="font-size:13px;color:var(--muted);margin:6px 0 0"><span>${fmtJ(pris)} pris</span><span>sur ${fmtJ(total)}</span></div></div>`};
+  const abs=c.abs.slice().sort((a,b)=>b.du.localeCompare(a.du));
+  return `<div class="topbar"><span class="who">Année civile</span><span style="display:flex;gap:8px"><button class="btn small ghost" data-act="annee" data-d="-1" aria-label="Année précédente">‹</button><button class="btn small ghost" data-act="annee" data-d="1" aria-label="Année suivante">›</button></span></div>
+  <h1>Congés ${c.an}</h1>${bannerEx()}
+  <h2>Soldes</h2>
+  <div class="group"><div class="bars">
+    ${bar(`Congés annuels <small style="color:var(--muted)">(${fmtJ(c.droitCA)}${c.fract?` + ${c.fract} fractionnement`:""}${num(S2.reportCA)?` + ${num(S2.reportCA)} report`:""})</small>`,c.pris.CA,c.totalCA,"var(--accent)")}
+    ${c.rtt?bar("RTT",c.pris.RTT,c.rtt,"var(--ok)"):""}
+    ${c.cet?bar("Compte épargne-temps",c.pris.CET,c.cet,"var(--warn)"):""}
+  </div></div>
+  <p class="note">Droit annuel : 5 fois vos obligations hebdomadaires (${c.jps} j/semaine). Jours de fractionnement : ${c.horsPeriode} jour(s) de congé annuel posés hors du 1er mai – 31 octobre${c.fract?` → +${c.fract} jour(s)`:" (1 jour dès 5 jours, 2 jours dès 8 jours)"}. Les jours fériés sont décomptés automatiquement.</p>
+  <h2>Absences ${c.an}</h2>
+  <div class="group">${abs.map(a=>`<button class="row tap" data-act="absence" data-id="${a.id}"><div class="lbl">${TYPES_ABS[a.type]||a.type}${a.note?" · "+esc(a.note):""}<small>${a.du===a.au?fdate(a.du):fdate(a.du,true)+" → "+fdate(a.au)}</small></div><div class="val">${fmtJ(nbJours(a,c.jps))}</div></button>`).join("")}
+  <button class="add" data-act="absence">+ Poser une absence</button></div>
+  ${c.pris.MAL?`<p class="note">Maladie ${c.an} : ${fmtJ(c.pris.MAL)} (pour mémoire, sans effet sur le solde de congés).</p>`:""}
+  <div class="btnrow"><button class="btn ghost" data-act="droits">Paramètres des droits</button></div>`;
+}
+
+function vSuivi(){
+  const t=today();
+  const ech=S.echeances.slice().sort((a,b)=>(a.fait-b.fait)||(a.date||"").localeCompare(b.date||""));
+  const form=S.formations.slice().sort((a,b)=>(b.date||"").localeCompare(a.date||""));
+  const hAn=S.formations.filter(f=>(f.date||"").startsWith(String(t.getFullYear()))).reduce((s,f)=>s+num(f.heures),0);
+  const plafond=S.cpf.majore?400:150, acq=S.cpf.majore?50:25;
+  return `<h1>Suivi</h1><p class="sub">Échéances, formations et sauvegarde</p>${bannerEx()}
+  <h2>Échéances</h2>
+  <div class="group">${ech.map(e=>{const n=e.date?daysBetween(t,pd(e.date)):null;return `<div class="row ${e.fait?"faded":""}"><button class="check ${e.fait?"on":""}" data-act="fait" data-id="${e.id}" aria-label="${e.fait?"Marquer à faire":"Marquer fait"}"></button><div class="lbl tapzone" data-act="echeance" data-id="${e.id}" role="button" tabindex="0" style="cursor:pointer">${esc(e.titre)}<small>${e.date?fdate(e.date):"Sans date"}</small></div>${!e.fait&&n!=null?`<span class="pill ${n<0?"bad":n<=30?"warn":""}">${relDays(n)}</span>`:""}</div>`}).join("")}
+  <button class="add" data-act="echeance">+ Ajouter une échéance</button></div>
+  <h2>Formations</h2>
+  <div class="group">
+    <button class="row tap" data-act="cpf"><div class="lbl">Compte personnel de formation<small>${acq} h acquises par an, plafond ${plafond} h${S.cpf.majore?" (droits majorés)":""}</small></div><div class="val">${num(S.cpf.solde)} h</div></button>
+    <div class="row"><div class="lbl">Heures suivies en ${t.getFullYear()}</div><div class="val">${hAn} h</div></div>
+  </div>
+  <div class="group" style="margin-top:12px">${form.map(f=>`<button class="row tap" data-act="formation" data-id="${f.id}"><div class="lbl">${esc(f.titre)}<small>${fdate(f.date)} · ${esc(f.organisme||"")}${f.type?" · "+esc(f.type):""}</small></div><div class="val">${num(f.heures)} h</div></button>`).join("")}
+  <button class="add" data-act="formation">+ Ajouter une formation</button></div>
+  <p class="note">Formations obligatoires : intégration après la nomination, professionnalisation au premier emploi puis tout au long de la carrière, et à la prise d'un poste à responsabilité.</p>
+  <h2>Sauvegarde</h2>
+  <div class="group">
+    <div class="row"><div class="lbl">Où sont vos données ?<small>${store.mode==="cloud"?"Dans votre espace privé, lié à votre compte. Personne d'autre ne les voit.":"Uniquement sur cet appareil. Exportez une sauvegarde de temps en temps."}</small></div></div>
+    <button class="row tap" data-act="export"><div class="lbl">Exporter une sauvegarde (.json)</div></button>
+    <button class="row tap" data-act="import"><div class="lbl">Importer une sauvegarde</div></button>
+    <button class="row tap" data-act="reset"><div class="lbl" style="color:var(--bad)">Repartir d'un dossier vide</div></button>
+  </div>
+  <p class="note">Sur iPhone : dans Safari, touchez Partager puis « Sur l'écran d'accueil » pour installer l'app.</p>`;
+}
+
+/* ---------- Feuilles de saisie ---------- */
+const sheet=document.getElementById("sheet"),scrim=document.getElementById("scrim"),sBody=document.getElementById("sheetBody");
+let onSave=null,lastFocus=null;
+function openSheet(title,html,save,saveLabel="OK"){
+  lastFocus=document.activeElement;
+  document.getElementById("sheetTitle").textContent=title;
+  document.getElementById("sheetSave").textContent=saveLabel;
+  sBody.innerHTML=html;onSave=save;
+  sheet.hidden=false;scrim.hidden=false;
+  requestAnimationFrame(()=>{sheet.classList.add("on");scrim.classList.add("on")});
+  setTimeout(()=>{const f=sBody.querySelector("input,select,textarea");if(f&&window.matchMedia("(pointer:fine)").matches)f.focus()},260);
+}
+function closeSheet(){sheet.classList.remove("on");scrim.classList.remove("on");setTimeout(()=>{sheet.hidden=true;scrim.hidden=true;sBody.innerHTML=""},250);if(lastFocus&&lastFocus.focus)lastFocus.focus()}
+document.getElementById("sheetCancel").onclick=closeSheet;scrim.onclick=closeSheet;
+document.getElementById("sheetSave").onclick=()=>{if(onSave&&onSave()!==false){closeSheet();commit()}};
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!sheet.hidden)closeSheet()});
+const F=(id,label,value,type="text",extra="")=>`<div class="field"><label for="${id}">${label}</label><input id="${id}" type="${type}" value="${esc(value)}" ${type==="number"?'inputmode="decimal" step="any"':""} ${extra}></div>`;
+const SEL=(id,label,value,opts)=>`<div class="field"><label for="${id}">${label}</label><select id="${id}">${opts.map(o=>{const [v,l]=Array.isArray(o)?o:[o,o];return `<option value="${esc(v)}" ${String(v)===String(value)?"selected":""}>${esc(l)}</option>`}).join("")}</select></div>`;
+const val=id=>{const el=document.getElementById(id);return el?el.value.trim():""};
+const del=(label)=>`<div class="btnrow"><button class="btn danger" type="button" id="sheetDel">${label}</button></div>`;
+function bindDel(fn){const b=document.getElementById("sheetDel");if(b)b.onclick=()=>{if(b.dataset.armed){fn();closeSheet();commit()}else{b.dataset.armed="1";b.textContent="Toucher à nouveau pour confirmer"}}}
+
+function sheetProfil(){
+  const p=S.profil,n=S.grille.echelons.length;
+  openSheet("Mon profil",`
+  <h2>Identité</h2><div class="group">${F("f_nom","Prénom et nom",p.nom)}${F("f_coll","Collectivité",p.collectivite)}</div>
+  <h2>Statut</h2><div class="group">
+    ${SEL("f_stat","Statut",p.statut,["Titulaire","Stagiaire","Contractuel"])}
+    ${SEL("f_cat","Catégorie",p.categorie,["A","B","C"])}
+    ${SEL("f_fil","Filière",p.filiere,FILIERES)}
+    ${F("f_cadre","Cadre d'emplois",p.cadre,"text",'placeholder="ex. Rédacteurs territoriaux"')}
+    ${F("f_grade","Grade",p.grade)}
+    ${F("f_quot","Quotité (%)",p.quotite,"number",'min="50" max="100"')}
+  </div>
+  <h2>Échelon</h2><div class="group">
+    ${SEL("f_ech","Échelon actuel",p.echelon,Array.from({length:n},(_,i)=>[i+1,ord(i+1)+" échelon"]))}
+    ${F("f_dech","Date d'effet de l'échelon",p.dateEchelon,"date")}
+    ${F("f_dent","Entrée dans la fonction publique",p.dateEntree,"date")}
+  </div>
+  <p class="note">La date d'effet figure sur votre dernier arrêté d'avancement d'échelon. Si l'arrêté mentionne un reliquat d'ancienneté, reculez la date d'autant.</p>`,()=>{
+    Object.assign(p,{nom:val("f_nom"),collectivite:val("f_coll"),statut:val("f_stat"),categorie:val("f_cat"),filiere:val("f_fil"),cadre:val("f_cadre"),grade:val("f_grade"),
+      quotite:Math.max(1,Math.min(100,num(val("f_quot"),100))),echelon:parseInt(val("f_ech"))||1,dateEchelon:val("f_dech")||iso(today()),dateEntree:val("f_dent")});
+    S.exemple=false;toast("Profil enregistré");
+  });
+}
+function sheetGrille(){
+  const g=S.grille;
+  const rows=()=>g._tmp.map((e,i)=>`<tr><td>${ord(i+1)}</td><td><input id="g_d${i}" inputmode="numeric" value="${e.d??""}" placeholder="—" aria-label="Durée en mois du ${ord(i+1)} échelon"></td><td><input id="g_im${i}" inputmode="numeric" value="${e.im??""}" placeholder="IM" aria-label="Indice majoré du ${ord(i+1)} échelon"></td></tr>`).join("");
+  g._tmp=g.echelons.map(e=>({...e}));
+  const html=()=>`
+  <div class="group">${F("g_nom","Nom de la grille",g.nom)}
+  ${SEL("g_tpl","Partir d'un modèle","",[["","Choisir…"],...Object.entries(GRILLES).map(([k,v])=>[k,v.nom])])}</div>
+  <p class="note">Les modèles ne remplissent que les durées (indicatives, à vérifier). Reportez l'indice majoré (IM) de chaque échelon depuis la grille officielle publiée par votre centre de gestion ou votre bulletin de paie. Durée vide = échelon terminal.</p>
+  <h2>Échelons</h2>
+  <div class="group" style="overflow-x:auto"><table class="gridtbl"><thead><tr><th>Éch.</th><th>Durée (mois)</th><th>IM</th></tr></thead><tbody id="g_rows">${rows()}</tbody></table>
+  <div style="display:flex;border-top:1px solid var(--line)"><button class="add" type="button" id="g_add" style="border:0">+ Échelon</button><button class="add" type="button" id="g_rem" style="border:0;color:var(--bad)">− Dernier</button></div></div>`;
+  const read=()=>{g._tmp=g._tmp.map((e,i)=>{const d=val("g_d"+i),im=val("g_im"+i);return {d:d===""?null:Math.max(1,parseInt(d)||12),im:im===""?null:parseInt(im)||null}})};
+  const wire=()=>{
+    document.getElementById("g_tpl").onchange=e=>{const t=GRILLES[e.target.value];if(!t)return;read();document.getElementById("g_nom").value=t.nom;
+      g._tmp=t.durees.map((d,i)=>({d,im:g._tmp[i]?g._tmp[i].im:null}));document.getElementById("g_rows").innerHTML=rows()};
+    document.getElementById("g_add").onclick=()=>{read();const last=g._tmp[g._tmp.length-1];if(last&&last.d==null)last.d=48;g._tmp.push({d:null,im:null});document.getElementById("g_rows").innerHTML=rows()};
+    document.getElementById("g_rem").onclick=()=>{read();if(g._tmp.length>1){g._tmp.pop();g._tmp[g._tmp.length-1].d=null}document.getElementById("g_rows").innerHTML=rows()};
+  };
+  openSheet("Grille indiciaire",html(),()=>{read();g.nom=val("g_nom")||"Ma grille";g.echelons=g._tmp;delete g._tmp;
+    S.profil.echelon=Math.min(S.profil.echelon,g.echelons.length);toast("Grille enregistrée")});
+  wire();
+}
+function sheetRemu(){
+  const r=S.remu;
+  openSheet("Rémunération",`
+  <h2>Régime indemnitaire (RIFSEEP)</h2><div class="group">${F("r_ifse","IFSE mensuelle brute (€)",r.ifse,"number")}${F("r_cia","CIA annuel brut (€)",r.cia,"number")}</div>
+  <h2>Compléments</h2><div class="group">${F("r_nbi","NBI (points)",r.nbi,"number")}${SEL("r_ir","Indemnité de résidence",r.residence,[[0,"Zone 3 · 0 %"],[1,"Zone 2 · 1 %"],[3,"Zone 1 · 3 %"]])}${F("r_sft","Supplément familial (€/mois)",r.sft,"number")}</div>
+  <h2>Paramètres</h2><div class="group">${F("r_pt","Valeur du point (€/mois)",r.point,"number")}${F("r_pas","Taux prélèvement à la source (%)",r.pas,"number")}</div>
+  <p class="note">Valeur du point par défaut : 4,92278 € brut mensuel (depuis le 1er juillet 2023). Mettez-la à jour en cas de revalorisation.</p>`,()=>{
+    Object.assign(r,{ifse:num(val("r_ifse")),cia:num(val("r_cia")),nbi:num(val("r_nbi")),residence:num(val("r_ir")),sft:num(val("r_sft")),point:num(val("r_pt"),POINT_DEFAUT),pas:num(val("r_pas"))});toast("Paramètres enregistrés")});
+}
+function sheetDroits(){
+  const c=S.conges;
+  openSheet("Droits à congés",`<div class="group">${SEL("d_jps","Jours travaillés par semaine",c.joursSemaine,[[5,"5 jours"],[4.5,"4,5 jours"],[4,"4 jours"],[3,"3 jours"]])}
+  ${F("d_rep","Report de congés annuels (jours)",c.reportCA,"number")}${F("d_rtt","RTT de l'année (jours)",c.rtt,"number")}${F("d_cet","Solde CET disponible (jours)",c.cet,"number")}</div>
+  <p class="note">Le nombre de RTT dépend du cycle de travail fixé par votre collectivité (par ex. 39 h par semaine ≈ 23 jours, réduits en cas d'absence pour maladie).</p>`,()=>{
+    Object.assign(c,{joursSemaine:num(val("d_jps"),5),reportCA:num(val("d_rep")),rtt:num(val("d_rtt")),cet:num(val("d_cet"))});toast("Droits enregistrés")});
+}
+function sheetAbsence(id){
+  const c=S.conges,a=c.absences.find(x=>x.id===id)||{type:"CA",du:iso(today()),au:iso(today()),note:"",jours:""};
+  openSheet(id?"Modifier l'absence":"Nouvelle absence",`<div class="group">${SEL("a_type","Type",a.type,Object.entries(TYPES_ABS))}
+  ${F("a_du","Du",a.du,"date")}${F("a_au","Au (inclus)",a.au,"date")}${F("a_j","Nombre de jours",a.jours??"","number",'placeholder="auto"')}${F("a_note","Note",a.note||"","text",'placeholder="facultatif"')}</div>
+  <p class="note" id="a_calc"></p>${id?del("Supprimer l'absence"):""}`,()=>{
+    const du=val("a_du"),au=val("a_au")||du;if(!du){toast("Indiquez la date de début");return false}if(au<du){toast("La date de fin précède la date de début");return false}
+    const o={id:a.id||uid(),type:val("a_type"),du,au,note:val("a_note"),jours:val("a_j")===""?null:num(val("a_j"))};
+    if(id)Object.assign(a,o);else c.absences.push(o);
+    if(!du.startsWith(String(c.annee)))c.annee=parseInt(du.slice(0,4));toast("Absence enregistrée")},id?"OK":"Ajouter");
+  const upd=()=>{const n=joursOuvres(val("a_du"),val("a_au")||val("a_du"),num(c.joursSemaine,5)).length;document.getElementById("a_calc").textContent="Calcul automatique : "+fmtJ(n)+" ouvrés (week-ends et jours fériés exclus). Saisissez un nombre pour une demi-journée ou un cas particulier."};
+  ["a_du","a_au"].forEach(i=>document.getElementById(i).addEventListener("change",upd));upd();
+  bindDel(()=>{c.absences=c.absences.filter(x=>x.id!==id)});
+}
+function sheetList(kind,id){
+  const cfg={
+    echeance:{arr:"echeances",t:"Échéance",fields:o=>F("x_titre","Intitulé",o.titre)+F("x_date","Date",o.date||"","date"),
+      read:()=>({titre:val("x_titre"),date:val("x_date")}),def:{titre:"",date:"",fait:false}},
+    formation:{arr:"formations",t:"Formation",fields:o=>F("x_titre","Intitulé",o.titre)+F("x_org","Organisme",o.organisme||"CNFPT")+F("x_date","Date",o.date||"","date")+F("x_h","Durée (heures)",o.heures??"","number")+SEL("x_type","Type",o.type||"Perfectionnement",["Intégration","Professionnalisation","Perfectionnement","Préparation concours / examen","CPF","Autre"]),
+      read:()=>({titre:val("x_titre"),organisme:val("x_org"),date:val("x_date"),heures:num(val("x_h")),type:val("x_type")}),def:{titre:"",organisme:"CNFPT",date:iso(today()),heures:7,type:"Perfectionnement"}},
+    journal:{arr:"journal",t:"Arrêté ou événement",fields:o=>F("x_titre","Intitulé",o.titre,"text",'placeholder="ex. Arrêté d\'avancement au 7e échelon"')+F("x_date","Date d'effet",o.date||"","date")+F("x_note","Note",o.note||""),
+      read:()=>({titre:val("x_titre"),date:val("x_date"),note:val("x_note")}),def:{titre:"",date:iso(today()),note:""}}
+  }[kind];
+  const arr=S[cfg.arr],o=arr.find(x=>x.id===id)||{...cfg.def};
+  openSheet(id?cfg.t:(kind==="journal"?"Nouvel arrêté ou événement":"Nouvelle "+cfg.t.toLowerCase()),`<div class="group">${cfg.fields(o)}</div>${id?del("Supprimer"):""}`,()=>{
+    const r=cfg.read();if(!r.titre){toast("Indiquez un intitulé");return false}
+    if(id)Object.assign(o,r);else arr.push({id:uid(),...cfg.def,...r});toast("Enregistré")},id?"OK":"Ajouter");
+  bindDel(()=>{S[cfg.arr]=arr.filter(x=>x.id!==id)});
+}
+function sheetCpf(){
+  openSheet("Compte personnel de formation",`<div class="group">${F("c_solde","Solde d'heures",S.cpf.solde,"number")}${SEL("c_maj","Droits majorés",S.cpf.majore?"1":"0",[["0","Non · 25 h/an, plafond 150 h"],["1","Oui · 50 h/an, plafond 400 h"]])}</div>
+  <p class="note">Droits majorés : agents de catégorie C sans diplôme de niveau CAP-BEP, ou sur avis du médecin pour prévenir une inaptitude. Votre solde exact est visible sur moncompteformation.gouv.fr.</p>`,()=>{S.cpf={solde:num(val("c_solde")),majore:val("c_maj")==="1"};toast("CPF enregistré")});
+}
+function sheetImport(){
+  openSheet("Importer une sauvegarde",`<div class="group"><div class="field col"><label for="imp_txt">Collez le contenu d'une sauvegarde</label><textarea id="imp_txt" rows="6" placeholder='{"v":1, ...}'></textarea></div></div>
+  <div class="btnrow"><button class="btn ghost" type="button" id="imp_file">Choisir un fichier .json</button></div>
+  <p class="note">L'import remplace toutes les données actuelles.</p>`,()=>{
+    try{const d=JSON.parse(val("imp_txt"));if(!d||!d.profil||!d.grille)throw 0;S=normalise(d);toast("Sauvegarde importée")}catch(e){toast("Ce texte n'est pas une sauvegarde valide");return false}},"Importer");
+  document.getElementById("imp_file").onclick=()=>document.getElementById("importFile").click();
+}
+document.getElementById("importFile").addEventListener("change",e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{const t=document.getElementById("imp_txt");if(t)t.value=rd.result};rd.readAsText(f);e.target.value=""});
+
+async function exporter(){
+  const data=JSON.stringify(S,null,2),filename="carriere-fpt-"+iso(today())+".json";
+  try{const c=window.claude;const dl=c&&c.use?await c.use("downloads"):null;
+    if(dl){await dl.save({filename,data:new Blob([data],{type:"application/json"})});return}}catch(e){if(e&&e.code&&e.code!=="unavailable"){return}}
+  if(!window.claude){try{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([data],{type:"application/json"}));a.download=filename;document.body.appendChild(a);a.click();a.remove();return}catch(e){}}
+  try{await navigator.clipboard.writeText(data);toast("Sauvegarde copiée dans le presse-papiers")}catch(e){openSheet("Sauvegarde",`<div class="group"><div class="field col"><label for="exp_txt">Copiez ce texte et gardez-le en lieu sûr</label><textarea id="exp_txt" rows="10" readonly>${esc(data)}</textarea></div></div>`,()=>{},"Fermer")}
+}
+
+/* ---------- Actions ---------- */
+app.addEventListener("click",e=>{
+  const el=e.target.closest("[data-act]");if(!el)return;
+  const a=el.dataset.act,id=el.dataset.id;
+  if(a==="profil")sheetProfil();
+  else if(a==="demarrer"){S.exemple=false;sheetProfil()}
+  else if(a==="grille")sheetGrille();
+  else if(a==="remu")sheetRemu();
+  else if(a==="droits")sheetDroits();
+  else if(a==="absence")sheetAbsence(id);
+  else if(a==="echeance"||a==="formation"||a==="journal")sheetList(a,id);
+  else if(a==="cpf")sheetCpf();
+  else if(a==="fait"){const x=S.echeances.find(z=>z.id===id);if(x){x.fait=!x.fait;commit()}}
+  else if(a==="annee"){S.conges.annee=num(S.conges.annee)+num(el.dataset.d);commit()}
+  else if(a==="export")exporter();
+  else if(a==="import")sheetImport();
+  else if(a==="reset"){if(el.dataset.armed){S=vide();commit();sheetProfil()}else{el.dataset.armed="1";el.querySelector(".lbl").textContent="Toucher à nouveau pour tout effacer"}}
+});
+app.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.matches(".tapzone")){e.preventDefault();e.target.click()}});
+document.getElementById("tabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;tab=b.dataset.tab;try{sessionStorage.setItem("cfpt-tab",tab)}catch(_){}render();window.scrollTo(0,0)});
+
+let toastT;function toast(m){const t=document.getElementById("toast");t.textContent=m;t.classList.add("on");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("on"),2200)}
+
+function normalise(d){const base=vide();const o=Object.assign(base,d);
+  ["profil","remu","conges","cpf"].forEach(k=>o[k]=Object.assign(vide()[k],d[k]||{}));
+  ["formations","echeances","journal"].forEach(k=>o[k]=Array.isArray(d[k])?d[k]:[]);
+  if(!Array.isArray(o.conges.absences))o.conges.absences=[];
+  if(!o.grille||!Array.isArray(o.grille.echelons)||!o.grille.echelons.length)o.grille=vide().grille;
+  return o}
+
+/* ---------- Démarrage ---------- */
+try{const t=sessionStorage.getItem("cfpt-tab");if(t)tab=t}catch(_){}
+S=normalise(lsGet()||exemple());render();
+initStore().then(d=>{if(d)S=normalise(d);else if(store.mode==="cloud"){const local=lsGet();S=normalise(local||exemple())}render()});
+window.__cfpt={paie,carriere,conges,joursOuvres,get S(){return S}};
+})();
+</script>
