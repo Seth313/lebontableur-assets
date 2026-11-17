@@ -1,7 +1,12 @@
 """Génère index.html (web app installable) à partir de app.html."""
 import pathlib
 here = pathlib.Path(__file__).parent
+import json, sys
 body = (here / "app.html").read_text(encoding="utf-8")
+ref = json.dumps(json.loads((here / "data" / "grilles.json").read_text(encoding="utf-8")), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+body = body.replace("<script>", '<script type="application/json" id="ref-grilles">' + ref + "</script>\n<script>", 1)
+if len(sys.argv) > 1:  # copie pour publication claude.ai
+    pathlib.Path(sys.argv[1]).write_text(body, encoding="utf-8")
 head = """<!doctype html>
 <html lang="fr">
 <head>

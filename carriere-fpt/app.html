@@ -146,6 +146,7 @@ select{-webkit-appearance:none;appearance:none}
 .gridtbl th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600;text-align:left;padding:10px 8px}
 .gridtbl td{padding:4px 8px;border-top:1px solid var(--line)}
 .gridtbl input{width:100%;border:0;background:var(--surface-2);border-radius:8px;padding:8px;font:15px var(--f-data);color:var(--ink);text-align:right}
+.gridtbl input:disabled{background:none;color:var(--muted);-webkit-text-fill-color:var(--muted);opacity:1}
 .gridtbl td:first-child{font-weight:600;width:52px}
 .legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:13px;color:var(--muted)}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
@@ -188,14 +189,30 @@ const GRILLES = {
   perso:{nom:"Grille personnalisée", durees:[24,24,24,24,24,null]}
 };
 const TYPES_ABS = {CA:"Congé annuel",RTT:"RTT",CET:"Jour CET",MAL:"Maladie",AUT:"Autre absence"};
-const FILIERES = ["Administrative","Technique","Culturelle","Sportive","Médico-sociale","Sociale","Médico-technique","Animation","Police municipale","Sapeurs-pompiers"];
+let REF=null;try{REF=JSON.parse(document.getElementById("ref-grilles").textContent)}catch(e){REF=null}
+if(!REF||!REF.filieres)REF={maj:"",point:[],filieres:[],grilles:{}};
+const FILIERES=()=>REF.filieres.map(f=>f.nom);
+function refCadres(fil){const f=REF.filieres.find(x=>x.nom===fil);return f?f.cadres:[]}
+function refGrille(){const id=S.profil.grilleRef;return id&&REF.grilles[id]||null}
+function versions(g){return g&&g.versions?g.versions.slice().sort((a,b)=>a.effet.localeCompare(b.effet)):[]}
+function versionAt(g,date){const ds=iso(date);let v=null;for(const x of versions(g))if(x.effet<=ds)v=x;return v}
+function gridAt(date){
+  const perso=S.grille.echelons, v=S.grilleMode==="perso"?null:versionAt(refGrille(),date);
+  if(!v)return perso.map(e=>({...e,off:false}));
+  const n=v.echelons.length;
+  return v.echelons.map((e,i)=>({d:i===n-1?null:(e.d??(perso[i]&&perso[i].d)??24),im:e.im??(perso[i]?perso[i].im:null),off:e.im!=null,offD:e.d!=null||i===n-1}));
+}
+function pointAt(date){const ds=iso(date);let v=null;(REF.point||[]).slice().sort((a,b)=>a.effet.localeCompare(b.effet)).forEach(x=>{if(x.effet<=ds)v=x.valeur});return v}
+function pointActuel(){const r=S.remu;if(r.pointAuto!==false){const v=pointAt(today());if(v)return v}return num(r.point,POINT_DEFAUT)}
+async function majRef(){try{const r=await fetch("data/grilles.json",{cache:"no-cache"});if(!r.ok)return;const d=await r.json();if(d&&d.grilles&&d.filieres&&(!REF.maj||d.maj>REF.maj)){REF=d;render()}}catch(e){}}
 
 function exemple(){
   return {
     v:1, exemple:true,
     profil:{nom:"Camille Exemple",collectivite:"Commune de Saint-Exemple",categorie:"C",filiere:"Administrative",
       cadre:"Adjoints administratifs territoriaux",grade:"Adjoint administratif principal de 2e classe",statut:"Titulaire",
-      echelon:6,dateEchelon:"2025-03-01",dateEntree:"2016-09-01",quotite:100},
+      echelon:6,dateEchelon:"2025-03-01",dateEntree:"2016-09-01",quotite:100,grilleRef:"c2"},
+    grilleMode:"ref",
     grille:{nom:"Échelle C2 (exemple)",echelons:[
       {d:12,im:368},{d:24,im:369},{d:24,im:370},{d:24,im:372},{d:24,im:376},{d:24,im:381},
       {d:24,im:390},{d:36,im:400},{d:36,im:412},{d:48,im:430},{d:48,im:450},{d:null,im:473}]},
@@ -221,7 +238,8 @@ function exemple(){
 }
 function vide(){
   const s=exemple(); s.exemple=false;
-  s.profil={nom:"",collectivite:"",categorie:"C",filiere:"Administrative",cadre:"",grade:"",statut:"Titulaire",echelon:1,dateEchelon:iso(new Date()),dateEntree:iso(new Date()),quotite:100};
+  s.profil={nom:"",collectivite:"",categorie:"C",filiere:"Administrative",cadre:"",grade:"",statut:"Titulaire",echelon:1,dateEchelon:iso(new Date()),dateEntree:iso(new Date()),quotite:100,grilleRef:null};
+  s.grilleMode="ref";
   s.grille={nom:GRILLES.c1.nom,echelons:GRILLES.c1.durees.map(d=>({d,im:null}))};
   s.remu={point:POINT_DEFAUT,nbi:0,ifse:0,cia:0,sft:0,residence:0,pas:0};
   s.conges={annee:new Date().getFullYear(),joursSemaine:5,rtt:0,cet:0,reportCA:0,absences:[]};
@@ -285,20 +303,19 @@ function commit(){save();render()}
 
 /* ---------- Calculs métier ---------- */
 function carriere(){
-  const p=S.profil,g=S.grille.echelons,n=Math.max(1,Math.min(p.echelon,g.length));
+  const p=S.profil,t=today(),g=gridAt(t),n=Math.max(1,Math.min(p.echelon,g.length));
   const debut=pd(p.dateEchelon)||today();
   const cur=g[n-1]||{d:null,im:null};
-  const t=today();
   let prochain=null,prog=1;
   if(cur.d){prochain=addMonths(debut,cur.d);const tot=daysBetween(debut,prochain);prog=Math.max(0,Math.min(1,daysBetween(debut,t)/tot))}
   const futur=[];let d=debut;
-  for(let i=n-1;i<g.length;i++){futur.push({ech:i+1,date:new Date(d),im:g[i].im,d:g[i].d});if(!g[i].d)break;d=addMonths(d,g[i].d)}
+  for(let i=n-1;i<g.length;i++){const gi=gridAt(d>t?d:t)[i]||g[i];futur.push({ech:i+1,date:new Date(d),im:gi.im,d:gi.d});if(!gi.d)break;d=addMonths(d,gi.d)}
   const passes=[];for(let i=0;i<n-1;i++)passes.push({ech:i+1,im:g[i].im});
   return {n,cur,debut,prochain,prog,futur,passes,dernier:!cur.d,im:cur.im||0};
 }
 function anciennete(){const a=pd(S.profil.dateEntree);if(!a)return"—";const t=today();let m=(t.getFullYear()-a.getFullYear())*12+(t.getMonth()-a.getMonth());if(t.getDate()<a.getDate())m--;return duree(Math.max(0,m))}
 function paie(imOverride){
-  const r=S.remu,q=num(S.profil.quotite,100)/100,pt=num(r.point,POINT_DEFAUT);
+  const r=S.remu,q=num(S.profil.quotite,100)/100,pt=pointActuel();
   const im=imOverride!=null?imOverride:carriere().im;
   const ti=im*pt*q, nbi=num(r.nbi)*pt*q, ir=ti*num(r.residence)/100, sft=num(r.sft);
   const primes=(num(r.ifse)+num(r.cia)/12)*q;
@@ -373,9 +390,14 @@ function vAccueil(){
 function fmtJ(n){n=Math.round(n*10)/10;return n.toLocaleString("fr-FR")+(Math.abs(n)>1?" jours":" jour")}
 
 function vCarriere(){
-  const c=carriere(),g=S.grille,t=today();
+  const c=carriere(),t=today(),rg=refGrille(),off=S.grilleMode!=="perso"&&rg&&versions(rg).length;
+  const futures=off?versions(rg).filter(v=>v.effet>iso(t)):[];
+  const nomG=off?rg.nom:(S.grille.nom||"Grille personnalisée"),nbE=gridAt(t).length;
+  const manque=gridAt(t).some(e=>e.im==null);
   const items=[...c.passes.map(x=>({...x,etat:"done"})),...c.futur.map((x,i)=>({...x,etat:i===0?"now":"next"}))];
-  return `<h1>Carrière</h1><p class="sub">${esc(g.nom)} · ${g.echelons.length} échelons</p>${bannerEx()}
+  return `<h1>Carrière</h1><p class="sub">${esc(nomG)} · ${nbE} échelons</p>${bannerEx()}
+  ${futures.map(v=>`<div class="banner" style="background:var(--ok-soft);color:var(--ok)"><span>Nouvelle grille au <b>${fdate(v.effet)}</b> : déjà prise en compte dans les dates et indices ci-dessous.</span></div>`).join("")}
+  ${manque?`<div class="banner"><span>${off?"Certains indices de la grille officielle ne sont pas encore disponibles.":"Indices non renseignés."} Complétez-les depuis votre bulletin de paie.</span><button class="btn small" data-act="grille">Compléter</button></div>`:""}
   <h2>Déroulé des échelons</h2>
   <div class="group"><ol class="timeline">${items.map((x,i)=>{
     const prev=items[i-1];const gain=(x.etat==="next"&&x.im&&c.im)?x.im-c.im:0;
@@ -383,7 +405,7 @@ function vCarriere(){
     if(x.etat==="done")t2="Échelon franchi";
     else if(x.etat==="now")t2="Depuis le "+fdate(x.date)+(x.d?" · durée "+duree(x.d):" · échelon terminal");
     else t2=(x.date<=t?"Prévu le ":"Le ")+fdate(x.date)+(x.d?" · durée "+duree(x.d):" · terminal");
-    return `<li class="${x.etat}"><span class="dot"></span><div><div class="t1">${ord(x.ech)} échelon</div><div class="t2">${t2}</div></div><div class="im">${x.im?"IM "+x.im:"IM —"}${gain>0?`<small>+${eur(gain*num(S.remu.point,POINT_DEFAUT)*num(S.profil.quotite,100)/100,0)}/mois</small>`:""}</div></li>`}).join("")}</ol></div>
+    return `<li class="${x.etat}"><span class="dot"></span><div><div class="t1">${ord(x.ech)} échelon</div><div class="t2">${t2}</div></div><div class="im">${x.im?"IM "+x.im:"IM —"}${gain>0?`<small>+${eur(gain*pointActuel()*num(S.profil.quotite,100)/100,0)}/mois</small>`:""}</div></li>`}).join("")}</ol></div>
   <p class="note">Dates calculées à partir de la date d'effet de votre échelon actuel et des durées de la grille, sans bonification ni report (temps partiel sans effet, mais disponibilité ou congé parental peuvent décaler). L'arrêté de votre collectivité fait foi.</p>
   <div class="btnrow"><button class="btn ghost" data-act="grille">Modifier la grille</button><button class="btn ghost" data-act="profil">Grade et échelon</button></div>
   <h2>Avancement de grade et promotion</h2>
@@ -412,7 +434,7 @@ function vSalaire(){
   </div>
   <h2>Détail façon bulletin de paie</h2>
   <div class="group payslip">
-    ${line(`Traitement indiciaire <small>${p.im} × ${num(r.point).toLocaleString("fr-FR",{maximumFractionDigits:5})} €</small>`,p.ti)}
+    ${line(`Traitement indiciaire <small>${p.im} × ${pointActuel().toLocaleString("fr-FR",{maximumFractionDigits:5})} €</small>`,p.ti)}
     ${p.nbi?line(`NBI <small>${num(r.nbi)} points</small>`,p.nbi):""}
     ${p.ir?line(`Indemnité de résidence <small>${num(r.residence)} %</small>`,p.ir):""}
     ${p.sft?line("Supplément familial de traitement",p.sft):""}
@@ -475,6 +497,7 @@ function vSuivi(){
     <button class="row tap" data-act="import"><div class="lbl">Importer une sauvegarde</div></button>
     <button class="row tap" data-act="reset"><div class="lbl" style="color:var(--bad)">Repartir d'un dossier vide</div></button>
   </div>
+  <p class="note">Référentiel des grades et grilles : mis à jour le ${REF.maj?fdate(REF.maj):"—"}. Les nouvelles grilles et la valeur du point s'appliquent automatiquement à leur date d'effet.</p>
   <p class="note">Sur iPhone : dans Safari, touchez Partager puis « Sur l'écran d'accueil » pour installer l'app.</p>`;
 }
 
@@ -501,48 +524,90 @@ const del=(label)=>`<div class="btnrow"><button class="btn danger" type="button"
 function bindDel(fn){const b=document.getElementById("sheetDel");if(b)b.onclick=()=>{if(b.dataset.armed){fn();closeSheet();commit()}else{b.dataset.armed="1";b.textContent="Toucher à nouveau pour confirmer"}}}
 
 function sheetProfil(){
-  const p=S.profil,n=S.grille.echelons.length;
+  const p=S.profil;
+  const AUTRE="__autre__";
+  const cadresOpts=fil=>[...refCadres(fil).map(c=>[c.nom,c.nom+" (cat. "+c.cat+")"]),[AUTRE,"Autre (saisie libre)"]];
+  const gradesOpts=(fil,cad)=>{const c=refCadres(fil).find(x=>x.nom===cad);return [...(c?c.grades.map(g=>[g.nom,g.nom]):[]),[AUTRE,"Autre (saisie libre)"]]};
+  const known=refCadres(p.filiere).find(x=>x.nom===p.cadre);
+  const cadSel=known?p.cadre:(p.cadre?AUTRE:(refCadres(p.filiere)[0]||{}).nom||AUTRE);
+  const gKnown=known&&known.grades.find(g=>g.nom===p.grade);
+  const grSel=gKnown?p.grade:(p.grade||!known?AUTRE:known.grades[0].nom);
+  const echOpts=n=>Array.from({length:n},(_,i)=>[i+1,ord(i+1)+" échelon"]);
   openSheet("Mon profil",`
   <h2>Identité</h2><div class="group">${F("f_nom","Prénom et nom",p.nom)}${F("f_coll","Collectivité",p.collectivite)}</div>
   <h2>Statut</h2><div class="group">
     ${SEL("f_stat","Statut",p.statut,["Titulaire","Stagiaire","Contractuel"])}
+    ${SEL("f_fil","Filière",p.filiere,FILIERES())}
+    ${SEL("f_cad","Cadre d'emplois",cadSel,cadresOpts(p.filiere))}
+    <div class="field" id="w_cadl" ${cadSel===AUTRE?"":"hidden"}><label for="f_cadl">Cadre d'emplois (libre)</label><input id="f_cadl" value="${esc(known?"":p.cadre)}"></div>
+    ${SEL("f_gra","Grade",grSel,gradesOpts(p.filiere,cadSel))}
+    <div class="field" id="w_gral" ${grSel===AUTRE?"":"hidden"}><label for="f_gral">Grade (libre)</label><input id="f_gral" value="${esc(gKnown?"":p.grade)}"></div>
     ${SEL("f_cat","Catégorie",p.categorie,["A","B","C"])}
-    ${SEL("f_fil","Filière",p.filiere,FILIERES)}
-    ${F("f_cadre","Cadre d'emplois",p.cadre,"text",'placeholder="ex. Rédacteurs territoriaux"')}
-    ${F("f_grade","Grade",p.grade)}
     ${F("f_quot","Quotité (%)",p.quotite,"number",'min="50" max="100"')}
   </div>
   <h2>Échelon</h2><div class="group">
-    ${SEL("f_ech","Échelon actuel",p.echelon,Array.from({length:n},(_,i)=>[i+1,ord(i+1)+" échelon"]))}
+    ${SEL("f_ech","Échelon actuel",p.echelon,echOpts(gridAt(today()).length))}
     ${F("f_dech","Date d'effet de l'échelon",p.dateEchelon,"date")}
     ${F("f_dent","Entrée dans la fonction publique",p.dateEntree,"date")}
   </div>
+  <p class="note" id="f_gnote"></p>
   <p class="note">La date d'effet figure sur votre dernier arrêté d'avancement d'échelon. Si l'arrêté mentionne un reliquat d'ancienneté, reculez la date d'autant.</p>`,()=>{
-    Object.assign(p,{nom:val("f_nom"),collectivite:val("f_coll"),statut:val("f_stat"),categorie:val("f_cat"),filiere:val("f_fil"),cadre:val("f_cadre"),grade:val("f_grade"),
+    const fil=val("f_fil"),cad=val("f_cad"),gra=val("f_gra");
+    const c=refCadres(fil).find(x=>x.nom===cad),g=c&&c.grades.find(x=>x.nom===gra);
+    const newRef=g?g.grille:null;
+    if(newRef!==p.grilleRef){S.grilleMode="ref";S.grille.echelons=S.grille.echelons.map(e=>({d:e.d,im:null}))}
+    Object.assign(p,{nom:val("f_nom"),collectivite:val("f_coll"),statut:val("f_stat"),filiere:fil,
+      cadre:cad===AUTRE?val("f_cadl"):cad,grade:(gra===AUTRE||!c)?val("f_gral"):gra,categorie:c?c.cat:val("f_cat"),grilleRef:newRef,
       quotite:Math.max(1,Math.min(100,num(val("f_quot"),100))),echelon:parseInt(val("f_ech"))||1,dateEchelon:val("f_dech")||iso(today()),dateEntree:val("f_dent")});
+    p.echelon=Math.min(p.echelon,gridAt(today()).length);
     S.exemple=false;toast("Profil enregistré");
   });
+  const $=id=>document.getElementById(id);
+  const fill=(sel,opts,keep)=>{sel.innerHTML=opts.map(([v,l])=>`<option value="${esc(v)}">${esc(l)}</option>`).join("");if(keep&&opts.some(o=>o[0]===keep))sel.value=keep};
+  const sync=()=>{
+    const c=refCadres($("f_fil").value).find(x=>x.nom===$("f_cad").value);
+    $("w_cadl").hidden=$("f_cad").value!==AUTRE;$("w_gral").hidden=$("f_gra").value!==AUTRE;
+    if(c){$("f_cat").value=c.cat;$("f_cat").disabled=true}else $("f_cat").disabled=false;
+    const g=c&&c.grades.find(x=>x.nom===$("f_gra").value),rg=g&&REF.grilles[g.grille],v=rg&&versionAt(rg,today());
+    const n=v?v.echelons.length:S.grille.echelons.length,cur=$("f_ech").value;
+    fill($("f_ech"),echOpts(n).map(([a,b])=>[String(a),b]),cur);
+    $("f_gnote").textContent=g?(v?`Grille : ${rg.nom}, ${n} échelons${v.echelons.some(e=>e.im==null)?" (indices à compléter)":""}.`:`La grille officielle de ce grade sera ajoutée par une mise à jour. En attendant, saisissez-la dans Carrière › Modifier la grille.`):"Grade hors référentiel : saisissez votre grille dans Carrière › Modifier la grille.";
+  };
+  $("f_fil").onchange=()=>{fill($("f_cad"),cadresOpts($("f_fil").value));fill($("f_gra"),gradesOpts($("f_fil").value,$("f_cad").value));sync()};
+  $("f_cad").onchange=()=>{fill($("f_gra"),gradesOpts($("f_fil").value,$("f_cad").value));sync()};
+  $("f_gra").onchange=sync;
+  sync();
 }
 function sheetGrille(){
-  const g=S.grille;
-  const rows=()=>g._tmp.map((e,i)=>`<tr><td>${ord(i+1)}</td><td><input id="g_d${i}" inputmode="numeric" value="${e.d??""}" placeholder="—" aria-label="Durée en mois du ${ord(i+1)} échelon"></td><td><input id="g_im${i}" inputmode="numeric" value="${e.im??""}" placeholder="IM" aria-label="Indice majoré du ${ord(i+1)} échelon"></td></tr>`).join("");
-  g._tmp=g.echelons.map(e=>({...e}));
-  const html=()=>`
-  <div class="group">${F("g_nom","Nom de la grille",g.nom)}
-  ${SEL("g_tpl","Partir d'un modèle","",[["","Choisir…"],...Object.entries(GRILLES).map(([k,v])=>[k,v.nom])])}</div>
-  <p class="note">Les modèles ne remplissent que les durées (indicatives, à vérifier). Reportez l'indice majoré (IM) de chaque échelon depuis la grille officielle publiée par votre centre de gestion ou votre bulletin de paie. Durée vide = échelon terminal.</p>
+  const g=S.grille,rg=refGrille(),t=today();
+  const hasRef=!!(rg&&versionAt(rg,t));
+  let mode=hasRef&&S.grilleMode!=="perso"?"ref":"perso";
+  let tmp=[];
+  const load=()=>{tmp=mode==="ref"?gridAt(t).map(e=>({...e})):g.echelons.map(e=>({...e,off:false,offD:false}))};
+  const rows=()=>tmp.map((e,i)=>`<tr><td>${ord(i+1)}</td>
+    <td><input id="g_d${i}" inputmode="numeric" value="${e.d??""}" placeholder="—" ${mode==="ref"&&e.offD?"disabled":""} aria-label="Durée en mois du ${ord(i+1)} échelon"></td>
+    <td><input id="g_im${i}" inputmode="numeric" value="${e.im??""}" placeholder="IM" ${e.off?"disabled":""} aria-label="Indice majoré du ${ord(i+1)} échelon"></td></tr>`).join("");
+  const read=()=>{tmp=tmp.map((e,i)=>{const d=val("g_d"+i),im=val("g_im"+i);return {...e,d:d===""?null:Math.max(1,parseInt(d)||12),im:im===""?null:parseInt(im)||null}})};
+  const body=()=>`
+  ${hasRef?`<div class="group">${SEL("g_mode","Grille utilisée",mode,[["ref","Grille officielle : "+rg.nom],["perso","Grille personnalisée"]])}</div>
+    <p class="note">${mode==="ref"?"Les valeurs grisées viennent de la grille officielle et se mettent à jour automatiquement. Complétez seulement les cases vides.":"Vos valeurs remplacent la grille officielle, qui ne sera plus mise à jour automatiquement."}</p>`:
+    `<div class="group">${F("g_nom","Nom de la grille",g.nom)}${SEL("g_tpl","Partir d'un modèle","",[["","Choisir…"],...Object.entries(GRILLES).map(([k,v])=>[k,v.nom])])}</div>
+    <p class="note">${S.profil.grilleRef?"La grille officielle de votre grade n'est pas encore dans l'app : saisissez-la en attendant la mise à jour.":"Reportez les durées (en mois) et l'indice majoré de chaque échelon depuis votre bulletin de paie ou la grille de votre centre de gestion."} Durée vide = échelon terminal.</p>`}
   <h2>Échelons</h2>
   <div class="group" style="overflow-x:auto"><table class="gridtbl"><thead><tr><th>Éch.</th><th>Durée (mois)</th><th>IM</th></tr></thead><tbody id="g_rows">${rows()}</tbody></table>
-  <div style="display:flex;border-top:1px solid var(--line)"><button class="add" type="button" id="g_add" style="border:0">+ Échelon</button><button class="add" type="button" id="g_rem" style="border:0;color:var(--bad)">− Dernier</button></div></div>`;
-  const read=()=>{g._tmp=g._tmp.map((e,i)=>{const d=val("g_d"+i),im=val("g_im"+i);return {d:d===""?null:Math.max(1,parseInt(d)||12),im:im===""?null:parseInt(im)||null}})};
+  ${mode==="perso"?`<div style="display:flex;border-top:1px solid var(--line)"><button class="add" type="button" id="g_add" style="border:0">+ Échelon</button><button class="add" type="button" id="g_rem" style="border:0;color:var(--bad)">− Dernier</button></div>`:""}</div>`;
   const wire=()=>{
-    document.getElementById("g_tpl").onchange=e=>{const t=GRILLES[e.target.value];if(!t)return;read();document.getElementById("g_nom").value=t.nom;
-      g._tmp=t.durees.map((d,i)=>({d,im:g._tmp[i]?g._tmp[i].im:null}));document.getElementById("g_rows").innerHTML=rows()};
-    document.getElementById("g_add").onclick=()=>{read();const last=g._tmp[g._tmp.length-1];if(last&&last.d==null)last.d=48;g._tmp.push({d:null,im:null});document.getElementById("g_rows").innerHTML=rows()};
-    document.getElementById("g_rem").onclick=()=>{read();if(g._tmp.length>1){g._tmp.pop();g._tmp[g._tmp.length-1].d=null}document.getElementById("g_rows").innerHTML=rows()};
+    const $=id=>document.getElementById(id);
+    if($("g_mode"))$("g_mode").onchange=e=>{read();mode=e.target.value;if(mode==="perso"&&!g.echelons.length)g.echelons=tmp.map(x=>({d:x.d,im:x.im}));load();sBody.innerHTML=body();wire()};
+    if($("g_tpl"))$("g_tpl").onchange=e=>{const tp=GRILLES[e.target.value];if(!tp)return;read();$("g_nom").value=tp.nom;tmp=tp.durees.map((d,i)=>({d,im:tmp[i]?tmp[i].im:null}));$("g_rows").innerHTML=rows()};
+    if($("g_add"))$("g_add").onclick=()=>{read();const last=tmp[tmp.length-1];if(last&&last.d==null)last.d=48;tmp.push({d:null,im:null});$("g_rows").innerHTML=rows()};
+    if($("g_rem"))$("g_rem").onclick=()=>{read();if(tmp.length>1){tmp.pop();tmp[tmp.length-1].d=null}$("g_rows").innerHTML=rows()};
   };
-  openSheet("Grille indiciaire",html(),()=>{read();g.nom=val("g_nom")||"Ma grille";g.echelons=g._tmp;delete g._tmp;
-    S.profil.echelon=Math.min(S.profil.echelon,g.echelons.length);toast("Grille enregistrée")});
+  load();
+  openSheet("Grille indiciaire",body(),()=>{read();
+    if(mode==="ref"){S.grilleMode="ref";g.echelons=tmp.map(e=>({d:e.offD?null:e.d,im:e.off?null:e.im}))}
+    else{S.grilleMode="perso";if(document.getElementById("g_nom"))g.nom=val("g_nom")||"Ma grille";g.echelons=tmp.map(e=>({d:e.d,im:e.im}))}
+    S.profil.echelon=Math.min(S.profil.echelon,gridAt(t).length);toast("Grille enregistrée")});
   wire();
 }
 function sheetRemu(){
@@ -550,9 +615,10 @@ function sheetRemu(){
   openSheet("Rémunération",`
   <h2>Régime indemnitaire (RIFSEEP)</h2><div class="group">${F("r_ifse","IFSE mensuelle brute (€)",r.ifse,"number")}${F("r_cia","CIA annuel brut (€)",r.cia,"number")}</div>
   <h2>Compléments</h2><div class="group">${F("r_nbi","NBI (points)",r.nbi,"number")}${SEL("r_ir","Indemnité de résidence",r.residence,[[0,"Zone 3 · 0 %"],[1,"Zone 2 · 1 %"],[3,"Zone 1 · 3 %"]])}${F("r_sft","Supplément familial (€/mois)",r.sft,"number")}</div>
-  <h2>Paramètres</h2><div class="group">${F("r_pt","Valeur du point (€/mois)",r.point,"number")}${F("r_pas","Taux prélèvement à la source (%)",r.pas,"number")}</div>
-  <p class="note">Valeur du point par défaut : 4,92278 € brut mensuel (depuis le 1er juillet 2023). Mettez-la à jour en cas de revalorisation.</p>`,()=>{
-    Object.assign(r,{ifse:num(val("r_ifse")),cia:num(val("r_cia")),nbi:num(val("r_nbi")),residence:num(val("r_ir")),sft:num(val("r_sft")),point:num(val("r_pt"),POINT_DEFAUT),pas:num(val("r_pas"))});toast("Paramètres enregistrés")});
+  <h2>Paramètres</h2><div class="group">${F("r_pt","Valeur du point (€/mois)",pointActuel(),"number")}${F("r_pas","Taux prélèvement à la source (%)",r.pas,"number")}</div>
+  <p class="note">La valeur du point suit automatiquement les revalorisations publiées dans les mises à jour de l'app (actuellement 4,92278 € brut mensuel, depuis le 1er juillet 2023). Si vous saisissez une autre valeur, elle n'est plus mise à jour automatiquement.</p>`,()=>{
+    Object.assign(r,{ifse:num(val("r_ifse")),cia:num(val("r_cia")),nbi:num(val("r_nbi")),residence:num(val("r_ir")),sft:num(val("r_sft")),point:num(val("r_pt"),POINT_DEFAUT),pas:num(val("r_pas"))});
+    const auto=pointAt(today());r.pointAuto=!!auto&&Math.abs(num(val("r_pt"))-auto)<1e-6;toast("Paramètres enregistrés")});
 }
 function sheetDroits(){
   const c=S.conges;
@@ -637,6 +703,7 @@ function normalise(d){const base=vide();const o=Object.assign(base,d);
   ["profil","remu","conges","cpf"].forEach(k=>o[k]=Object.assign(vide()[k],d[k]||{}));
   ["formations","echeances","journal"].forEach(k=>o[k]=Array.isArray(d[k])?d[k]:[]);
   if(!Array.isArray(o.conges.absences))o.conges.absences=[];
+  if(!o.grilleMode)o.grilleMode=d.profil&&d.profil.grilleRef?"ref":"perso";
   if(!o.grille||!Array.isArray(o.grille.echelons)||!o.grille.echelons.length)o.grille=vide().grille;
   return o}
 
@@ -644,6 +711,7 @@ function normalise(d){const base=vide();const o=Object.assign(base,d);
 try{const t=sessionStorage.getItem("cfpt-tab");if(t)tab=t}catch(_){}
 S=normalise(lsGet()||exemple());render();
 initStore().then(d=>{if(d)S=normalise(d);else if(store.mode==="cloud"){const local=lsGet();S=normalise(local||exemple())}render()});
+majRef();
 window.__cfpt={paie,carriere,conges,joursOuvres,get S(){return S}};
 })();
 </script>

@@ -1,0 +1,1364 @@
+{
+ "maj": "2026-11-17",
+ "point": [
+  {
+   "effet": "2023-07-01",
+   "valeur": 4.92278
+  }
+ ],
+ "statut": "Référentiel des cadres d'emplois et grades. Indices majorés en attente de vérification sur les grilles officielles.",
+ "filieres": [
+  {
+   "nom": "Administrative",
+   "cadres": [
+    {
+     "nom": "Administrateurs territoriaux",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Administrateur",
+       "grille": "administrateurs-territoriaux-administrateur"
+      },
+      {
+       "nom": "Administrateur hors classe",
+       "grille": "administrateurs-territoriaux-administrateur-hors-classe"
+      },
+      {
+       "nom": "Administrateur général",
+       "grille": "administrateurs-territoriaux-administrateur-general"
+      }
+     ]
+    },
+    {
+     "nom": "Attachés territoriaux",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Attaché",
+       "grille": "attaches-territoriaux-attache"
+      },
+      {
+       "nom": "Attaché principal",
+       "grille": "attaches-territoriaux-attache-principal"
+      },
+      {
+       "nom": "Attaché hors classe",
+       "grille": "attaches-territoriaux-attache-hors-classe"
+      }
+     ]
+    },
+    {
+     "nom": "Rédacteurs territoriaux",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Rédacteur",
+       "grille": "b1"
+      },
+      {
+       "nom": "Rédacteur principal de 2e classe",
+       "grille": "b2"
+      },
+      {
+       "nom": "Rédacteur principal de 1re classe",
+       "grille": "b3"
+      }
+     ]
+    },
+    {
+     "nom": "Adjoints administratifs territoriaux",
+     "cat": "C",
+     "grades": [
+      {
+       "nom": "Adjoint administratif",
+       "grille": "c1"
+      },
+      {
+       "nom": "Adjoint administratif principal de 2e classe",
+       "grille": "c2"
+      },
+      {
+       "nom": "Adjoint administratif principal de 1re classe",
+       "grille": "c3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "nom": "Technique",
+   "cadres": [
+    {
+     "nom": "Ingénieurs en chef territoriaux",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Ingénieur en chef",
+       "grille": "ingenieurs-en-chef-territoriaux-ingenieur-en-chef"
+      },
+      {
+       "nom": "Ingénieur en chef hors classe",
+       "grille": "ingenieurs-en-chef-territoriaux-ingenieur-en-chef-hors-class"
+      },
+      {
+       "nom": "Ingénieur général",
+       "grille": "ingenieurs-en-chef-territoriaux-ingenieur-general"
+      }
+     ]
+    },
+    {
+     "nom": "Ingénieurs territoriaux",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Ingénieur",
+       "grille": "ingenieurs-territoriaux-ingenieur"
+      },
+      {
+       "nom": "Ingénieur principal",
+       "grille": "ingenieurs-territoriaux-ingenieur-principal"
+      },
+      {
+       "nom": "Ingénieur hors classe",
+       "grille": "ingenieurs-territoriaux-ingenieur-hors-classe"
+      }
+     ]
+    },
+    {
+     "nom": "Techniciens territoriaux",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Technicien",
+       "grille": "b1"
+      },
+      {
+       "nom": "Technicien principal de 2e classe",
+       "grille": "b2"
+      },
+      {
+       "nom": "Technicien principal de 1re classe",
+       "grille": "b3"
+      }
+     ]
+    },
+    {
+     "nom": "Agents de maîtrise territoriaux",
+     "cat": "C",
+     "grades": [
+      {
+       "nom": "Agent de maîtrise",
+       "grille": "agents-de-maitrise-territoriaux-agent-de-maitrise"
+      },
+      {
+       "nom": "Agent de maîtrise principal",
+       "grille": "agents-de-maitrise-territoriaux-agent-de-maitrise-principal"
+      }
+     ]
+    },
+    {
+     "nom": "Adjoints techniques territoriaux",
+     "cat": "C",
+     "grades": [
+      {
+       "nom": "Adjoint technique",
+       "grille": "c1"
+      },
+      {
+       "nom": "Adjoint technique principal de 2e classe",
+       "grille": "c2"
+      },
+      {
+       "nom": "Adjoint technique principal de 1re classe",
+       "grille": "c3"
+      }
+     ]
+    },
+    {
+     "nom": "Adjoints techniques territoriaux des établissements d'enseignement",
+     "cat": "C",
+     "grades": [
+      {
+       "nom": "Adjoint technique des établissements d'enseignement",
+       "grille": "c1"
+      },
+      {
+       "nom": "Adjoint technique principal de 2e classe des établissements d'enseignement",
+       "grille": "c2"
+      },
+      {
+       "nom": "Adjoint technique principal de 1re classe des établissements d'enseignement",
+       "grille": "c3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "nom": "Culturelle",
+   "cadres": [
+    {
+     "nom": "Conservateurs territoriaux du patrimoine",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Conservateur du patrimoine",
+       "grille": "conservateurs-territoriaux-du-patrimoine-conservateur-du-pat"
+      },
+      {
+       "nom": "Conservateur en chef du patrimoine",
+       "grille": "conservateurs-territoriaux-du-patrimoine-conservateur-en-che"
+      }
+     ]
+    },
+    {
+     "nom": "Conservateurs territoriaux des bibliothèques",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Conservateur des bibliothèques",
+       "grille": "conservateurs-territoriaux-des-bibliotheques-conservateur-de"
+      },
+      {
+       "nom": "Conservateur en chef des bibliothèques",
+       "grille": "conservateurs-territoriaux-des-bibliotheques-conservateur-en"
+      }
+     ]
+    },
+    {
+     "nom": "Attachés territoriaux de conservation du patrimoine",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Attaché de conservation du patrimoine",
+       "grille": "attaches-territoriaux-de-conservation-du-patrimoine-attache-"
+      },
+      {
+       "nom": "Attaché principal de conservation du patrimoine",
+       "grille": "attaches-territoriaux-de-conservation-du-patrimoine-attache-"
+      }
+     ]
+    },
+    {
+     "nom": "Bibliothécaires territoriaux",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Bibliothécaire",
+       "grille": "bibliothecaires-territoriaux-bibliothecaire"
+      },
+      {
+       "nom": "Bibliothécaire principal",
+       "grille": "bibliothecaires-territoriaux-bibliothecaire-principal"
+      }
+     ]
+    },
+    {
+     "nom": "Directeurs d'établissements territoriaux d'enseignement artistique",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Directeur de 2e catégorie",
+       "grille": "directeurs-d-etablissements-territoriaux-d-enseignement-arti"
+      },
+      {
+       "nom": "Directeur de 1re catégorie",
+       "grille": "directeurs-d-etablissements-territoriaux-d-enseignement-arti"
+      }
+     ]
+    },
+    {
+     "nom": "Professeurs territoriaux d'enseignement artistique",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Professeur de classe normale",
+       "grille": "professeurs-territoriaux-d-enseignement-artistique-professeu"
+      },
+      {
+       "nom": "Professeur hors classe",
+       "grille": "professeurs-territoriaux-d-enseignement-artistique-professeu"
+      }
+     ]
+    },
+    {
+     "nom": "Assistants territoriaux de conservation du patrimoine et des bibliothèques",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Assistant de conservation",
+       "grille": "b1"
+      },
+      {
+       "nom": "Assistant de conservation principal de 2e classe",
+       "grille": "b2"
+      },
+      {
+       "nom": "Assistant de conservation principal de 1re classe",
+       "grille": "b3"
+      }
+     ]
+    },
+    {
+     "nom": "Assistants territoriaux d'enseignement artistique",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Assistant d'enseignement artistique",
+       "grille": "b1"
+      },
+      {
+       "nom": "Assistant d'enseignement artistique principal de 2e classe",
+       "grille": "b2"
+      },
+      {
+       "nom": "Assistant d'enseignement artistique principal de 1re classe",
+       "grille": "b3"
+      }
+     ]
+    },
+    {
+     "nom": "Adjoints territoriaux du patrimoine",
+     "cat": "C",
+     "grades": [
+      {
+       "nom": "Adjoint du patrimoine",
+       "grille": "c1"
+      },
+      {
+       "nom": "Adjoint du patrimoine principal de 2e classe",
+       "grille": "c2"
+      },
+      {
+       "nom": "Adjoint du patrimoine principal de 1re classe",
+       "grille": "c3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "nom": "Sportive",
+   "cadres": [
+    {
+     "nom": "Conseillers territoriaux des activités physiques et sportives",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Conseiller des APS",
+       "grille": "conseillers-territoriaux-des-activites-physiques-et-sportive"
+      },
+      {
+       "nom": "Conseiller principal des APS",
+       "grille": "conseillers-territoriaux-des-activites-physiques-et-sportive"
+      }
+     ]
+    },
+    {
+     "nom": "Éducateurs territoriaux des activités physiques et sportives",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Éducateur des APS",
+       "grille": "b1"
+      },
+      {
+       "nom": "Éducateur des APS principal de 2e classe",
+       "grille": "b2"
+      },
+      {
+       "nom": "Éducateur des APS principal de 1re classe",
+       "grille": "b3"
+      }
+     ]
+    },
+    {
+     "nom": "Opérateurs territoriaux des activités physiques et sportives",
+     "cat": "C",
+     "grades": [
+      {
+       "nom": "Opérateur des APS",
+       "grille": "operateurs-territoriaux-des-activites-physiques-et-sportives"
+      },
+      {
+       "nom": "Opérateur des APS qualifié",
+       "grille": "operateurs-territoriaux-des-activites-physiques-et-sportives"
+      },
+      {
+       "nom": "Opérateur des APS principal",
+       "grille": "operateurs-territoriaux-des-activites-physiques-et-sportives"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "nom": "Médico-sociale",
+   "cadres": [
+    {
+     "nom": "Médecins territoriaux",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Médecin de 2e classe",
+       "grille": "medecins-territoriaux-medecin-de-2e-classe"
+      },
+      {
+       "nom": "Médecin de 1re classe",
+       "grille": "medecins-territoriaux-medecin-de-1re-classe"
+      },
+      {
+       "nom": "Médecin hors classe",
+       "grille": "medecins-territoriaux-medecin-hors-classe"
+      }
+     ]
+    },
+    {
+     "nom": "Psychologues territoriaux",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Psychologue de classe normale",
+       "grille": "psychologues-territoriaux-psychologue-de-classe-normale"
+      },
+      {
+       "nom": "Psychologue hors classe",
+       "grille": "psychologues-territoriaux-psychologue-hors-classe"
+      }
+     ]
+    },
+    {
+     "nom": "Sages-femmes territoriales",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Sage-femme de classe normale",
+       "grille": "sages-femmes-territoriales-sage-femme-de-classe-normale"
+      },
+      {
+       "nom": "Sage-femme hors classe",
+       "grille": "sages-femmes-territoriales-sage-femme-hors-classe"
+      }
+     ]
+    },
+    {
+     "nom": "Puéricultrices territoriales",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Puéricultrice de classe normale",
+       "grille": "puericultrices-territoriales-puericultrice-de-classe-normale"
+      },
+      {
+       "nom": "Puéricultrice de classe supérieure",
+       "grille": "puericultrices-territoriales-puericultrice-de-classe-superie"
+      },
+      {
+       "nom": "Puéricultrice hors classe",
+       "grille": "puericultrices-territoriales-puericultrice-hors-classe"
+      }
+     ]
+    },
+    {
+     "nom": "Cadres territoriaux de santé paramédicaux",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Cadre de santé de 1re classe",
+       "grille": "cadres-territoriaux-de-sante-paramedicaux-cadre-de-sante-de-"
+      },
+      {
+       "nom": "Cadre supérieur de santé",
+       "grille": "cadres-territoriaux-de-sante-paramedicaux-cadre-superieur-de"
+      }
+     ]
+    },
+    {
+     "nom": "Infirmiers territoriaux en soins généraux",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Infirmier en soins généraux de classe normale",
+       "grille": "infirmiers-territoriaux-en-soins-generaux-infirmier-en-soins"
+      },
+      {
+       "nom": "Infirmier en soins généraux de classe supérieure",
+       "grille": "infirmiers-territoriaux-en-soins-generaux-infirmier-en-soins"
+      },
+      {
+       "nom": "Infirmier en soins généraux hors classe",
+       "grille": "infirmiers-territoriaux-en-soins-generaux-infirmier-en-soins"
+      }
+     ]
+    },
+    {
+     "nom": "Masseurs-kinésithérapeutes, psychomotriciens et orthophonistes territoriaux",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Classe normale",
+       "grille": "masseurs-kinesitherapeutes-psychomotriciens-et-orthophoniste"
+      },
+      {
+       "nom": "Hors classe",
+       "grille": "masseurs-kinesitherapeutes-psychomotriciens-et-orthophoniste"
+      }
+     ]
+    },
+    {
+     "nom": "Pédicures-podologues, ergothérapeutes, orthoptistes et manipulateurs d'électroradiologie médicale territoriaux",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Classe normale",
+       "grille": "pedicures-podologues-ergotherapeutes-orthoptistes-et-manipul"
+      },
+      {
+       "nom": "Hors classe",
+       "grille": "pedicures-podologues-ergotherapeutes-orthoptistes-et-manipul"
+      }
+     ]
+    },
+    {
+     "nom": "Techniciens paramédicaux territoriaux",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Technicien paramédical de classe normale",
+       "grille": "techniciens-paramedicaux-territoriaux-technicien-paramedical"
+      },
+      {
+       "nom": "Technicien paramédical de classe supérieure",
+       "grille": "techniciens-paramedicaux-territoriaux-technicien-paramedical"
+      }
+     ]
+    },
+    {
+     "nom": "Auxiliaires de puériculture territoriaux",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Auxiliaire de puériculture de classe normale",
+       "grille": "auxiliaires-de-puericulture-territoriaux-auxiliaire-de-pueri"
+      },
+      {
+       "nom": "Auxiliaire de puériculture de classe supérieure",
+       "grille": "auxiliaires-de-puericulture-territoriaux-auxiliaire-de-pueri"
+      }
+     ]
+    },
+    {
+     "nom": "Aides-soignants territoriaux",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Aide-soignant de classe normale",
+       "grille": "aides-soignants-territoriaux-aide-soignant-de-classe-normale"
+      },
+      {
+       "nom": "Aide-soignant de classe supérieure",
+       "grille": "aides-soignants-territoriaux-aide-soignant-de-classe-superie"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "nom": "Médico-technique",
+   "cadres": [
+    {
+     "nom": "Biologistes, vétérinaires et pharmaciens territoriaux",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Classe normale",
+       "grille": "biologistes-veterinaires-et-pharmaciens-territoriaux-classe-"
+      },
+      {
+       "nom": "Hors classe",
+       "grille": "biologistes-veterinaires-et-pharmaciens-territoriaux-hors-cl"
+      },
+      {
+       "nom": "Classe exceptionnelle",
+       "grille": "biologistes-veterinaires-et-pharmaciens-territoriaux-classe-"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "nom": "Sociale",
+   "cadres": [
+    {
+     "nom": "Conseillers territoriaux socio-éducatifs",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Conseiller socio-éducatif",
+       "grille": "conseillers-territoriaux-socio-educatifs-conseiller-socio-ed"
+      },
+      {
+       "nom": "Conseiller supérieur socio-éducatif",
+       "grille": "conseillers-territoriaux-socio-educatifs-conseiller-superieu"
+      },
+      {
+       "nom": "Conseiller hors classe socio-éducatif",
+       "grille": "conseillers-territoriaux-socio-educatifs-conseiller-hors-cla"
+      }
+     ]
+    },
+    {
+     "nom": "Assistants territoriaux socio-éducatifs",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Assistant socio-éducatif",
+       "grille": "assistants-territoriaux-socio-educatifs-assistant-socio-educ"
+      },
+      {
+       "nom": "Assistant socio-éducatif de classe exceptionnelle",
+       "grille": "assistants-territoriaux-socio-educatifs-assistant-socio-educ"
+      }
+     ]
+    },
+    {
+     "nom": "Éducateurs territoriaux de jeunes enfants",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Éducateur de jeunes enfants",
+       "grille": "educateurs-territoriaux-de-jeunes-enfants-educateur-de-jeune"
+      },
+      {
+       "nom": "Éducateur de jeunes enfants de classe exceptionnelle",
+       "grille": "educateurs-territoriaux-de-jeunes-enfants-educateur-de-jeune"
+      }
+     ]
+    },
+    {
+     "nom": "Moniteurs-éducateurs et intervenants familiaux territoriaux",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Moniteur-éducateur et intervenant familial",
+       "grille": "moniteurs-educateurs-et-intervenants-familiaux-territoriaux-"
+      },
+      {
+       "nom": "Moniteur-éducateur et intervenant familial principal",
+       "grille": "moniteurs-educateurs-et-intervenants-familiaux-territoriaux-"
+      }
+     ]
+    },
+    {
+     "nom": "Agents sociaux territoriaux",
+     "cat": "C",
+     "grades": [
+      {
+       "nom": "Agent social",
+       "grille": "c1"
+      },
+      {
+       "nom": "Agent social principal de 2e classe",
+       "grille": "c2"
+      },
+      {
+       "nom": "Agent social principal de 1re classe",
+       "grille": "c3"
+      }
+     ]
+    },
+    {
+     "nom": "Agents territoriaux spécialisés des écoles maternelles (ATSEM)",
+     "cat": "C",
+     "grades": [
+      {
+       "nom": "ATSEM principal de 2e classe",
+       "grille": "c2"
+      },
+      {
+       "nom": "ATSEM principal de 1re classe",
+       "grille": "c3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "nom": "Animation",
+   "cadres": [
+    {
+     "nom": "Animateurs territoriaux",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Animateur",
+       "grille": "b1"
+      },
+      {
+       "nom": "Animateur principal de 2e classe",
+       "grille": "b2"
+      },
+      {
+       "nom": "Animateur principal de 1re classe",
+       "grille": "b3"
+      }
+     ]
+    },
+    {
+     "nom": "Adjoints territoriaux d'animation",
+     "cat": "C",
+     "grades": [
+      {
+       "nom": "Adjoint d'animation",
+       "grille": "c1"
+      },
+      {
+       "nom": "Adjoint d'animation principal de 2e classe",
+       "grille": "c2"
+      },
+      {
+       "nom": "Adjoint d'animation principal de 1re classe",
+       "grille": "c3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "nom": "Police municipale",
+   "cadres": [
+    {
+     "nom": "Directeurs de police municipale",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Directeur de police municipale",
+       "grille": "directeurs-de-police-municipale-directeur-de-police-municipa"
+      },
+      {
+       "nom": "Directeur principal de police municipale",
+       "grille": "directeurs-de-police-municipale-directeur-principal-de-polic"
+      }
+     ]
+    },
+    {
+     "nom": "Chefs de service de police municipale",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Chef de service de police municipale",
+       "grille": "b1"
+      },
+      {
+       "nom": "Chef de service de police municipale principal de 2e classe",
+       "grille": "b2"
+      },
+      {
+       "nom": "Chef de service de police municipale principal de 1re classe",
+       "grille": "b3"
+      }
+     ]
+    },
+    {
+     "nom": "Agents de police municipale",
+     "cat": "C",
+     "grades": [
+      {
+       "nom": "Gardien-brigadier",
+       "grille": "agents-de-police-municipale-gardien-brigadier"
+      },
+      {
+       "nom": "Brigadier-chef principal",
+       "grille": "agents-de-police-municipale-brigadier-chef-principal"
+      }
+     ]
+    },
+    {
+     "nom": "Gardes champêtres",
+     "cat": "C",
+     "grades": [
+      {
+       "nom": "Garde champêtre chef",
+       "grille": "gardes-champetres-garde-champetre-chef"
+      },
+      {
+       "nom": "Garde champêtre chef principal",
+       "grille": "gardes-champetres-garde-champetre-chef-principal"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "nom": "Sapeurs-pompiers professionnels",
+   "cadres": [
+    {
+     "nom": "Conception et direction des SPP",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Colonel",
+       "grille": "conception-et-direction-des-spp-colonel"
+      },
+      {
+       "nom": "Colonel hors classe",
+       "grille": "conception-et-direction-des-spp-colonel-hors-classe"
+      },
+      {
+       "nom": "Contrôleur général",
+       "grille": "conception-et-direction-des-spp-controleur-general"
+      }
+     ]
+    },
+    {
+     "nom": "Capitaines, commandants et lieutenants-colonels de SPP",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Capitaine",
+       "grille": "capitaines-commandants-et-lieutenants-colonels-de-spp-capita"
+      },
+      {
+       "nom": "Commandant",
+       "grille": "capitaines-commandants-et-lieutenants-colonels-de-spp-comman"
+      },
+      {
+       "nom": "Lieutenant-colonel",
+       "grille": "capitaines-commandants-et-lieutenants-colonels-de-spp-lieute"
+      }
+     ]
+    },
+    {
+     "nom": "Lieutenants de SPP",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Lieutenant de 2e classe",
+       "grille": "lieutenants-de-spp-lieutenant-de-2e-classe"
+      },
+      {
+       "nom": "Lieutenant de 1re classe",
+       "grille": "lieutenants-de-spp-lieutenant-de-1re-classe"
+      },
+      {
+       "nom": "Lieutenant hors classe",
+       "grille": "lieutenants-de-spp-lieutenant-hors-classe"
+      }
+     ]
+    },
+    {
+     "nom": "Sous-officiers de SPP",
+     "cat": "C",
+     "grades": [
+      {
+       "nom": "Sergent",
+       "grille": "sous-officiers-de-spp-sergent"
+      },
+      {
+       "nom": "Adjudant",
+       "grille": "sous-officiers-de-spp-adjudant"
+      }
+     ]
+    },
+    {
+     "nom": "Sapeurs et caporaux de SPP",
+     "cat": "C",
+     "grades": [
+      {
+       "nom": "Sapeur",
+       "grille": "sapeurs-et-caporaux-de-spp-sapeur"
+      },
+      {
+       "nom": "Caporal",
+       "grille": "sapeurs-et-caporaux-de-spp-caporal"
+      },
+      {
+       "nom": "Caporal-chef",
+       "grille": "sapeurs-et-caporaux-de-spp-caporal-chef"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "grilles": {
+  "c1": {
+   "nom": "Échelle C1",
+   "versions": [
+    {
+     "effet": "2017-01-01",
+     "echelons": [
+      {
+       "d": 12,
+       "im": null
+      },
+      {
+       "d": 24,
+       "im": null
+      },
+      {
+       "d": 24,
+       "im": null
+      },
+      {
+       "d": 24,
+       "im": null
+      },
+      {
+       "d": 24,
+       "im": null
+      },
+      {
+       "d": 24,
+       "im": null
+      },
+      {
+       "d": 24,
+       "im": null
+      },
+      {
+       "d": 36,
+       "im": null
+      },
+      {
+       "d": 36,
+       "im": null
+      },
+      {
+       "d": 48,
+       "im": null
+      },
+      {
+       "d": 48,
+       "im": null
+      },
+      {
+       "d": null,
+       "im": null
+      }
+     ]
+    }
+   ]
+  },
+  "c2": {
+   "nom": "Échelle C2",
+   "versions": [
+    {
+     "effet": "2017-01-01",
+     "echelons": [
+      {
+       "d": 12,
+       "im": null
+      },
+      {
+       "d": 24,
+       "im": null
+      },
+      {
+       "d": 24,
+       "im": null
+      },
+      {
+       "d": 24,
+       "im": null
+      },
+      {
+       "d": 24,
+       "im": null
+      },
+      {
+       "d": 24,
+       "im": null
+      },
+      {
+       "d": 24,
+       "im": null
+      },
+      {
+       "d": 36,
+       "im": null
+      },
+      {
+       "d": 36,
+       "im": null
+      },
+      {
+       "d": 48,
+       "im": null
+      },
+      {
+       "d": 48,
+       "im": null
+      },
+      {
+       "d": null,
+       "im": null
+      }
+     ]
+    }
+   ]
+  },
+  "c3": {
+   "nom": "Échelle C3",
+   "versions": []
+  },
+  "b1": {
+   "nom": "Catégorie B (NES) – 1er grade",
+   "versions": [
+    {
+     "effet": "2017-01-01",
+     "echelons": [
+      {
+       "d": 24,
+       "im": null
+      },
+      {
+       "d": 24,
+       "im": null
+      },
+      {
+       "d": 24,
+       "im": null
+      },
+      {
+       "d": 24,
+       "im": null
+      },
+      {
+       "d": 24,
+       "im": null
+      },
+      {
+       "d": 24,
+       "im": null
+      },
+      {
+       "d": 36,
+       "im": null
+      },
+      {
+       "d": 36,
+       "im": null
+      },
+      {
+       "d": 36,
+       "im": null
+      },
+      {
+       "d": 36,
+       "im": null
+      },
+      {
+       "d": 48,
+       "im": null
+      },
+      {
+       "d": 48,
+       "im": null
+      },
+      {
+       "d": null,
+       "im": null
+      }
+     ]
+    }
+   ]
+  },
+  "b2": {
+   "nom": "Catégorie B (NES) – 2e grade",
+   "versions": []
+  },
+  "b3": {
+   "nom": "Catégorie B (NES) – 3e grade",
+   "versions": []
+  },
+  "administrateurs-territoriaux-administrateur": {
+   "nom": "Administrateur",
+   "versions": []
+  },
+  "administrateurs-territoriaux-administrateur-hors-classe": {
+   "nom": "Administrateur hors classe",
+   "versions": []
+  },
+  "administrateurs-territoriaux-administrateur-general": {
+   "nom": "Administrateur général",
+   "versions": []
+  },
+  "attaches-territoriaux-attache": {
+   "nom": "Attaché",
+   "versions": []
+  },
+  "attaches-territoriaux-attache-principal": {
+   "nom": "Attaché principal",
+   "versions": []
+  },
+  "attaches-territoriaux-attache-hors-classe": {
+   "nom": "Attaché hors classe",
+   "versions": []
+  },
+  "ingenieurs-en-chef-territoriaux-ingenieur-en-chef": {
+   "nom": "Ingénieur en chef",
+   "versions": []
+  },
+  "ingenieurs-en-chef-territoriaux-ingenieur-en-chef-hors-class": {
+   "nom": "Ingénieur en chef hors classe",
+   "versions": []
+  },
+  "ingenieurs-en-chef-territoriaux-ingenieur-general": {
+   "nom": "Ingénieur général",
+   "versions": []
+  },
+  "ingenieurs-territoriaux-ingenieur": {
+   "nom": "Ingénieur",
+   "versions": []
+  },
+  "ingenieurs-territoriaux-ingenieur-principal": {
+   "nom": "Ingénieur principal",
+   "versions": []
+  },
+  "ingenieurs-territoriaux-ingenieur-hors-classe": {
+   "nom": "Ingénieur hors classe",
+   "versions": []
+  },
+  "agents-de-maitrise-territoriaux-agent-de-maitrise": {
+   "nom": "Agent de maîtrise",
+   "versions": []
+  },
+  "agents-de-maitrise-territoriaux-agent-de-maitrise-principal": {
+   "nom": "Agent de maîtrise principal",
+   "versions": []
+  },
+  "conservateurs-territoriaux-du-patrimoine-conservateur-du-pat": {
+   "nom": "Conservateur du patrimoine",
+   "versions": []
+  },
+  "conservateurs-territoriaux-du-patrimoine-conservateur-en-che": {
+   "nom": "Conservateur en chef du patrimoine",
+   "versions": []
+  },
+  "conservateurs-territoriaux-des-bibliotheques-conservateur-de": {
+   "nom": "Conservateur des bibliothèques",
+   "versions": []
+  },
+  "conservateurs-territoriaux-des-bibliotheques-conservateur-en": {
+   "nom": "Conservateur en chef des bibliothèques",
+   "versions": []
+  },
+  "attaches-territoriaux-de-conservation-du-patrimoine-attache-": {
+   "nom": "Attaché de conservation du patrimoine",
+   "versions": []
+  },
+  "bibliothecaires-territoriaux-bibliothecaire": {
+   "nom": "Bibliothécaire",
+   "versions": []
+  },
+  "bibliothecaires-territoriaux-bibliothecaire-principal": {
+   "nom": "Bibliothécaire principal",
+   "versions": []
+  },
+  "directeurs-d-etablissements-territoriaux-d-enseignement-arti": {
+   "nom": "Directeur de 2e catégorie",
+   "versions": []
+  },
+  "professeurs-territoriaux-d-enseignement-artistique-professeu": {
+   "nom": "Professeur de classe normale",
+   "versions": []
+  },
+  "conseillers-territoriaux-des-activites-physiques-et-sportive": {
+   "nom": "Conseiller des APS",
+   "versions": []
+  },
+  "operateurs-territoriaux-des-activites-physiques-et-sportives": {
+   "nom": "Opérateur des APS",
+   "versions": []
+  },
+  "medecins-territoriaux-medecin-de-2e-classe": {
+   "nom": "Médecin de 2e classe",
+   "versions": []
+  },
+  "medecins-territoriaux-medecin-de-1re-classe": {
+   "nom": "Médecin de 1re classe",
+   "versions": []
+  },
+  "medecins-territoriaux-medecin-hors-classe": {
+   "nom": "Médecin hors classe",
+   "versions": []
+  },
+  "psychologues-territoriaux-psychologue-de-classe-normale": {
+   "nom": "Psychologue de classe normale",
+   "versions": []
+  },
+  "psychologues-territoriaux-psychologue-hors-classe": {
+   "nom": "Psychologue hors classe",
+   "versions": []
+  },
+  "sages-femmes-territoriales-sage-femme-de-classe-normale": {
+   "nom": "Sage-femme de classe normale",
+   "versions": []
+  },
+  "sages-femmes-territoriales-sage-femme-hors-classe": {
+   "nom": "Sage-femme hors classe",
+   "versions": []
+  },
+  "puericultrices-territoriales-puericultrice-de-classe-normale": {
+   "nom": "Puéricultrice de classe normale",
+   "versions": []
+  },
+  "puericultrices-territoriales-puericultrice-de-classe-superie": {
+   "nom": "Puéricultrice de classe supérieure",
+   "versions": []
+  },
+  "puericultrices-territoriales-puericultrice-hors-classe": {
+   "nom": "Puéricultrice hors classe",
+   "versions": []
+  },
+  "cadres-territoriaux-de-sante-paramedicaux-cadre-de-sante-de-": {
+   "nom": "Cadre de santé de 1re classe",
+   "versions": []
+  },
+  "cadres-territoriaux-de-sante-paramedicaux-cadre-superieur-de": {
+   "nom": "Cadre supérieur de santé",
+   "versions": []
+  },
+  "infirmiers-territoriaux-en-soins-generaux-infirmier-en-soins": {
+   "nom": "Infirmier en soins généraux de classe normale",
+   "versions": []
+  },
+  "masseurs-kinesitherapeutes-psychomotriciens-et-orthophoniste": {
+   "nom": "Classe normale",
+   "versions": []
+  },
+  "pedicures-podologues-ergotherapeutes-orthoptistes-et-manipul": {
+   "nom": "Classe normale",
+   "versions": []
+  },
+  "techniciens-paramedicaux-territoriaux-technicien-paramedical": {
+   "nom": "Technicien paramédical de classe normale",
+   "versions": []
+  },
+  "auxiliaires-de-puericulture-territoriaux-auxiliaire-de-pueri": {
+   "nom": "Auxiliaire de puériculture de classe normale",
+   "versions": []
+  },
+  "aides-soignants-territoriaux-aide-soignant-de-classe-normale": {
+   "nom": "Aide-soignant de classe normale",
+   "versions": []
+  },
+  "aides-soignants-territoriaux-aide-soignant-de-classe-superie": {
+   "nom": "Aide-soignant de classe supérieure",
+   "versions": []
+  },
+  "biologistes-veterinaires-et-pharmaciens-territoriaux-classe-": {
+   "nom": "Classe normale",
+   "versions": []
+  },
+  "biologistes-veterinaires-et-pharmaciens-territoriaux-hors-cl": {
+   "nom": "Hors classe",
+   "versions": []
+  },
+  "conseillers-territoriaux-socio-educatifs-conseiller-socio-ed": {
+   "nom": "Conseiller socio-éducatif",
+   "versions": []
+  },
+  "conseillers-territoriaux-socio-educatifs-conseiller-superieu": {
+   "nom": "Conseiller supérieur socio-éducatif",
+   "versions": []
+  },
+  "conseillers-territoriaux-socio-educatifs-conseiller-hors-cla": {
+   "nom": "Conseiller hors classe socio-éducatif",
+   "versions": []
+  },
+  "assistants-territoriaux-socio-educatifs-assistant-socio-educ": {
+   "nom": "Assistant socio-éducatif",
+   "versions": []
+  },
+  "educateurs-territoriaux-de-jeunes-enfants-educateur-de-jeune": {
+   "nom": "Éducateur de jeunes enfants",
+   "versions": []
+  },
+  "moniteurs-educateurs-et-intervenants-familiaux-territoriaux-": {
+   "nom": "Moniteur-éducateur et intervenant familial",
+   "versions": []
+  },
+  "directeurs-de-police-municipale-directeur-de-police-municipa": {
+   "nom": "Directeur de police municipale",
+   "versions": []
+  },
+  "directeurs-de-police-municipale-directeur-principal-de-polic": {
+   "nom": "Directeur principal de police municipale",
+   "versions": []
+  },
+  "agents-de-police-municipale-gardien-brigadier": {
+   "nom": "Gardien-brigadier",
+   "versions": []
+  },
+  "agents-de-police-municipale-brigadier-chef-principal": {
+   "nom": "Brigadier-chef principal",
+   "versions": []
+  },
+  "gardes-champetres-garde-champetre-chef": {
+   "nom": "Garde champêtre chef",
+   "versions": []
+  },
+  "gardes-champetres-garde-champetre-chef-principal": {
+   "nom": "Garde champêtre chef principal",
+   "versions": []
+  },
+  "conception-et-direction-des-spp-colonel": {
+   "nom": "Colonel",
+   "versions": []
+  },
+  "conception-et-direction-des-spp-colonel-hors-classe": {
+   "nom": "Colonel hors classe",
+   "versions": []
+  },
+  "conception-et-direction-des-spp-controleur-general": {
+   "nom": "Contrôleur général",
+   "versions": []
+  },
+  "capitaines-commandants-et-lieutenants-colonels-de-spp-capita": {
+   "nom": "Capitaine",
+   "versions": []
+  },
+  "capitaines-commandants-et-lieutenants-colonels-de-spp-comman": {
+   "nom": "Commandant",
+   "versions": []
+  },
+  "capitaines-commandants-et-lieutenants-colonels-de-spp-lieute": {
+   "nom": "Lieutenant-colonel",
+   "versions": []
+  },
+  "lieutenants-de-spp-lieutenant-de-2e-classe": {
+   "nom": "Lieutenant de 2e classe",
+   "versions": []
+  },
+  "lieutenants-de-spp-lieutenant-de-1re-classe": {
+   "nom": "Lieutenant de 1re classe",
+   "versions": []
+  },
+  "lieutenants-de-spp-lieutenant-hors-classe": {
+   "nom": "Lieutenant hors classe",
+   "versions": []
+  },
+  "sous-officiers-de-spp-sergent": {
+   "nom": "Sergent",
+   "versions": []
+  },
+  "sous-officiers-de-spp-adjudant": {
+   "nom": "Adjudant",
+   "versions": []
+  },
+  "sapeurs-et-caporaux-de-spp-sapeur": {
+   "nom": "Sapeur",
+   "versions": []
+  },
+  "sapeurs-et-caporaux-de-spp-caporal": {
+   "nom": "Caporal",
+   "versions": []
+  },
+  "sapeurs-et-caporaux-de-spp-caporal-chef": {
+   "nom": "Caporal-chef",
+   "versions": []
+  }
+ }
+}
