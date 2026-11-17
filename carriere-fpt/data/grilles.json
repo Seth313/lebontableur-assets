@@ -6,45 +6,32 @@
    "valeur": 4.92278
   }
  ],
- "statut": "Référentiel des cadres d'emplois et grades. Indices majorés en attente de vérification sur les grilles officielles.",
+ "source": "fpt-pratique.fr, grilles indiciaires relevées sur Légifrance (https://www.fpt-pratique.fr/grilles-indiciaires.html)",
  "filieres": [
   {
    "nom": "Administrative",
    "cadres": [
     {
-     "nom": "Administrateurs territoriaux",
-     "cat": "A",
+     "nom": "Adjoints administratifs territoriaux",
+     "cat": "C",
      "grades": [
       {
-       "nom": "Administrateur",
-       "grille": "administrateurs-territoriaux-administrateur"
+       "nom": "Adjoint administratif",
+       "grille": "ech-c1"
       },
       {
-       "nom": "Administrateur hors classe",
-       "grille": "administrateurs-territoriaux-administrateur-hors-classe"
+       "nom": "Adjoint administratif principal de 2e classe",
+       "grille": "ech-c2"
       },
       {
-       "nom": "Administrateur général",
-       "grille": "administrateurs-territoriaux-administrateur-general"
+       "nom": "Adjoint administratif principal de 1re classe",
+       "grille": "ech-c3"
       }
-     ]
-    },
-    {
-     "nom": "Attachés territoriaux",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Attaché",
-       "grille": "attaches-territoriaux-attache"
-      },
-      {
-       "nom": "Attaché principal",
-       "grille": "attaches-territoriaux-attache-principal"
-      },
-      {
-       "nom": "Attaché hors classe",
-       "grille": "attaches-territoriaux-attache-hors-classe"
-      }
+     ],
+     "textes": [
+      "Décret n° 2006-1690 du 22 décembre 2006 (statut particulier, art. 2)",
+      "Décret n° 2016-604 du 12 mai 2016 (échelonnement indiciaire des échelles C1, C2 et C3, art. 1)",
+      "Décret n° 2016-596 du 12 mai 2016 (organisation des carrières de la catégorie C, art. 3)"
      ]
     },
     {
@@ -53,34 +40,79 @@
      "grades": [
       {
        "nom": "Rédacteur",
-       "grille": "b1"
+       "grille": "redacteurs-redacteur"
       },
       {
        "nom": "Rédacteur principal de 2e classe",
-       "grille": "b2"
+       "grille": "redacteurs-redacteur-principal-de-2e-classe"
       },
       {
        "nom": "Rédacteur principal de 1re classe",
-       "grille": "b3"
+       "grille": "redacteurs-redacteur-principal-de-1re-classe"
       }
+     ],
+     "textes": [
+      "Décret n° 2012-924 du 30 juillet 2012 (statut particulier, art. 2)",
+      "Décret n° 2010-330 du 22 mars 2010 (échelonnement indiciaire de la catégorie B, art. 1)",
+      "Décret n° 2010-329 du 22 mars 2010 (dispositions statutaires communes de la catégorie B, art. 24)"
      ]
     },
     {
-     "nom": "Adjoints administratifs territoriaux",
-     "cat": "C",
+     "nom": "Attachés territoriaux",
+     "cat": "A",
      "grades": [
       {
-       "nom": "Adjoint administratif",
-       "grille": "c1"
+       "nom": "Attaché",
+       "grille": "attaches-attache"
       },
       {
-       "nom": "Adjoint administratif principal de 2e classe",
-       "grille": "c2"
+       "nom": "Attaché principal",
+       "grille": "attaches-attache-principal"
       },
       {
-       "nom": "Adjoint administratif principal de 1re classe",
-       "grille": "c3"
+       "nom": "Attaché hors classe",
+       "grille": "attaches-attache-hors-classe"
+      },
+      {
+       "nom": "Directeur territorial",
+       "grille": "attaches-directeur-territorial"
       }
+     ],
+     "textes": [
+      "Décret n° 87-1099 du 30 décembre 1987 (statut particulier, art. 17)",
+      "Décret n° 87-1100 du 30 décembre 1987 (échelonnement indiciaire, art. 1)",
+      "Décret n° 85-1148 du 24 octobre 1985 (art. 6 : groupes hors échelle)"
+     ]
+    },
+    {
+     "nom": "Administrateurs territoriaux",
+     "cat": "A+",
+     "grades": [
+      {
+       "nom": "Administrateur du premier grade",
+       "grille": "administrateurs-administrateur-du-premier-grade"
+      },
+      {
+       "nom": "Administrateur du deuxième grade",
+       "grille": "administrateurs-administrateur-du-deuxieme-grade"
+      },
+      {
+       "nom": "Administrateur du troisième grade",
+       "grille": "administrateurs-administrateur-du-troisieme-grade"
+      },
+      {
+       "nom": "Grade transitoire d'administrateur territorial",
+       "grille": "administrateurs-grade-transitoire-d-administrateur-territorial"
+      },
+      {
+       "nom": "Élève administrateur",
+       "grille": "administrateurs-eleve-administrateur"
+      }
+     ],
+     "textes": [
+      "Décret n° 87-1097 du 30 décembre 1987 (statut particulier, art. 13 et 17-1)",
+      "Décret n° 87-1098 du 30 décembre 1987 (échelonnement indiciaire, art. 1 et 1-1)",
+      "Décret n° 85-1148 du 24 octobre 1985 (annexe 3 : barème spécifique)"
      ]
     }
    ]
@@ -89,89 +121,26 @@
    "nom": "Technique",
    "cadres": [
     {
-     "nom": "Ingénieurs en chef territoriaux",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Ingénieur en chef",
-       "grille": "ingenieurs-en-chef-territoriaux-ingenieur-en-chef"
-      },
-      {
-       "nom": "Ingénieur en chef hors classe",
-       "grille": "ingenieurs-en-chef-territoriaux-ingenieur-en-chef-hors-class"
-      },
-      {
-       "nom": "Ingénieur général",
-       "grille": "ingenieurs-en-chef-territoriaux-ingenieur-general"
-      }
-     ]
-    },
-    {
-     "nom": "Ingénieurs territoriaux",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Ingénieur",
-       "grille": "ingenieurs-territoriaux-ingenieur"
-      },
-      {
-       "nom": "Ingénieur principal",
-       "grille": "ingenieurs-territoriaux-ingenieur-principal"
-      },
-      {
-       "nom": "Ingénieur hors classe",
-       "grille": "ingenieurs-territoriaux-ingenieur-hors-classe"
-      }
-     ]
-    },
-    {
-     "nom": "Techniciens territoriaux",
-     "cat": "B",
-     "grades": [
-      {
-       "nom": "Technicien",
-       "grille": "b1"
-      },
-      {
-       "nom": "Technicien principal de 2e classe",
-       "grille": "b2"
-      },
-      {
-       "nom": "Technicien principal de 1re classe",
-       "grille": "b3"
-      }
-     ]
-    },
-    {
-     "nom": "Agents de maîtrise territoriaux",
-     "cat": "C",
-     "grades": [
-      {
-       "nom": "Agent de maîtrise",
-       "grille": "agents-de-maitrise-territoriaux-agent-de-maitrise"
-      },
-      {
-       "nom": "Agent de maîtrise principal",
-       "grille": "agents-de-maitrise-territoriaux-agent-de-maitrise-principal"
-      }
-     ]
-    },
-    {
      "nom": "Adjoints techniques territoriaux",
      "cat": "C",
      "grades": [
       {
        "nom": "Adjoint technique",
-       "grille": "c1"
+       "grille": "ech-c1"
       },
       {
        "nom": "Adjoint technique principal de 2e classe",
-       "grille": "c2"
+       "grille": "ech-c2"
       },
       {
        "nom": "Adjoint technique principal de 1re classe",
-       "grille": "c3"
+       "grille": "ech-c3"
       }
+     ],
+     "textes": [
+      "Décret n° 2006-1691 du 22 décembre 2006 (statut particulier, art. 2)",
+      "Décret n° 2016-604 du 12 mai 2016 (échelonnement indiciaire des échelles C1, C2 et C3, art. 1)",
+      "Décret n° 2016-596 du 12 mai 2016 (organisation des carrières de la catégorie C, art. 3)"
      ]
     },
     {
@@ -180,16 +149,111 @@
      "grades": [
       {
        "nom": "Adjoint technique des établissements d'enseignement",
-       "grille": "c1"
+       "grille": "ech-c1"
       },
       {
        "nom": "Adjoint technique principal de 2e classe des établissements d'enseignement",
-       "grille": "c2"
+       "grille": "ech-c2"
       },
       {
        "nom": "Adjoint technique principal de 1re classe des établissements d'enseignement",
-       "grille": "c3"
+       "grille": "ech-c3"
       }
+     ],
+     "textes": [
+      "Décret n° 2007-913 du 15 mai 2007 (statut particulier, art. 2)",
+      "Décret n° 2016-604 du 12 mai 2016 (échelonnement indiciaire des échelles C1, C2 et C3, art. 1)",
+      "Décret n° 2016-596 du 12 mai 2016 (organisation des carrières de la catégorie C, art. 3)"
+     ]
+    },
+    {
+     "nom": "Agents de maîtrise territoriaux",
+     "cat": "C",
+     "grades": [
+      {
+       "nom": "Agent de maîtrise",
+       "grille": "agents-maitrise-agent-de-maitrise"
+      },
+      {
+       "nom": "Agent de maîtrise principal",
+       "grille": "agents-maitrise-agent-de-maitrise-principal"
+      }
+     ],
+     "textes": [
+      "Décret n° 88-547 du 6 mai 1988 (statut particulier, art. 11 et 12)",
+      "Décret n° 88-548 du 6 mai 1988 (échelonnement indiciaire, art. 1)"
+     ]
+    },
+    {
+     "nom": "Techniciens territoriaux",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Technicien",
+       "grille": "redacteurs-redacteur"
+      },
+      {
+       "nom": "Technicien principal de 2e classe",
+       "grille": "redacteurs-redacteur-principal-de-2e-classe"
+      },
+      {
+       "nom": "Technicien principal de 1re classe",
+       "grille": "redacteurs-redacteur-principal-de-1re-classe"
+      }
+     ],
+     "textes": [
+      "Décret n° 2010-1357 du 9 novembre 2010 (statut particulier, art. 1)",
+      "Décret n° 2010-330 du 22 mars 2010 (échelonnement indiciaire de la catégorie B, art. 1)",
+      "Décret n° 2010-329 du 22 mars 2010 (dispositions statutaires communes de la catégorie B, art. 24)"
+     ]
+    },
+    {
+     "nom": "Ingénieurs territoriaux",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Ingénieur",
+       "grille": "ingenieurs-ingenieur"
+      },
+      {
+       "nom": "Ingénieur principal",
+       "grille": "ingenieurs-ingenieur-principal"
+      },
+      {
+       "nom": "Ingénieur hors classe",
+       "grille": "ingenieurs-ingenieur-hors-classe"
+      }
+     ],
+     "textes": [
+      "Décret n° 2016-201 du 26 février 2016 (statut particulier, art. 24, rédaction du décret n° 2025-1096)",
+      "Décret n° 2016-203 du 26 février 2016 (échelonnement indiciaire, art. 1)"
+     ]
+    },
+    {
+     "nom": "Ingénieurs en chef territoriaux",
+     "cat": "A+",
+     "grades": [
+      {
+       "nom": "Ingénieur en chef",
+       "grille": "ingenieurs-en-chef-ingenieur-en-chef"
+      },
+      {
+       "nom": "Ingénieur en chef hors classe",
+       "grille": "ingenieurs-en-chef-ingenieur-en-chef-hors-classe"
+      },
+      {
+       "nom": "Ingénieur général",
+       "grille": "ingenieurs-en-chef-ingenieur-general"
+      },
+      {
+       "nom": "Ingénieur en chef élève",
+       "grille": "ingenieurs-en-chef-ingenieur-en-chef-eleve"
+      }
+     ],
+     "textes": [
+      "Décret n° 2016-200 du 26 février 2016 (statut particulier, art. 18)",
+      "Décret n° 2016-202 du 26 février 2016 (échelonnement indiciaire, art. 1)",
+      "Décret n° 85-1148 du 24 octobre 1985 (art. 6 : groupes hors échelle)"
      ]
     }
    ]
@@ -198,87 +262,26 @@
    "nom": "Culturelle",
    "cadres": [
     {
-     "nom": "Conservateurs territoriaux du patrimoine",
-     "cat": "A",
+     "nom": "Adjoints territoriaux du patrimoine",
+     "cat": "C",
      "grades": [
       {
-       "nom": "Conservateur du patrimoine",
-       "grille": "conservateurs-territoriaux-du-patrimoine-conservateur-du-pat"
+       "nom": "Adjoint du patrimoine",
+       "grille": "ech-c1"
       },
       {
-       "nom": "Conservateur en chef du patrimoine",
-       "grille": "conservateurs-territoriaux-du-patrimoine-conservateur-en-che"
-      }
-     ]
-    },
-    {
-     "nom": "Conservateurs territoriaux des bibliothèques",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Conservateur des bibliothèques",
-       "grille": "conservateurs-territoriaux-des-bibliotheques-conservateur-de"
+       "nom": "Adjoint du patrimoine principal de 2e classe",
+       "grille": "ech-c2"
       },
       {
-       "nom": "Conservateur en chef des bibliothèques",
-       "grille": "conservateurs-territoriaux-des-bibliotheques-conservateur-en"
+       "nom": "Adjoint du patrimoine principal de 1re classe",
+       "grille": "ech-c3"
       }
-     ]
-    },
-    {
-     "nom": "Attachés territoriaux de conservation du patrimoine",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Attaché de conservation du patrimoine",
-       "grille": "attaches-territoriaux-de-conservation-du-patrimoine-attache-"
-      },
-      {
-       "nom": "Attaché principal de conservation du patrimoine",
-       "grille": "attaches-territoriaux-de-conservation-du-patrimoine-attache-"
-      }
-     ]
-    },
-    {
-     "nom": "Bibliothécaires territoriaux",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Bibliothécaire",
-       "grille": "bibliothecaires-territoriaux-bibliothecaire"
-      },
-      {
-       "nom": "Bibliothécaire principal",
-       "grille": "bibliothecaires-territoriaux-bibliothecaire-principal"
-      }
-     ]
-    },
-    {
-     "nom": "Directeurs d'établissements territoriaux d'enseignement artistique",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Directeur de 2e catégorie",
-       "grille": "directeurs-d-etablissements-territoriaux-d-enseignement-arti"
-      },
-      {
-       "nom": "Directeur de 1re catégorie",
-       "grille": "directeurs-d-etablissements-territoriaux-d-enseignement-arti"
-      }
-     ]
-    },
-    {
-     "nom": "Professeurs territoriaux d'enseignement artistique",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Professeur de classe normale",
-       "grille": "professeurs-territoriaux-d-enseignement-artistique-professeu"
-      },
-      {
-       "nom": "Professeur hors classe",
-       "grille": "professeurs-territoriaux-d-enseignement-artistique-professeu"
-      }
+     ],
+     "textes": [
+      "Décret n° 2006-1692 du 22 décembre 2006 (statut particulier, art. 2)",
+      "Décret n° 2016-604 du 12 mai 2016 (échelonnement indiciaire des échelles C1, C2 et C3, art. 1)",
+      "Décret n° 2016-596 du 12 mai 2016 (organisation des carrières de la catégorie C, art. 3)"
      ]
     },
     {
@@ -287,16 +290,21 @@
      "grades": [
       {
        "nom": "Assistant de conservation",
-       "grille": "b1"
+       "grille": "redacteurs-redacteur"
       },
       {
        "nom": "Assistant de conservation principal de 2e classe",
-       "grille": "b2"
+       "grille": "redacteurs-redacteur-principal-de-2e-classe"
       },
       {
        "nom": "Assistant de conservation principal de 1re classe",
-       "grille": "b3"
+       "grille": "redacteurs-redacteur-principal-de-1re-classe"
       }
+     ],
+     "textes": [
+      "Décret n° 2011-1642 du 23 novembre 2011 (statut particulier, art. 2)",
+      "Décret n° 2010-330 du 22 mars 2010 (échelonnement indiciaire de la catégorie B, art. 1)",
+      "Décret n° 2010-329 du 22 mars 2010 (dispositions statutaires communes de la catégorie B, art. 24)"
      ]
     },
     {
@@ -305,34 +313,143 @@
      "grades": [
       {
        "nom": "Assistant d'enseignement artistique",
-       "grille": "b1"
+       "grille": "redacteurs-redacteur"
       },
       {
        "nom": "Assistant d'enseignement artistique principal de 2e classe",
-       "grille": "b2"
+       "grille": "redacteurs-redacteur-principal-de-2e-classe"
       },
       {
        "nom": "Assistant d'enseignement artistique principal de 1re classe",
-       "grille": "b3"
+       "grille": "redacteurs-redacteur-principal-de-1re-classe"
       }
+     ],
+     "textes": [
+      "Décret n° 2012-437 du 29 mars 2012 (statut particulier, art. 2)",
+      "Décret n° 2010-330 du 22 mars 2010 (échelonnement indiciaire de la catégorie B, art. 1)",
+      "Décret n° 2010-329 du 22 mars 2010 (dispositions statutaires communes de la catégorie B, art. 24)"
      ]
     },
     {
-     "nom": "Adjoints territoriaux du patrimoine",
-     "cat": "C",
+     "nom": "Attachés territoriaux de conservation du patrimoine",
+     "cat": "A",
      "grades": [
       {
-       "nom": "Adjoint du patrimoine",
-       "grille": "c1"
+       "nom": "Attaché de conservation du patrimoine",
+       "grille": "attaches-attache"
       },
       {
-       "nom": "Adjoint du patrimoine principal de 2e classe",
-       "grille": "c2"
-      },
-      {
-       "nom": "Adjoint du patrimoine principal de 1re classe",
-       "grille": "c3"
+       "nom": "Attaché principal de conservation du patrimoine",
+       "grille": "attaches-attache-principal"
       }
+     ],
+     "textes": [
+      "Décret n° 91-843 du 2 septembre 1991 (statut particulier, art. 18)",
+      "Décret n° 91-844 du 2 septembre 1991 (échelonnement indiciaire, art. 1)"
+     ]
+    },
+    {
+     "nom": "Bibliothécaires territoriaux",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Bibliothécaire",
+       "grille": "attaches-attache"
+      },
+      {
+       "nom": "Bibliothécaire principal",
+       "grille": "attaches-attache-principal"
+      }
+     ],
+     "textes": [
+      "Décret n° 91-845 du 2 septembre 1991 (statut particulier, art. 18)",
+      "Décret n° 91-846 du 2 septembre 1991 (échelonnement indiciaire, art. 1)"
+     ]
+    },
+    {
+     "nom": "Professeurs territoriaux d'enseignement artistique",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Professeur d'enseignement artistique de classe normale",
+       "grille": "professeurs-enseignement-artistique-professeur-d-enseignement-artistique-de-classe-normale"
+      },
+      {
+       "nom": "Professeur d'enseignement artistique hors classe",
+       "grille": "professeurs-enseignement-artistique-professeur-d-enseignement-artistique-hors-classe"
+      }
+     ],
+     "textes": [
+      "Décret n° 91-857 du 2 septembre 1991 (statut particulier, art. 18)",
+      "Décret n° 91-858 du 2 septembre 1991 (échelonnement indiciaire, art. 1)"
+     ]
+    },
+    {
+     "nom": "Directeurs d'établissements territoriaux d'enseignement artistique",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Directeur d'établissement d'enseignement artistique de 2e catégorie",
+       "grille": "directeurs-enseignement-artistique-directeur-d-etablissement-d-enseignement-artistique-de-2e-categorie"
+      },
+      {
+       "nom": "Directeur d'établissement d'enseignement artistique de 1re catégorie",
+       "grille": "directeurs-enseignement-artistique-directeur-d-etablissement-d-enseignement-artistique-de-1re-categorie"
+      }
+     ],
+     "textes": [
+      "Décret n° 91-855 du 2 septembre 1991 (statut particulier, art. 16)",
+      "Décret n° 91-856 du 2 septembre 1991 (échelonnement indiciaire, art. 1)"
+     ]
+    },
+    {
+     "nom": "Conservateurs territoriaux du patrimoine",
+     "cat": "A+",
+     "grades": [
+      {
+       "nom": "Conservateur du patrimoine",
+       "grille": "conservateurs-patrimoine-conservateur-du-patrimoine"
+      },
+      {
+       "nom": "Conservateur en chef du patrimoine",
+       "grille": "conservateurs-patrimoine-conservateur-en-chef-du-patrimoine"
+      },
+      {
+       "nom": "Élève conservateur",
+       "grille": "conservateurs-patrimoine-eleve-conservateur"
+      }
+     ],
+     "textes": [
+      "Décret n° 91-839 du 2 septembre 1991 (statut particulier, art. 21)",
+      "Décret n° 2022-559 du 14 avril 2022 (échelonnement indiciaire, art. 1)",
+      "Décret n° 85-1148 du 24 octobre 1985 (art. 6 : groupes hors échelle)"
+     ]
+    },
+    {
+     "nom": "Conservateurs territoriaux de bibliothèques",
+     "cat": "A+",
+     "grades": [
+      {
+       "nom": "Conservateur de bibliothèques",
+       "grille": "conservateurs-bibliotheques-conservateur-de-bibliotheques"
+      },
+      {
+       "nom": "Conservateur en chef de bibliothèques",
+       "grille": "conservateurs-bibliotheques-conservateur-en-chef-de-bibliotheques"
+      },
+      {
+       "nom": "Échelon de stage",
+       "grille": "conservateurs-bibliotheques-echelon-de-stage"
+      },
+      {
+       "nom": "Élève conservateur",
+       "grille": "conservateurs-patrimoine-eleve-conservateur"
+      }
+     ],
+     "textes": [
+      "Décret n° 91-841 du 2 septembre 1991 (statut particulier, art. 19)",
+      "Décret n° 91-842 du 2 septembre 1991 (échelonnement indiciaire, art. 1)",
+      "Décret n° 85-1148 du 24 octobre 1985 (art. 6 : groupes hors échelle)"
      ]
     }
    ]
@@ -341,17 +458,26 @@
    "nom": "Sportive",
    "cadres": [
     {
-     "nom": "Conseillers territoriaux des activités physiques et sportives",
-     "cat": "A",
+     "nom": "Opérateurs territoriaux des activités physiques et sportives",
+     "cat": "C",
      "grades": [
       {
-       "nom": "Conseiller des APS",
-       "grille": "conseillers-territoriaux-des-activites-physiques-et-sportive"
+       "nom": "Opérateur des APS",
+       "grille": "ech-c1"
       },
       {
-       "nom": "Conseiller principal des APS",
-       "grille": "conseillers-territoriaux-des-activites-physiques-et-sportive"
+       "nom": "Opérateur des APS qualifié",
+       "grille": "ech-c2"
+      },
+      {
+       "nom": "Opérateur des APS principal",
+       "grille": "ech-c3"
       }
+     ],
+     "textes": [
+      "Décret n° 92-368 du 1er avril 1992 (statut particulier, art. 1)",
+      "Décret n° 2016-604 du 12 mai 2016 (échelonnement indiciaire des échelles C1, C2 et C3, art. 1)",
+      "Décret n° 2016-596 du 12 mai 2016 (organisation des carrières de la catégorie C, art. 3)"
      ]
     },
     {
@@ -360,325 +486,39 @@
      "grades": [
       {
        "nom": "Éducateur des APS",
-       "grille": "b1"
+       "grille": "redacteurs-redacteur"
       },
       {
        "nom": "Éducateur des APS principal de 2e classe",
-       "grille": "b2"
+       "grille": "redacteurs-redacteur-principal-de-2e-classe"
       },
       {
        "nom": "Éducateur des APS principal de 1re classe",
-       "grille": "b3"
+       "grille": "redacteurs-redacteur-principal-de-1re-classe"
       }
+     ],
+     "textes": [
+      "Décret n° 2011-605 du 30 mai 2011 (statut particulier, art. 2)",
+      "Décret n° 2010-330 du 22 mars 2010 (échelonnement indiciaire de la catégorie B, art. 1)",
+      "Décret n° 2010-329 du 22 mars 2010 (dispositions statutaires communes de la catégorie B, art. 24)"
      ]
     },
     {
-     "nom": "Opérateurs territoriaux des activités physiques et sportives",
-     "cat": "C",
-     "grades": [
-      {
-       "nom": "Opérateur des APS",
-       "grille": "operateurs-territoriaux-des-activites-physiques-et-sportives"
-      },
-      {
-       "nom": "Opérateur des APS qualifié",
-       "grille": "operateurs-territoriaux-des-activites-physiques-et-sportives"
-      },
-      {
-       "nom": "Opérateur des APS principal",
-       "grille": "operateurs-territoriaux-des-activites-physiques-et-sportives"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "nom": "Médico-sociale",
-   "cadres": [
-    {
-     "nom": "Médecins territoriaux",
+     "nom": "Conseillers territoriaux des activités physiques et sportives",
      "cat": "A",
      "grades": [
       {
-       "nom": "Médecin de 2e classe",
-       "grille": "medecins-territoriaux-medecin-de-2e-classe"
+       "nom": "Conseiller des APS",
+       "grille": "attaches-attache"
       },
       {
-       "nom": "Médecin de 1re classe",
-       "grille": "medecins-territoriaux-medecin-de-1re-classe"
-      },
-      {
-       "nom": "Médecin hors classe",
-       "grille": "medecins-territoriaux-medecin-hors-classe"
+       "nom": "Conseiller des APS principal",
+       "grille": "attaches-attache-principal"
       }
-     ]
-    },
-    {
-     "nom": "Psychologues territoriaux",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Psychologue de classe normale",
-       "grille": "psychologues-territoriaux-psychologue-de-classe-normale"
-      },
-      {
-       "nom": "Psychologue hors classe",
-       "grille": "psychologues-territoriaux-psychologue-hors-classe"
-      }
-     ]
-    },
-    {
-     "nom": "Sages-femmes territoriales",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Sage-femme de classe normale",
-       "grille": "sages-femmes-territoriales-sage-femme-de-classe-normale"
-      },
-      {
-       "nom": "Sage-femme hors classe",
-       "grille": "sages-femmes-territoriales-sage-femme-hors-classe"
-      }
-     ]
-    },
-    {
-     "nom": "Puéricultrices territoriales",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Puéricultrice de classe normale",
-       "grille": "puericultrices-territoriales-puericultrice-de-classe-normale"
-      },
-      {
-       "nom": "Puéricultrice de classe supérieure",
-       "grille": "puericultrices-territoriales-puericultrice-de-classe-superie"
-      },
-      {
-       "nom": "Puéricultrice hors classe",
-       "grille": "puericultrices-territoriales-puericultrice-hors-classe"
-      }
-     ]
-    },
-    {
-     "nom": "Cadres territoriaux de santé paramédicaux",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Cadre de santé de 1re classe",
-       "grille": "cadres-territoriaux-de-sante-paramedicaux-cadre-de-sante-de-"
-      },
-      {
-       "nom": "Cadre supérieur de santé",
-       "grille": "cadres-territoriaux-de-sante-paramedicaux-cadre-superieur-de"
-      }
-     ]
-    },
-    {
-     "nom": "Infirmiers territoriaux en soins généraux",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Infirmier en soins généraux de classe normale",
-       "grille": "infirmiers-territoriaux-en-soins-generaux-infirmier-en-soins"
-      },
-      {
-       "nom": "Infirmier en soins généraux de classe supérieure",
-       "grille": "infirmiers-territoriaux-en-soins-generaux-infirmier-en-soins"
-      },
-      {
-       "nom": "Infirmier en soins généraux hors classe",
-       "grille": "infirmiers-territoriaux-en-soins-generaux-infirmier-en-soins"
-      }
-     ]
-    },
-    {
-     "nom": "Masseurs-kinésithérapeutes, psychomotriciens et orthophonistes territoriaux",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Classe normale",
-       "grille": "masseurs-kinesitherapeutes-psychomotriciens-et-orthophoniste"
-      },
-      {
-       "nom": "Hors classe",
-       "grille": "masseurs-kinesitherapeutes-psychomotriciens-et-orthophoniste"
-      }
-     ]
-    },
-    {
-     "nom": "Pédicures-podologues, ergothérapeutes, orthoptistes et manipulateurs d'électroradiologie médicale territoriaux",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Classe normale",
-       "grille": "pedicures-podologues-ergotherapeutes-orthoptistes-et-manipul"
-      },
-      {
-       "nom": "Hors classe",
-       "grille": "pedicures-podologues-ergotherapeutes-orthoptistes-et-manipul"
-      }
-     ]
-    },
-    {
-     "nom": "Techniciens paramédicaux territoriaux",
-     "cat": "B",
-     "grades": [
-      {
-       "nom": "Technicien paramédical de classe normale",
-       "grille": "techniciens-paramedicaux-territoriaux-technicien-paramedical"
-      },
-      {
-       "nom": "Technicien paramédical de classe supérieure",
-       "grille": "techniciens-paramedicaux-territoriaux-technicien-paramedical"
-      }
-     ]
-    },
-    {
-     "nom": "Auxiliaires de puériculture territoriaux",
-     "cat": "B",
-     "grades": [
-      {
-       "nom": "Auxiliaire de puériculture de classe normale",
-       "grille": "auxiliaires-de-puericulture-territoriaux-auxiliaire-de-pueri"
-      },
-      {
-       "nom": "Auxiliaire de puériculture de classe supérieure",
-       "grille": "auxiliaires-de-puericulture-territoriaux-auxiliaire-de-pueri"
-      }
-     ]
-    },
-    {
-     "nom": "Aides-soignants territoriaux",
-     "cat": "B",
-     "grades": [
-      {
-       "nom": "Aide-soignant de classe normale",
-       "grille": "aides-soignants-territoriaux-aide-soignant-de-classe-normale"
-      },
-      {
-       "nom": "Aide-soignant de classe supérieure",
-       "grille": "aides-soignants-territoriaux-aide-soignant-de-classe-superie"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "nom": "Médico-technique",
-   "cadres": [
-    {
-     "nom": "Biologistes, vétérinaires et pharmaciens territoriaux",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Classe normale",
-       "grille": "biologistes-veterinaires-et-pharmaciens-territoriaux-classe-"
-      },
-      {
-       "nom": "Hors classe",
-       "grille": "biologistes-veterinaires-et-pharmaciens-territoriaux-hors-cl"
-      },
-      {
-       "nom": "Classe exceptionnelle",
-       "grille": "biologistes-veterinaires-et-pharmaciens-territoriaux-classe-"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "nom": "Sociale",
-   "cadres": [
-    {
-     "nom": "Conseillers territoriaux socio-éducatifs",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Conseiller socio-éducatif",
-       "grille": "conseillers-territoriaux-socio-educatifs-conseiller-socio-ed"
-      },
-      {
-       "nom": "Conseiller supérieur socio-éducatif",
-       "grille": "conseillers-territoriaux-socio-educatifs-conseiller-superieu"
-      },
-      {
-       "nom": "Conseiller hors classe socio-éducatif",
-       "grille": "conseillers-territoriaux-socio-educatifs-conseiller-hors-cla"
-      }
-     ]
-    },
-    {
-     "nom": "Assistants territoriaux socio-éducatifs",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Assistant socio-éducatif",
-       "grille": "assistants-territoriaux-socio-educatifs-assistant-socio-educ"
-      },
-      {
-       "nom": "Assistant socio-éducatif de classe exceptionnelle",
-       "grille": "assistants-territoriaux-socio-educatifs-assistant-socio-educ"
-      }
-     ]
-    },
-    {
-     "nom": "Éducateurs territoriaux de jeunes enfants",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Éducateur de jeunes enfants",
-       "grille": "educateurs-territoriaux-de-jeunes-enfants-educateur-de-jeune"
-      },
-      {
-       "nom": "Éducateur de jeunes enfants de classe exceptionnelle",
-       "grille": "educateurs-territoriaux-de-jeunes-enfants-educateur-de-jeune"
-      }
-     ]
-    },
-    {
-     "nom": "Moniteurs-éducateurs et intervenants familiaux territoriaux",
-     "cat": "B",
-     "grades": [
-      {
-       "nom": "Moniteur-éducateur et intervenant familial",
-       "grille": "moniteurs-educateurs-et-intervenants-familiaux-territoriaux-"
-      },
-      {
-       "nom": "Moniteur-éducateur et intervenant familial principal",
-       "grille": "moniteurs-educateurs-et-intervenants-familiaux-territoriaux-"
-      }
-     ]
-    },
-    {
-     "nom": "Agents sociaux territoriaux",
-     "cat": "C",
-     "grades": [
-      {
-       "nom": "Agent social",
-       "grille": "c1"
-      },
-      {
-       "nom": "Agent social principal de 2e classe",
-       "grille": "c2"
-      },
-      {
-       "nom": "Agent social principal de 1re classe",
-       "grille": "c3"
-      }
-     ]
-    },
-    {
-     "nom": "Agents territoriaux spécialisés des écoles maternelles (ATSEM)",
-     "cat": "C",
-     "grades": [
-      {
-       "nom": "ATSEM principal de 2e classe",
-       "grille": "c2"
-      },
-      {
-       "nom": "ATSEM principal de 1re classe",
-       "grille": "c3"
-      }
+     ],
+     "textes": [
+      "Décret n° 92-364 du 1er avril 1992 (statut particulier, art. 17)",
+      "Décret n° 92-366 du 1er avril 1992 (échelonnement indiciaire, art. 1)"
      ]
     }
    ]
@@ -687,39 +527,49 @@
    "nom": "Animation",
    "cadres": [
     {
-     "nom": "Animateurs territoriaux",
-     "cat": "B",
-     "grades": [
-      {
-       "nom": "Animateur",
-       "grille": "b1"
-      },
-      {
-       "nom": "Animateur principal de 2e classe",
-       "grille": "b2"
-      },
-      {
-       "nom": "Animateur principal de 1re classe",
-       "grille": "b3"
-      }
-     ]
-    },
-    {
      "nom": "Adjoints territoriaux d'animation",
      "cat": "C",
      "grades": [
       {
        "nom": "Adjoint d'animation",
-       "grille": "c1"
+       "grille": "ech-c1"
       },
       {
        "nom": "Adjoint d'animation principal de 2e classe",
-       "grille": "c2"
+       "grille": "ech-c2"
       },
       {
        "nom": "Adjoint d'animation principal de 1re classe",
-       "grille": "c3"
+       "grille": "ech-c3"
       }
+     ],
+     "textes": [
+      "Décret n° 2006-1693 du 22 décembre 2006 (statut particulier, art. 2)",
+      "Décret n° 2016-604 du 12 mai 2016 (échelonnement indiciaire des échelles C1, C2 et C3, art. 1)",
+      "Décret n° 2016-596 du 12 mai 2016 (organisation des carrières de la catégorie C, art. 3)"
+     ]
+    },
+    {
+     "nom": "Animateurs territoriaux",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Animateur",
+       "grille": "redacteurs-redacteur"
+      },
+      {
+       "nom": "Animateur principal de 2e classe",
+       "grille": "redacteurs-redacteur-principal-de-2e-classe"
+      },
+      {
+       "nom": "Animateur principal de 1re classe",
+       "grille": "redacteurs-redacteur-principal-de-1re-classe"
+      }
+     ],
+     "textes": [
+      "Décret n° 2011-558 du 20 mai 2011 (statut particulier, art. 1)",
+      "Décret n° 2010-330 du 22 mars 2010 (échelonnement indiciaire de la catégorie B, art. 1)",
+      "Décret n° 2010-329 du 22 mars 2010 (dispositions statutaires communes de la catégorie B, art. 24)"
      ]
     }
    ]
@@ -728,49 +578,27 @@
    "nom": "Police municipale",
    "cadres": [
     {
-     "nom": "Directeurs de police municipale",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Directeur de police municipale",
-       "grille": "directeurs-de-police-municipale-directeur-de-police-municipa"
-      },
-      {
-       "nom": "Directeur principal de police municipale",
-       "grille": "directeurs-de-police-municipale-directeur-principal-de-polic"
-      }
-     ]
-    },
-    {
-     "nom": "Chefs de service de police municipale",
-     "cat": "B",
-     "grades": [
-      {
-       "nom": "Chef de service de police municipale",
-       "grille": "b1"
-      },
-      {
-       "nom": "Chef de service de police municipale principal de 2e classe",
-       "grille": "b2"
-      },
-      {
-       "nom": "Chef de service de police municipale principal de 1re classe",
-       "grille": "b3"
-      }
-     ]
-    },
-    {
      "nom": "Agents de police municipale",
      "cat": "C",
      "grades": [
       {
        "nom": "Gardien-brigadier",
-       "grille": "agents-de-police-municipale-gardien-brigadier"
+       "grille": "ech-c2"
       },
       {
        "nom": "Brigadier-chef principal",
-       "grille": "agents-de-police-municipale-brigadier-chef-principal"
+       "grille": "agents-police-municipale-brigadier-chef-principal"
+      },
+      {
+       "nom": "Chef de police municipale",
+       "grille": "agents-police-municipale-chef-de-police-municipale"
       }
+     ],
+     "textes": [
+      "Décret n° 2006-1391 du 17 novembre 2006 (statut particulier, art. 1, 8 et 27)",
+      "Décret n° 94-733 du 24 août 1994 (échelonnement indiciaire des brigadiers-chefs principaux et chefs de police, art. 1 et 2)",
+      "Décret n° 2016-604 du 12 mai 2016 (échelonnement indiciaire des échelles C1, C2 et C3, art. 1)",
+      "Décret n° 2016-596 du 12 mai 2016 (organisation des carrières de la catégorie C, art. 3)"
      ]
     },
     {
@@ -779,12 +607,396 @@
      "grades": [
       {
        "nom": "Garde champêtre chef",
-       "grille": "gardes-champetres-garde-champetre-chef"
+       "grille": "ech-c2"
       },
       {
        "nom": "Garde champêtre chef principal",
-       "grille": "gardes-champetres-garde-champetre-chef-principal"
+       "grille": "agents-police-municipale-brigadier-chef-principal"
       }
+     ],
+     "textes": [
+      "Décret n° 94-731 du 24 août 1994 (statut particulier, art. 1 et 8, rédaction du décret n° 2024-282)",
+      "Décret n° 2024-283 du 28 mars 2024 (échelonnement indiciaire du garde champêtre chef principal)",
+      "Décret n° 2016-604 du 12 mai 2016 (échelonnement indiciaire des échelles C1, C2 et C3, art. 1)",
+      "Décret n° 2016-596 du 12 mai 2016 (organisation des carrières de la catégorie C, art. 3)"
+     ]
+    },
+    {
+     "nom": "Chefs de service de police municipale",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Chef de service de police municipale",
+       "grille": "redacteurs-redacteur"
+      },
+      {
+       "nom": "Chef de service de police municipale principal de 2e classe",
+       "grille": "redacteurs-redacteur-principal-de-2e-classe"
+      },
+      {
+       "nom": "Chef de service de police municipale principal de 1re classe",
+       "grille": "redacteurs-redacteur-principal-de-1re-classe"
+      }
+     ],
+     "textes": [
+      "Décret n° 2011-444 du 21 avril 2011 (statut particulier, art. 1)",
+      "Décret n° 2010-330 du 22 mars 2010 (échelonnement indiciaire de la catégorie B, art. 1)",
+      "Décret n° 2010-329 du 22 mars 2010 (dispositions statutaires communes de la catégorie B, art. 24)"
+     ]
+    },
+    {
+     "nom": "Directeurs de police municipale",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Directeur de police municipale",
+       "grille": "attaches-attache"
+      },
+      {
+       "nom": "Directeur principal de police municipale",
+       "grille": "attaches-attache-principal"
+      }
+     ],
+     "textes": [
+      "Décret n° 2006-1392 du 17 novembre 2006 (statut particulier, art. 19)",
+      "Décret n° 2006-1393 du 17 novembre 2006 (échelonnement indiciaire, art. 1)"
+     ]
+    }
+   ]
+  },
+  {
+   "nom": "Médico-sociale",
+   "cadres": [
+    {
+     "nom": "Auxiliaires de soins territoriaux",
+     "cat": "C",
+     "grades": [
+      {
+       "nom": "Auxiliaire de soins principal de 2e classe",
+       "grille": "ech-c2"
+      },
+      {
+       "nom": "Auxiliaire de soins principal de 1re classe",
+       "grille": "ech-c3"
+      }
+     ],
+     "textes": [
+      "Décret n° 92-866 du 28 août 1992 (statut particulier, art. 1)",
+      "Décret n° 2016-604 du 12 mai 2016 (échelonnement indiciaire des échelles C1, C2 et C3, art. 1)",
+      "Décret n° 2016-596 du 12 mai 2016 (organisation des carrières de la catégorie C, art. 3)"
+     ]
+    },
+    {
+     "nom": "Aides-soignants territoriaux",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Aide-soignant de classe normale",
+       "grille": "aides-soignants-aide-soignant-de-classe-normale"
+      },
+      {
+       "nom": "Aide-soignant de classe supérieure",
+       "grille": "aides-soignants-aide-soignant-de-classe-superieure"
+      }
+     ],
+     "textes": [
+      "Décret n° 2021-1881 du 29 décembre 2021 (statut particulier, art. 2 et 20)",
+      "Décret n° 2021-1885 du 29 décembre 2021 (échelonnement indiciaire, art. 1)"
+     ]
+    },
+    {
+     "nom": "Auxiliaires de puériculture territoriaux",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Auxiliaire de puériculture de classe normale",
+       "grille": "aides-soignants-aide-soignant-de-classe-normale"
+      },
+      {
+       "nom": "Auxiliaire de puériculture de classe supérieure",
+       "grille": "aides-soignants-aide-soignant-de-classe-superieure"
+      }
+     ],
+     "textes": [
+      "Décret n° 2021-1882 du 29 décembre 2021 (statut particulier, art. 20)",
+      "Décret n° 2021-1885 du 29 décembre 2021 (échelonnement indiciaire, art. 2)"
+     ]
+    },
+    {
+     "nom": "Techniciens paramédicaux territoriaux",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Technicien paramédical de classe normale",
+       "grille": "techniciens-paramedicaux-technicien-paramedical-de-classe-normale"
+      },
+      {
+       "nom": "Technicien paramédical de classe supérieure",
+       "grille": "techniciens-paramedicaux-technicien-paramedical-de-classe-superieure"
+      }
+     ],
+     "textes": [
+      "Décret n° 2013-262 du 27 mars 2013 (statut particulier, art. 21)",
+      "Décret n° 2013-263 du 27 mars 2013 (échelonnement indiciaire, art. 1)"
+     ]
+    },
+    {
+     "nom": "Infirmiers territoriaux en soins généraux",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Infirmier en soins généraux",
+       "grille": "infirmiers-soins-generaux-infirmier-en-soins-generaux"
+      },
+      {
+       "nom": "Infirmier en soins généraux hors classe",
+       "grille": "infirmiers-soins-generaux-infirmier-en-soins-generaux-hors-classe"
+      }
+     ],
+     "textes": [
+      "Décret n° 2012-1420 du 18 décembre 2012 (statut particulier, art. 18)",
+      "Décret n° 2012-1421 du 18 décembre 2012 (échelonnement indiciaire, art. 1)"
+     ]
+    },
+    {
+     "nom": "Puéricultrices territoriales",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Puéricultrice",
+       "grille": "infirmiers-soins-generaux-infirmier-en-soins-generaux-hors-classe"
+      },
+      {
+       "nom": "Puéricultrice hors classe",
+       "grille": "puericultrices-puericultrice-hors-classe"
+      }
+     ],
+     "textes": [
+      "Décret n° 2014-923 du 18 août 2014 (statut particulier, art. 18)",
+      "Décret n° 2014-925 du 18 août 2014 (échelonnement indiciaire, art. 1)"
+     ]
+    },
+    {
+     "nom": "Cadres territoriaux de santé paramédicaux",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Cadre de santé",
+       "grille": "cadres-sante-paramedicaux-cadre-de-sante"
+      },
+      {
+       "nom": "Cadre supérieur de santé",
+       "grille": "cadres-sante-paramedicaux-cadre-superieur-de-sante"
+      }
+     ],
+     "textes": [
+      "Décret n° 2016-336 du 21 mars 2016 (statut particulier, art. 18)",
+      "Décret n° 2016-337 du 21 mars 2016 (échelonnement indiciaire, art. 1)"
+     ]
+    },
+    {
+     "nom": "Psychologues territoriaux",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Psychologue de classe normale",
+       "grille": "psychologues-psychologue-de-classe-normale"
+      },
+      {
+       "nom": "Psychologue hors classe",
+       "grille": "psychologues-psychologue-hors-classe"
+      }
+     ],
+     "textes": [
+      "Décret n° 92-853 du 28 août 1992 (statut particulier, art. 15)",
+      "Décret n° 92-854 du 28 août 1992 (échelonnement indiciaire, art. 1)"
+     ]
+    },
+    {
+     "nom": "Sages-femmes territoriales",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Sage-femme de classe normale",
+       "grille": "sages-femmes-sage-femme-de-classe-normale"
+      },
+      {
+       "nom": "Sage-femme hors classe",
+       "grille": "sages-femmes-sage-femme-hors-classe"
+      }
+     ],
+     "textes": [
+      "Décret n° 92-855 du 28 août 1992 (statut particulier, art. 15)",
+      "Décret n° 2022-753 du 28 avril 2022 (échelonnement indiciaire, art. 1)"
+     ]
+    },
+    {
+     "nom": "Médecins territoriaux",
+     "cat": "A+",
+     "grades": [
+      {
+       "nom": "Médecin de 2e classe",
+       "grille": "medecins-medecin-de-2e-classe"
+      },
+      {
+       "nom": "Médecin de 1re classe",
+       "grille": "medecins-medecin-de-1re-classe"
+      },
+      {
+       "nom": "Médecin hors classe",
+       "grille": "medecins-medecin-hors-classe"
+      }
+     ],
+     "textes": [
+      "Décret n° 92-851 du 28 août 1992 (statut particulier, art. 14)",
+      "Décret n° 2014-924 du 18 août 2014 (échelonnement indiciaire, art. 1)",
+      "Décret n° 85-1148 du 24 octobre 1985 (art. 6 : groupes hors échelle)"
+     ]
+    },
+    {
+     "nom": "Biologistes, vétérinaires et pharmaciens territoriaux",
+     "cat": "A+",
+     "grades": [
+      {
+       "nom": "Biologiste, vétérinaire ou pharmacien de classe normale",
+       "grille": "biologistes-veterinaires-pharmaciens-biologiste-veterinaire-ou-pharmacien-de-classe-normale"
+      },
+      {
+       "nom": "Biologiste, vétérinaire ou pharmacien hors classe",
+       "grille": "biologistes-veterinaires-pharmaciens-biologiste-veterinaire-ou-pharmacien-hors-classe"
+      },
+      {
+       "nom": "Biologiste, vétérinaire ou pharmacien de classe exceptionnelle",
+       "grille": "biologistes-veterinaires-pharmaciens-biologiste-veterinaire-ou-pharmacien-de-classe-exceptionnelle"
+      }
+     ],
+     "textes": [
+      "Décret n° 92-867 du 28 août 1992 (statut particulier, art. 11)",
+      "Décret n° 2011-1931 du 21 décembre 2011 (échelonnement indiciaire, art. 1)",
+      "Décret n° 85-1148 du 24 octobre 1985 (art. 6 : groupes hors échelle)"
+     ]
+    }
+   ]
+  },
+  {
+   "nom": "Sociale",
+   "cadres": [
+    {
+     "nom": "Agents territoriaux spécialisés des écoles maternelles (ATSEM)",
+     "cat": "C",
+     "grades": [
+      {
+       "nom": "ATSEM principal de 2e classe",
+       "grille": "ech-c2"
+      },
+      {
+       "nom": "ATSEM principal de 1re classe",
+       "grille": "ech-c3"
+      }
+     ],
+     "textes": [
+      "Décret n° 92-850 du 28 août 1992 (statut particulier, art. 1)",
+      "Décret n° 2016-604 du 12 mai 2016 (échelonnement indiciaire des échelles C1, C2 et C3, art. 1)",
+      "Décret n° 2016-596 du 12 mai 2016 (organisation des carrières de la catégorie C, art. 3)"
+     ]
+    },
+    {
+     "nom": "Agents sociaux territoriaux",
+     "cat": "C",
+     "grades": [
+      {
+       "nom": "Agent social",
+       "grille": "ech-c1"
+      },
+      {
+       "nom": "Agent social principal de 2e classe",
+       "grille": "ech-c2"
+      },
+      {
+       "nom": "Agent social principal de 1re classe",
+       "grille": "ech-c3"
+      }
+     ],
+     "textes": [
+      "Décret n° 92-849 du 28 août 1992 (statut particulier, art. 1)",
+      "Décret n° 2016-604 du 12 mai 2016 (échelonnement indiciaire des échelles C1, C2 et C3, art. 1)",
+      "Décret n° 2016-596 du 12 mai 2016 (organisation des carrières de la catégorie C, art. 3)"
+     ]
+    },
+    {
+     "nom": "Moniteurs-éducateurs et intervenants familiaux territoriaux",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Moniteur-éducateur et intervenant familial",
+       "grille": "redacteurs-redacteur"
+      },
+      {
+       "nom": "Moniteur-éducateur et intervenant familial principal",
+       "grille": "redacteurs-redacteur-principal-de-2e-classe"
+      }
+     ],
+     "textes": [
+      "Décret n° 2013-490 du 10 juin 2013 (statut particulier, art. 14)",
+      "Décret n° 2013-493 du 10 juin 2013 (échelonnement indiciaire, art. 1)"
+     ]
+    },
+    {
+     "nom": "Assistants territoriaux socio-éducatifs",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Assistant socio-éducatif",
+       "grille": "assistants-socio-educatifs-assistant-socio-educatif"
+      },
+      {
+       "nom": "Assistant socio-éducatif de classe exceptionnelle",
+       "grille": "assistants-socio-educatifs-assistant-socio-educatif-de-classe-exceptionnelle"
+      }
+     ],
+     "textes": [
+      "Décret n° 2017-901 du 9 mai 2017 (statut particulier, art. 17)",
+      "Décret n° 2017-904 du 9 mai 2017 (échelonnement indiciaire, art. 2 : indices au 1er janvier 2021)"
+     ]
+    },
+    {
+     "nom": "Éducateurs territoriaux de jeunes enfants",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Éducateur de jeunes enfants",
+       "grille": "assistants-socio-educatifs-assistant-socio-educatif"
+      },
+      {
+       "nom": "Éducateur de jeunes enfants de classe exceptionnelle",
+       "grille": "assistants-socio-educatifs-assistant-socio-educatif-de-classe-exceptionnelle"
+      }
+     ],
+     "textes": [
+      "Décret n° 2017-902 du 9 mai 2017 (statut particulier, art. 17)",
+      "Décret n° 2017-905 du 9 mai 2017 (échelonnement indiciaire, art. 2 : indices au 1er janvier 2021)"
+     ]
+    },
+    {
+     "nom": "Conseillers territoriaux socio-éducatifs",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Conseiller socio-éducatif",
+       "grille": "conseillers-socio-educatifs-conseiller-socio-educatif"
+      },
+      {
+       "nom": "Conseiller supérieur socio-éducatif",
+       "grille": "conseillers-socio-educatifs-conseiller-superieur-socio-educatif"
+      },
+      {
+       "nom": "Conseiller hors classe socio-éducatif",
+       "grille": "conseillers-socio-educatifs-conseiller-hors-classe-socio-educatif"
+      }
+     ],
+     "textes": [
+      "Décret n° 2013-489 du 10 juin 2013 (statut particulier, art. 18)",
+      "Décret n° 2013-492 du 10 juin 2013 (échelonnement indiciaire, art. 1)"
      ]
     }
    ]
@@ -793,572 +1005,3415 @@
    "nom": "Sapeurs-pompiers professionnels",
    "cadres": [
     {
-     "nom": "Conception et direction des SPP",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Colonel",
-       "grille": "conception-et-direction-des-spp-colonel"
-      },
-      {
-       "nom": "Colonel hors classe",
-       "grille": "conception-et-direction-des-spp-colonel-hors-classe"
-      },
-      {
-       "nom": "Contrôleur général",
-       "grille": "conception-et-direction-des-spp-controleur-general"
-      }
-     ]
-    },
-    {
-     "nom": "Capitaines, commandants et lieutenants-colonels de SPP",
-     "cat": "A",
-     "grades": [
-      {
-       "nom": "Capitaine",
-       "grille": "capitaines-commandants-et-lieutenants-colonels-de-spp-capita"
-      },
-      {
-       "nom": "Commandant",
-       "grille": "capitaines-commandants-et-lieutenants-colonels-de-spp-comman"
-      },
-      {
-       "nom": "Lieutenant-colonel",
-       "grille": "capitaines-commandants-et-lieutenants-colonels-de-spp-lieute"
-      }
-     ]
-    },
-    {
-     "nom": "Lieutenants de SPP",
-     "cat": "B",
-     "grades": [
-      {
-       "nom": "Lieutenant de 2e classe",
-       "grille": "lieutenants-de-spp-lieutenant-de-2e-classe"
-      },
-      {
-       "nom": "Lieutenant de 1re classe",
-       "grille": "lieutenants-de-spp-lieutenant-de-1re-classe"
-      },
-      {
-       "nom": "Lieutenant hors classe",
-       "grille": "lieutenants-de-spp-lieutenant-hors-classe"
-      }
-     ]
-    },
-    {
-     "nom": "Sous-officiers de SPP",
-     "cat": "C",
-     "grades": [
-      {
-       "nom": "Sergent",
-       "grille": "sous-officiers-de-spp-sergent"
-      },
-      {
-       "nom": "Adjudant",
-       "grille": "sous-officiers-de-spp-adjudant"
-      }
-     ]
-    },
-    {
-     "nom": "Sapeurs et caporaux de SPP",
+     "nom": "Sapeurs et caporaux de sapeurs-pompiers professionnels",
      "cat": "C",
      "grades": [
       {
        "nom": "Sapeur",
-       "grille": "sapeurs-et-caporaux-de-spp-sapeur"
+       "grille": "ech-c1"
       },
       {
        "nom": "Caporal",
-       "grille": "sapeurs-et-caporaux-de-spp-caporal"
+       "grille": "ech-c2"
       },
       {
        "nom": "Caporal-chef",
-       "grille": "sapeurs-et-caporaux-de-spp-caporal-chef"
+       "grille": "ech-c3"
       }
+     ],
+     "textes": [
+      "Décret n° 2012-520 du 20 avril 2012 (statut particulier, art. 1)",
+      "Décret n° 2016-604 du 12 mai 2016 (échelonnement indiciaire des échelles C1, C2 et C3, art. 1)",
+      "Décret n° 2016-596 du 12 mai 2016 (organisation des carrières de la catégorie C, art. 3)"
+     ]
+    },
+    {
+     "nom": "Sous-officiers de sapeurs-pompiers professionnels",
+     "cat": "C",
+     "grades": [
+      {
+       "nom": "Sergent",
+       "grille": "sous-officiers-spp-sergent"
+      },
+      {
+       "nom": "Adjudant",
+       "grille": "agents-maitrise-agent-de-maitrise-principal"
+      }
+     ],
+     "textes": [
+      "Décret n° 2012-521 du 20 avril 2012 (statut particulier, art. 12)",
+      "Décret n° 2012-524 du 20 avril 2012 (indices de rémunération, art. 1 et 2)"
+     ]
+    },
+    {
+     "nom": "Lieutenants de sapeurs-pompiers professionnels",
+     "cat": "B",
+     "grades": [
+      {
+       "nom": "Lieutenant de 2e classe",
+       "grille": "redacteurs-redacteur"
+      },
+      {
+       "nom": "Lieutenant de 1re classe",
+       "grille": "redacteurs-redacteur-principal-de-2e-classe"
+      },
+      {
+       "nom": "Lieutenant hors classe",
+       "grille": "redacteurs-redacteur-principal-de-1re-classe"
+      }
+     ],
+     "textes": [
+      "Décret n° 2012-522 du 20 avril 2012 (statut particulier, art. 2)",
+      "Décret n° 2010-330 du 22 mars 2010 (échelonnement indiciaire de la catégorie B, art. 1)",
+      "Décret n° 2010-329 du 22 mars 2010 (dispositions statutaires communes de la catégorie B, art. 24)"
+     ]
+    },
+    {
+     "nom": "Capitaines, commandants et lieutenants-colonels de sapeurs-pompiers professionnels",
+     "cat": "A",
+     "grades": [
+      {
+       "nom": "Capitaine",
+       "grille": "ingenieurs-ingenieur"
+      },
+      {
+       "nom": "Commandant",
+       "grille": "capitaines-commandants-lieutenants-colonels-commandant"
+      },
+      {
+       "nom": "Lieutenant-colonel",
+       "grille": "capitaines-commandants-lieutenants-colonels-lieutenant-colonel"
+      }
+     ],
+     "textes": [
+      "Décret n° 2016-2008 du 30 décembre 2016 (statut particulier, art. 12)",
+      "Décret n° 2016-2007 du 30 décembre 2016 (échelonnement indiciaire, art. 1 à 3)",
+      "Décret n° 85-1148 du 24 octobre 1985 (art. 6 : groupes hors échelle)"
      ]
     }
    ]
   }
  ],
  "grilles": {
-  "c1": {
+  "ech-c1": {
    "nom": "Échelle C1",
    "versions": [
     {
-     "effet": "2017-01-01",
+     "effet": "2022-01-01",
      "echelons": [
       {
        "d": 12,
-       "im": null
+       "im": 366
       },
       {
-       "d": 24,
-       "im": null
+       "d": 12,
+       "im": 367
       },
       {
-       "d": 24,
-       "im": null
+       "d": 12,
+       "im": 368
       },
       {
-       "d": 24,
-       "im": null
+       "d": 12,
+       "im": 369
       },
       {
-       "d": 24,
-       "im": null
+       "d": 12,
+       "im": 370
       },
       {
-       "d": 24,
-       "im": null
-      },
-      {
-       "d": 24,
-       "im": null
+       "d": 12,
+       "im": 371
       },
       {
        "d": 36,
-       "im": null
+       "im": 372
       },
       {
        "d": 36,
-       "im": null
+       "im": 373
+      },
+      {
+       "d": 36,
+       "im": 376
       },
       {
        "d": 48,
-       "im": null
-      },
-      {
-       "d": 48,
-       "im": null
+       "im": 377
       },
       {
        "d": null,
-       "im": null
+       "im": 387
       }
      ]
     }
    ]
   },
-  "c2": {
+  "ech-c2": {
    "nom": "Échelle C2",
    "versions": [
     {
-     "effet": "2017-01-01",
+     "effet": "2022-01-01",
      "echelons": [
       {
        "d": 12,
-       "im": null
+       "im": 367
+      },
+      {
+       "d": 12,
+       "im": 369
+      },
+      {
+       "d": 12,
+       "im": 370
+      },
+      {
+       "d": 12,
+       "im": 373
+      },
+      {
+       "d": 12,
+       "im": 374
+      },
+      {
+       "d": 12,
+       "im": 376
       },
       {
        "d": 24,
-       "im": null
+       "im": 377
       },
       {
        "d": 24,
-       "im": null
-      },
-      {
-       "d": 24,
-       "im": null
-      },
-      {
-       "d": 24,
-       "im": null
-      },
-      {
-       "d": 24,
-       "im": null
-      },
-      {
-       "d": 24,
-       "im": null
+       "im": 385
       },
       {
        "d": 36,
-       "im": null
+       "im": 397
       },
       {
        "d": 36,
-       "im": null
+       "im": 409
       },
       {
        "d": 48,
-       "im": null
-      },
-      {
-       "d": 48,
-       "im": null
+       "im": 417
       },
       {
        "d": null,
-       "im": null
+       "im": 425
       }
      ]
     }
    ]
   },
-  "c3": {
+  "ech-c3": {
    "nom": "Échelle C3",
-   "versions": []
-  },
-  "b1": {
-   "nom": "Catégorie B (NES) – 1er grade",
    "versions": [
     {
-     "effet": "2017-01-01",
+     "effet": "2022-01-01",
+     "echelons": [
+      {
+       "d": 12,
+       "im": 373
+      },
+      {
+       "d": 12,
+       "im": 375
+      },
+      {
+       "d": 24,
+       "im": 376
+      },
+      {
+       "d": 24,
+       "im": 385
+      },
+      {
+       "d": 24,
+       "im": 398
+      },
+      {
+       "d": 24,
+       "im": 408
+      },
+      {
+       "d": 36,
+       "im": 420
+      },
+      {
+       "d": 36,
+       "im": 435
+      },
+      {
+       "d": 36,
+       "im": 455
+      },
+      {
+       "d": null,
+       "im": 478
+      }
+     ]
+    }
+   ]
+  },
+  "redacteurs-redacteur": {
+   "nom": "Rédacteur",
+   "versions": [
+    {
+     "effet": "2022-09-01",
+     "echelons": [
+      {
+       "d": 12,
+       "im": 373
+      },
+      {
+       "d": 12,
+       "im": 374
+      },
+      {
+       "d": 12,
+       "im": 375
+      },
+      {
+       "d": 12,
+       "im": 376
+      },
+      {
+       "d": 24,
+       "im": 377
+      },
+      {
+       "d": 24,
+       "im": 386
+      },
+      {
+       "d": 24,
+       "im": 401
+      },
+      {
+       "d": 36,
+       "im": 420
+      },
+      {
+       "d": 36,
+       "im": 436
+      },
+      {
+       "d": 36,
+       "im": 446
+      },
+      {
+       "d": 36,
+       "im": 462
+      },
+      {
+       "d": 48,
+       "im": 482
+      },
+      {
+       "d": null,
+       "im": 508
+      }
+     ]
+    }
+   ]
+  },
+  "redacteurs-redacteur-principal-de-2e-classe": {
+   "nom": "Rédacteur principal de 2e classe",
+   "versions": [
+    {
+     "effet": "2022-09-01",
+     "echelons": [
+      {
+       "d": 12,
+       "im": 376
+      },
+      {
+       "d": 12,
+       "im": 377
+      },
+      {
+       "d": 24,
+       "im": 384
+      },
+      {
+       "d": 24,
+       "im": 395
+      },
+      {
+       "d": 24,
+       "im": 406
+      },
+      {
+       "d": 24,
+       "im": 421
+      },
+      {
+       "d": 36,
+       "im": 441
+      },
+      {
+       "d": 36,
+       "im": 457
+      },
+      {
+       "d": 36,
+       "im": 466
+      },
+      {
+       "d": 36,
+       "im": 485
+      },
+      {
+       "d": 48,
+       "im": 509
+      },
+      {
+       "d": null,
+       "im": 539
+      }
+     ]
+    }
+   ]
+  },
+  "redacteurs-redacteur-principal-de-1re-classe": {
+   "nom": "Rédacteur principal de 1re classe",
+   "versions": [
+    {
+     "effet": "2022-09-01",
+     "echelons": [
+      {
+       "d": 12,
+       "im": 397
+      },
+      {
+       "d": 24,
+       "im": 409
+      },
+      {
+       "d": 24,
+       "im": 424
+      },
+      {
+       "d": 24,
+       "im": 446
+      },
+      {
+       "d": 24,
+       "im": 470
+      },
+      {
+       "d": 36,
+       "im": 489
+      },
+      {
+       "d": 36,
+       "im": 513
+      },
+      {
+       "d": 36,
+       "im": 539
+      },
+      {
+       "d": 36,
+       "im": 556
+      },
+      {
+       "d": 36,
+       "im": 574
+      },
+      {
+       "d": null,
+       "im": 592
+      }
+     ]
+    }
+   ]
+  },
+  "attaches-attache": {
+   "nom": "Attaché",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 18,
+       "im": 395
+      },
+      {
+       "d": 24,
+       "im": 415
+      },
+      {
+       "d": 24,
+       "im": 435
+      },
+      {
+       "d": 24,
+       "im": 455
+      },
+      {
+       "d": 30,
+       "im": 485
+      },
+      {
+       "d": 36,
+       "im": 518
+      },
+      {
+       "d": 36,
+       "im": 550
+      },
+      {
+       "d": 36,
+       "im": 580
+      },
+      {
+       "d": 36,
+       "im": 610
+      },
+      {
+       "d": 48,
+       "im": 645
+      },
+      {
+       "d": null,
+       "im": 678
+      }
+     ]
+    }
+   ]
+  },
+  "attaches-attache-principal": {
+   "nom": "Attaché principal",
+   "versions": [
+    {
+     "effet": "2021-01-01",
      "echelons": [
       {
        "d": 24,
-       "im": null
+       "im": 505
       },
       {
        "d": 24,
-       "im": null
+       "im": 540
       },
       {
        "d": 24,
-       "im": null
+       "im": 580
       },
       {
        "d": 24,
-       "im": null
+       "im": 610
       },
       {
        "d": 24,
-       "im": null
+       "im": 655
       },
       {
-       "d": 24,
-       "im": null
+       "d": 30,
+       "im": 695
+      },
+      {
+       "d": 30,
+       "im": 735
       },
       {
        "d": 36,
-       "im": null
+       "im": 773
       },
       {
        "d": 36,
-       "im": null
-      },
-      {
-       "d": 36,
-       "im": null
-      },
-      {
-       "d": 36,
-       "im": null
-      },
-      {
-       "d": 48,
-       "im": null
-      },
-      {
-       "d": 48,
-       "im": null
+       "im": 811
       },
       {
        "d": null,
-       "im": null
+       "im": 826
       }
      ]
     }
    ]
   },
-  "b2": {
-   "nom": "Catégorie B (NES) – 2e grade",
-   "versions": []
-  },
-  "b3": {
-   "nom": "Catégorie B (NES) – 3e grade",
-   "versions": []
-  },
-  "administrateurs-territoriaux-administrateur": {
-   "nom": "Administrateur",
-   "versions": []
-  },
-  "administrateurs-territoriaux-administrateur-hors-classe": {
-   "nom": "Administrateur hors classe",
-   "versions": []
-  },
-  "administrateurs-territoriaux-administrateur-general": {
-   "nom": "Administrateur général",
-   "versions": []
-  },
-  "attaches-territoriaux-attache": {
-   "nom": "Attaché",
-   "versions": []
-  },
-  "attaches-territoriaux-attache-principal": {
-   "nom": "Attaché principal",
-   "versions": []
-  },
-  "attaches-territoriaux-attache-hors-classe": {
+  "attaches-attache-hors-classe": {
    "nom": "Attaché hors classe",
-   "versions": []
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 660
+      },
+      {
+       "d": 24,
+       "im": 700
+      },
+      {
+       "d": 24,
+       "im": 735
+      },
+      {
+       "d": 30,
+       "im": 773
+      },
+      {
+       "d": 36,
+       "im": 811
+      },
+      {
+       "d": null,
+       "im": 835
+      },
+      {
+       "d": null,
+       "im": 895,
+       "chevrons": [
+        895,
+        930,
+        977
+       ],
+       "lib": "Échelon spécial"
+      }
+     ]
+    }
+   ]
   },
-  "ingenieurs-en-chef-territoriaux-ingenieur-en-chef": {
-   "nom": "Ingénieur en chef",
-   "versions": []
+  "attaches-directeur-territorial": {
+   "nom": "Directeur territorial",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 603
+      },
+      {
+       "d": 24,
+       "im": 631
+      },
+      {
+       "d": 36,
+       "im": 661
+      },
+      {
+       "d": 36,
+       "im": 705
+      },
+      {
+       "d": 36,
+       "im": 744
+      },
+      {
+       "d": 36,
+       "im": 789
+      },
+      {
+       "d": null,
+       "im": 829
+      }
+     ]
+    }
+   ]
   },
-  "ingenieurs-en-chef-territoriaux-ingenieur-en-chef-hors-class": {
-   "nom": "Ingénieur en chef hors classe",
-   "versions": []
+  "administrateurs-administrateur-du-premier-grade": {
+   "nom": "Administrateur du premier grade",
+   "versions": [
+    {
+     "effet": "2022-01-01",
+     "echelons": [
+      {
+       "d": 12,
+       "im": 488
+      },
+      {
+       "d": 12,
+       "im": 536
+      },
+      {
+       "d": 12,
+       "im": 582
+      },
+      {
+       "d": 12,
+       "im": 626
+      },
+      {
+       "d": 12,
+       "im": 668
+      },
+      {
+       "d": 12,
+       "im": 708
+      },
+      {
+       "d": 18,
+       "im": 746
+      },
+      {
+       "d": 18,
+       "im": 800
+      },
+      {
+       "d": 18,
+       "im": 849
+      },
+      {
+       "d": 18,
+       "im": 893
+      },
+      {
+       "d": 18,
+       "im": 932
+      },
+      {
+       "d": 18,
+       "im": 966
+      },
+      {
+       "d": 18,
+       "im": 995
+      },
+      {
+       "d": 18,
+       "im": 1007
+      },
+      {
+       "d": 18,
+       "im": 1012
+      },
+      {
+       "d": 18,
+       "im": 1017
+      },
+      {
+       "d": 18,
+       "im": 1021
+      },
+      {
+       "d": 18,
+       "im": 1025
+      },
+      {
+       "d": 18,
+       "im": 1029
+      },
+      {
+       "d": 18,
+       "im": 1032
+      },
+      {
+       "d": 18,
+       "im": 1035
+      },
+      {
+       "d": 18,
+       "im": 1038
+      },
+      {
+       "d": 18,
+       "im": 1041
+      },
+      {
+       "d": 18,
+       "im": 1044
+      },
+      {
+       "d": 18,
+       "im": 1047
+      },
+      {
+       "d": 18,
+       "im": 1050
+      },
+      {
+       "d": 18,
+       "im": 1053
+      },
+      {
+       "d": 18,
+       "im": 1056
+      },
+      {
+       "d": 18,
+       "im": 1059
+      },
+      {
+       "d": null,
+       "im": 1062
+      }
+     ]
+    }
+   ]
   },
-  "ingenieurs-en-chef-territoriaux-ingenieur-general": {
-   "nom": "Ingénieur général",
-   "versions": []
+  "administrateurs-administrateur-du-deuxieme-grade": {
+   "nom": "Administrateur du deuxième grade",
+   "versions": [
+    {
+     "effet": "2022-01-01",
+     "echelons": [
+      {
+       "d": 18,
+       "im": 668
+      },
+      {
+       "d": 18,
+       "im": 708
+      },
+      {
+       "d": 18,
+       "im": 746
+      },
+      {
+       "d": 18,
+       "im": 800
+      },
+      {
+       "d": 18,
+       "im": 852
+      },
+      {
+       "d": 18,
+       "im": 902
+      },
+      {
+       "d": 18,
+       "im": 950
+      },
+      {
+       "d": 18,
+       "im": 996
+      },
+      {
+       "d": 18,
+       "im": 1040
+      },
+      {
+       "d": 18,
+       "im": 1084
+      },
+      {
+       "d": 18,
+       "im": 1127
+      },
+      {
+       "d": 18,
+       "im": 1169
+      },
+      {
+       "d": 18,
+       "im": 1210
+      },
+      {
+       "d": 18,
+       "im": 1244
+      },
+      {
+       "d": 18,
+       "im": 1271
+      },
+      {
+       "d": 18,
+       "im": 1293
+      },
+      {
+       "d": 18,
+       "im": 1308
+      },
+      {
+       "d": 18,
+       "im": 1318
+      },
+      {
+       "d": 18,
+       "im": 1323
+      },
+      {
+       "d": 18,
+       "im": 1328
+      },
+      {
+       "d": 18,
+       "im": 1333
+      },
+      {
+       "d": 18,
+       "im": 1337
+      },
+      {
+       "d": 18,
+       "im": 1342
+      },
+      {
+       "d": 18,
+       "im": 1347
+      },
+      {
+       "d": 18,
+       "im": 1352
+      },
+      {
+       "d": 18,
+       "im": 1357
+      },
+      {
+       "d": 18,
+       "im": 1362
+      },
+      {
+       "d": 18,
+       "im": 1367
+      },
+      {
+       "d": 18,
+       "im": 1372
+      },
+      {
+       "d": 18,
+       "im": 1377
+      },
+      {
+       "d": 18,
+       "im": 1382
+      },
+      {
+       "d": null,
+       "im": 1387
+      }
+     ]
+    }
+   ]
   },
-  "ingenieurs-territoriaux-ingenieur": {
-   "nom": "Ingénieur",
-   "versions": []
+  "administrateurs-administrateur-du-troisieme-grade": {
+   "nom": "Administrateur du troisième grade",
+   "versions": [
+    {
+     "effet": "2022-01-01",
+     "echelons": [
+      {
+       "d": 18,
+       "im": 1040
+      },
+      {
+       "d": 18,
+       "im": 1084
+      },
+      {
+       "d": 18,
+       "im": 1127
+      },
+      {
+       "d": 18,
+       "im": 1169
+      },
+      {
+       "d": 18,
+       "im": 1210
+      },
+      {
+       "d": 18,
+       "im": 1248
+      },
+      {
+       "d": 18,
+       "im": 1284
+      },
+      {
+       "d": 18,
+       "im": 1317
+      },
+      {
+       "d": 18,
+       "im": 1349
+      },
+      {
+       "d": 18,
+       "im": 1378
+      },
+      {
+       "d": 18,
+       "im": 1405
+      },
+      {
+       "d": 18,
+       "im": 1430
+      },
+      {
+       "d": 18,
+       "im": 1452
+      },
+      {
+       "d": 18,
+       "im": 1472
+      },
+      {
+       "d": 18,
+       "im": 1490
+      },
+      {
+       "d": 18,
+       "im": 1501
+      },
+      {
+       "d": 18,
+       "im": 1509
+      },
+      {
+       "d": 18,
+       "im": 1515
+      },
+      {
+       "d": 18,
+       "im": 1520
+      },
+      {
+       "d": 18,
+       "im": 1525
+      },
+      {
+       "d": 18,
+       "im": 1530
+      },
+      {
+       "d": 18,
+       "im": 1535
+      },
+      {
+       "d": 18,
+       "im": 1540
+      },
+      {
+       "d": 18,
+       "im": 1545
+      },
+      {
+       "d": 18,
+       "im": 1550
+      },
+      {
+       "d": 18,
+       "im": 1555
+      },
+      {
+       "d": 18,
+       "im": 1560
+      },
+      {
+       "d": 18,
+       "im": 1565
+      },
+      {
+       "d": 18,
+       "im": 1570
+      },
+      {
+       "d": null,
+       "im": 1575
+      }
+     ]
+    }
+   ]
   },
-  "ingenieurs-territoriaux-ingenieur-principal": {
-   "nom": "Ingénieur principal",
-   "versions": []
+  "administrateurs-grade-transitoire-d-administrateur-territorial": {
+   "nom": "Grade transitoire d'administrateur territorial",
+   "versions": [
+    {
+     "effet": "2022-01-01",
+     "echelons": [
+      {
+       "d": 18,
+       "im": 902
+      },
+      {
+       "d": 18,
+       "im": 950
+      },
+      {
+       "d": 18,
+       "im": 996
+      },
+      {
+       "d": 18,
+       "im": 1040
+      },
+      {
+       "d": 18,
+       "im": 1084
+      },
+      {
+       "d": 18,
+       "im": 1127
+      },
+      {
+       "d": 18,
+       "im": 1169
+      },
+      {
+       "d": 18,
+       "im": 1210
+      },
+      {
+       "d": 18,
+       "im": 1246
+      },
+      {
+       "d": 18,
+       "im": 1278
+      },
+      {
+       "d": 18,
+       "im": 1318
+      },
+      {
+       "d": 18,
+       "im": 1329
+      },
+      {
+       "d": 18,
+       "im": 1348
+      },
+      {
+       "d": 18,
+       "im": 1364
+      },
+      {
+       "d": 18,
+       "im": 1379
+      },
+      {
+       "d": 18,
+       "im": 1395
+      },
+      {
+       "d": 18,
+       "im": 1405
+      },
+      {
+       "d": 18,
+       "im": 1416
+      },
+      {
+       "d": 18,
+       "im": 1424
+      },
+      {
+       "d": 18,
+       "im": 1431
+      },
+      {
+       "d": 18,
+       "im": 1436
+      },
+      {
+       "d": 18,
+       "im": 1441
+      },
+      {
+       "d": 18,
+       "im": 1446
+      },
+      {
+       "d": 18,
+       "im": 1451
+      },
+      {
+       "d": 18,
+       "im": 1456
+      },
+      {
+       "d": 18,
+       "im": 1461
+      },
+      {
+       "d": 18,
+       "im": 1466
+      },
+      {
+       "d": 18,
+       "im": 1471
+      },
+      {
+       "d": 18,
+       "im": 1476
+      },
+      {
+       "d": 18,
+       "im": 1481
+      },
+      {
+       "d": 18,
+       "im": 1486
+      },
+      {
+       "d": 18,
+       "im": 1491
+      },
+      {
+       "d": 18,
+       "im": 1496
+      },
+      {
+       "d": 18,
+       "im": 1501
+      },
+      {
+       "d": 18,
+       "im": 1506
+      },
+      {
+       "d": 18,
+       "im": 1511
+      },
+      {
+       "d": null,
+       "im": 1515
+      }
+     ]
+    }
+   ]
   },
-  "ingenieurs-territoriaux-ingenieur-hors-classe": {
-   "nom": "Ingénieur hors classe",
-   "versions": []
+  "administrateurs-eleve-administrateur": {
+   "nom": "Élève administrateur",
+   "versions": [
+    {
+     "effet": "2022-01-01",
+     "echelons": [
+      {
+       "d": 12,
+       "im": 374
+      },
+      {
+       "d": 6,
+       "im": 384
+      }
+     ]
+    }
+   ]
   },
-  "agents-de-maitrise-territoriaux-agent-de-maitrise": {
+  "agents-maitrise-agent-de-maitrise": {
    "nom": "Agent de maîtrise",
-   "versions": []
+   "versions": [
+    {
+     "effet": "2022-01-01",
+     "echelons": [
+      {
+       "d": 12,
+       "im": 369
+      },
+      {
+       "d": 12,
+       "im": 370
+      },
+      {
+       "d": 12,
+       "im": 371
+      },
+      {
+       "d": 24,
+       "im": 373
+      },
+      {
+       "d": 24,
+       "im": 375
+      },
+      {
+       "d": 24,
+       "im": 377
+      },
+      {
+       "d": 24,
+       "im": 390
+      },
+      {
+       "d": 24,
+       "im": 399
+      },
+      {
+       "d": 24,
+       "im": 412
+      },
+      {
+       "d": 36,
+       "im": 421
+      },
+      {
+       "d": 36,
+       "im": 435
+      },
+      {
+       "d": 36,
+       "im": 455
+      },
+      {
+       "d": null,
+       "im": 481
+      }
+     ]
+    }
+   ]
   },
-  "agents-de-maitrise-territoriaux-agent-de-maitrise-principal": {
+  "agents-maitrise-agent-de-maitrise-principal": {
    "nom": "Agent de maîtrise principal",
-   "versions": []
+   "versions": [
+    {
+     "effet": "2022-01-01",
+     "echelons": [
+      {
+       "d": 12,
+       "im": 373
+      },
+      {
+       "d": 12,
+       "im": 376
+      },
+      {
+       "d": 24,
+       "im": 378
+      },
+      {
+       "d": 24,
+       "im": 397
+      },
+      {
+       "d": 24,
+       "im": 414
+      },
+      {
+       "d": 24,
+       "im": 430
+      },
+      {
+       "d": 36,
+       "im": 440
+      },
+      {
+       "d": 36,
+       "im": 456
+      },
+      {
+       "d": 48,
+       "im": 482
+      },
+      {
+       "d": null,
+       "im": 508
+      }
+     ]
+    }
+   ]
   },
-  "conservateurs-territoriaux-du-patrimoine-conservateur-du-pat": {
+  "ingenieurs-ingenieur": {
+   "nom": "Ingénieur",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 18,
+       "im": 395
+      },
+      {
+       "d": 24,
+       "im": 424
+      },
+      {
+       "d": 24,
+       "im": 450
+      },
+      {
+       "d": 30,
+       "im": 483
+      },
+      {
+       "d": 36,
+       "im": 518
+      },
+      {
+       "d": 48,
+       "im": 545
+      },
+      {
+       "d": 48,
+       "im": 583
+      },
+      {
+       "d": 48,
+       "im": 615
+      },
+      {
+       "d": 48,
+       "im": 642
+      },
+      {
+       "d": null,
+       "im": 678
+      }
+     ]
+    }
+   ]
+  },
+  "ingenieurs-ingenieur-principal": {
+   "nom": "Ingénieur principal",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 524
+      },
+      {
+       "d": 30,
+       "im": 560
+      },
+      {
+       "d": 36,
+       "im": 602
+      },
+      {
+       "d": 36,
+       "im": 655
+      },
+      {
+       "d": 36,
+       "im": 690
+      },
+      {
+       "d": 36,
+       "im": 735
+      },
+      {
+       "d": 36,
+       "im": 773
+      },
+      {
+       "d": 36,
+       "im": 811
+      },
+      {
+       "d": null,
+       "im": 826
+      }
+     ]
+    }
+   ]
+  },
+  "ingenieurs-ingenieur-hors-classe": {
+   "nom": "Ingénieur hors classe",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 700
+      },
+      {
+       "d": 24,
+       "im": 735
+      },
+      {
+       "d": 30,
+       "im": 773
+      },
+      {
+       "d": 36,
+       "im": 811
+      },
+      {
+       "d": null,
+       "im": 835
+      },
+      {
+       "d": null,
+       "im": 895,
+       "chevrons": [
+        895,
+        930,
+        977
+       ],
+       "lib": "Échelon spécial"
+      }
+     ]
+    }
+   ]
+  },
+  "ingenieurs-en-chef-ingenieur-en-chef": {
+   "nom": "Ingénieur en chef",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 12,
+       "im": 409
+      },
+      {
+       "d": 12,
+       "im": 455
+      },
+      {
+       "d": 18,
+       "im": 490
+      },
+      {
+       "d": 18,
+       "im": 528
+      },
+      {
+       "d": 24,
+       "im": 560
+      },
+      {
+       "d": 24,
+       "im": 596
+      },
+      {
+       "d": 24,
+       "im": 649
+      },
+      {
+       "d": 30,
+       "im": 710
+      },
+      {
+       "d": 36,
+       "im": 748
+      },
+      {
+       "d": 36,
+       "im": 797
+      },
+      {
+       "d": null,
+       "im": 826
+      }
+     ]
+    }
+   ]
+  },
+  "ingenieurs-en-chef-ingenieur-en-chef-hors-classe": {
+   "nom": "Ingénieur en chef hors classe",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 18,
+       "im": 633
+      },
+      {
+       "d": 18,
+       "im": 694
+      },
+      {
+       "d": 24,
+       "im": 748
+      },
+      {
+       "d": 24,
+       "im": 797
+      },
+      {
+       "d": 30,
+       "im": 835
+      },
+      {
+       "d": 36,
+       "im": 895,
+       "chevrons": [
+        895,
+        930,
+        977
+       ]
+      },
+      {
+       "d": 48,
+       "im": 977,
+       "chevrons": [
+        977,
+        1018,
+        1072
+       ]
+      },
+      {
+       "d": null,
+       "im": 1072,
+       "chevrons": [
+        1072,
+        1100,
+        1129
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "ingenieurs-en-chef-ingenieur-general": {
+   "nom": "Ingénieur général",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 36,
+       "im": 835
+      },
+      {
+       "d": 36,
+       "im": 895,
+       "chevrons": [
+        895,
+        930,
+        977
+       ]
+      },
+      {
+       "d": 36,
+       "im": 977,
+       "chevrons": [
+        977,
+        1018,
+        1072
+       ]
+      },
+      {
+       "d": 36,
+       "im": 1072,
+       "chevrons": [
+        1072,
+        1100,
+        1129
+       ]
+      },
+      {
+       "d": null,
+       "im": 1129,
+       "chevrons": [
+        1129,
+        1153,
+        1178
+       ]
+      },
+      {
+       "d": null,
+       "im": 1178,
+       "chevrons": [
+        1178,
+        1231,
+        1284
+       ],
+       "lib": "Classe exceptionnelle"
+      }
+     ]
+    }
+   ]
+  },
+  "ingenieurs-en-chef-ingenieur-en-chef-eleve": {
+   "nom": "Ingénieur en chef élève",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 12,
+       "im": 374,
+       "lib": "Échelon unique"
+      }
+     ]
+    }
+   ]
+  },
+  "conservateurs-patrimoine-conservateur-du-patrimoine": {
    "nom": "Conservateur du patrimoine",
-   "versions": []
+   "versions": [
+    {
+     "effet": "2022-04-17",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 455
+      },
+      {
+       "d": 24,
+       "im": 484
+      },
+      {
+       "d": 30,
+       "im": 525
+      },
+      {
+       "d": 30,
+       "im": 566
+      },
+      {
+       "d": 30,
+       "im": 607
+      },
+      {
+       "d": 36,
+       "im": 664
+      },
+      {
+       "d": 36,
+       "im": 721
+      },
+      {
+       "d": null,
+       "im": 748
+      }
+     ]
+    }
+   ]
   },
-  "conservateurs-territoriaux-du-patrimoine-conservateur-en-che": {
+  "conservateurs-patrimoine-conservateur-en-chef-du-patrimoine": {
    "nom": "Conservateur en chef du patrimoine",
-   "versions": []
+   "versions": [
+    {
+     "effet": "2022-04-17",
+     "echelons": [
+      {
+       "d": 12,
+       "im": 622
+      },
+      {
+       "d": 24,
+       "im": 682
+      },
+      {
+       "d": 24,
+       "im": 756
+      },
+      {
+       "d": 24,
+       "im": 826
+      },
+      {
+       "d": 36,
+       "im": 835
+      },
+      {
+       "d": 48,
+       "im": 895,
+       "chevrons": [
+        895,
+        930,
+        977
+       ]
+      },
+      {
+       "d": null,
+       "im": 977,
+       "chevrons": [
+        977,
+        1018,
+        1072
+       ]
+      }
+     ]
+    }
+   ]
   },
-  "conservateurs-territoriaux-des-bibliotheques-conservateur-de": {
-   "nom": "Conservateur des bibliothèques",
-   "versions": []
+  "conservateurs-patrimoine-eleve-conservateur": {
+   "nom": "Élève conservateur",
+   "versions": [
+    {
+     "effet": "2022-04-17",
+     "echelons": [
+      {
+       "d": 12,
+       "im": 377
+      },
+      {
+       "d": 6,
+       "im": 407
+      }
+     ]
+    }
+   ]
   },
-  "conservateurs-territoriaux-des-bibliotheques-conservateur-en": {
-   "nom": "Conservateur en chef des bibliothèques",
-   "versions": []
+  "conservateurs-bibliotheques-conservateur-de-bibliotheques": {
+   "nom": "Conservateur de bibliothèques",
+   "versions": [
+    {
+     "effet": "2019-01-01",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 444
+      },
+      {
+       "d": 24,
+       "im": 473
+      },
+      {
+       "d": 30,
+       "im": 514
+      },
+      {
+       "d": 30,
+       "im": 555
+      },
+      {
+       "d": 30,
+       "im": 596
+      },
+      {
+       "d": 36,
+       "im": 653
+      },
+      {
+       "d": null,
+       "im": 710
+      }
+     ]
+    }
+   ]
   },
-  "attaches-territoriaux-de-conservation-du-patrimoine-attache-": {
-   "nom": "Attaché de conservation du patrimoine",
-   "versions": []
+  "conservateurs-bibliotheques-conservateur-en-chef-de-bibliotheques": {
+   "nom": "Conservateur en chef de bibliothèques",
+   "versions": [
+    {
+     "effet": "2019-01-01",
+     "echelons": [
+      {
+       "d": 12,
+       "im": 596
+      },
+      {
+       "d": 24,
+       "im": 656
+      },
+      {
+       "d": 24,
+       "im": 725
+      },
+      {
+       "d": 24,
+       "im": 797
+      },
+      {
+       "d": 36,
+       "im": 835
+      },
+      {
+       "d": null,
+       "im": 895,
+       "chevrons": [
+        895,
+        930,
+        977
+       ]
+      }
+     ]
+    }
+   ]
   },
-  "bibliothecaires-territoriaux-bibliothecaire": {
-   "nom": "Bibliothécaire",
-   "versions": []
+  "conservateurs-bibliotheques-echelon-de-stage": {
+   "nom": "Échelon de stage",
+   "versions": [
+    {
+     "effet": "2019-01-01",
+     "echelons": [
+      {
+       "d": 18,
+       "im": 416,
+       "lib": "Échelon unique"
+      }
+     ]
+    }
+   ]
   },
-  "bibliothecaires-territoriaux-bibliothecaire-principal": {
-   "nom": "Bibliothécaire principal",
-   "versions": []
+  "professeurs-enseignement-artistique-professeur-d-enseignement-artistique-de-classe-normale": {
+   "nom": "Professeur d'enseignement artistique de classe normale",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 18,
+       "im": 400
+      },
+      {
+       "d": 30,
+       "im": 427
+      },
+      {
+       "d": 36,
+       "im": 451
+      },
+      {
+       "d": 36,
+       "im": 478
+      },
+      {
+       "d": 36,
+       "im": 516
+      },
+      {
+       "d": 42,
+       "im": 562
+      },
+      {
+       "d": 42,
+       "im": 595
+      },
+      {
+       "d": 42,
+       "im": 634
+      },
+      {
+       "d": null,
+       "im": 678
+      }
+     ]
+    }
+   ]
   },
-  "directeurs-d-etablissements-territoriaux-d-enseignement-arti": {
-   "nom": "Directeur de 2e catégorie",
-   "versions": []
+  "professeurs-enseignement-artistique-professeur-d-enseignement-artistique-hors-classe": {
+   "nom": "Professeur d'enseignement artistique hors classe",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 30,
+       "im": 525
+      },
+      {
+       "d": 30,
+       "im": 595
+      },
+      {
+       "d": 30,
+       "im": 629
+      },
+      {
+       "d": 30,
+       "im": 673
+      },
+      {
+       "d": 36,
+       "im": 720
+      },
+      {
+       "d": 36,
+       "im": 768
+      },
+      {
+       "d": 36,
+       "im": 811
+      },
+      {
+       "d": null,
+       "im": 826
+      }
+     ]
+    }
+   ]
   },
-  "professeurs-territoriaux-d-enseignement-artistique-professeu": {
-   "nom": "Professeur de classe normale",
-   "versions": []
+  "directeurs-enseignement-artistique-directeur-d-etablissement-d-enseignement-artistique-de-2e-categorie": {
+   "nom": "Directeur d'établissement d'enseignement artistique de 2e catégorie",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 18,
+       "im": 501
+      },
+      {
+       "d": 36,
+       "im": 525
+      },
+      {
+       "d": 36,
+       "im": 562
+      },
+      {
+       "d": 36,
+       "im": 606
+      },
+      {
+       "d": 42,
+       "im": 637
+      },
+      {
+       "d": 42,
+       "im": 673
+      },
+      {
+       "d": 42,
+       "im": 706
+      },
+      {
+       "d": 42,
+       "im": 737
+      },
+      {
+       "d": 42,
+       "im": 776
+      },
+      {
+       "d": null,
+       "im": 829
+      }
+     ]
+    }
+   ]
   },
-  "conseillers-territoriaux-des-activites-physiques-et-sportive": {
-   "nom": "Conseiller des APS",
-   "versions": []
+  "directeurs-enseignement-artistique-directeur-d-etablissement-d-enseignement-artistique-de-1re-categorie": {
+   "nom": "Directeur d'établissement d'enseignement artistique de 1re catégorie",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 18,
+       "im": 511
+      },
+      {
+       "d": 36,
+       "im": 541
+      },
+      {
+       "d": 36,
+       "im": 578
+      },
+      {
+       "d": 36,
+       "im": 618
+      },
+      {
+       "d": 42,
+       "im": 660
+      },
+      {
+       "d": 42,
+       "im": 710
+      },
+      {
+       "d": 42,
+       "im": 760
+      },
+      {
+       "d": 42,
+       "im": 798
+      },
+      {
+       "d": null,
+       "im": 835
+      }
+     ]
+    }
+   ]
   },
-  "operateurs-territoriaux-des-activites-physiques-et-sportives": {
-   "nom": "Opérateur des APS",
-   "versions": []
-  },
-  "medecins-territoriaux-medecin-de-2e-classe": {
-   "nom": "Médecin de 2e classe",
-   "versions": []
-  },
-  "medecins-territoriaux-medecin-de-1re-classe": {
-   "nom": "Médecin de 1re classe",
-   "versions": []
-  },
-  "medecins-territoriaux-medecin-hors-classe": {
-   "nom": "Médecin hors classe",
-   "versions": []
-  },
-  "psychologues-territoriaux-psychologue-de-classe-normale": {
-   "nom": "Psychologue de classe normale",
-   "versions": []
-  },
-  "psychologues-territoriaux-psychologue-hors-classe": {
-   "nom": "Psychologue hors classe",
-   "versions": []
-  },
-  "sages-femmes-territoriales-sage-femme-de-classe-normale": {
-   "nom": "Sage-femme de classe normale",
-   "versions": []
-  },
-  "sages-femmes-territoriales-sage-femme-hors-classe": {
-   "nom": "Sage-femme hors classe",
-   "versions": []
-  },
-  "puericultrices-territoriales-puericultrice-de-classe-normale": {
-   "nom": "Puéricultrice de classe normale",
-   "versions": []
-  },
-  "puericultrices-territoriales-puericultrice-de-classe-superie": {
-   "nom": "Puéricultrice de classe supérieure",
-   "versions": []
-  },
-  "puericultrices-territoriales-puericultrice-hors-classe": {
-   "nom": "Puéricultrice hors classe",
-   "versions": []
-  },
-  "cadres-territoriaux-de-sante-paramedicaux-cadre-de-sante-de-": {
-   "nom": "Cadre de santé de 1re classe",
-   "versions": []
-  },
-  "cadres-territoriaux-de-sante-paramedicaux-cadre-superieur-de": {
-   "nom": "Cadre supérieur de santé",
-   "versions": []
-  },
-  "infirmiers-territoriaux-en-soins-generaux-infirmier-en-soins": {
-   "nom": "Infirmier en soins généraux de classe normale",
-   "versions": []
-  },
-  "masseurs-kinesitherapeutes-psychomotriciens-et-orthophoniste": {
-   "nom": "Classe normale",
-   "versions": []
-  },
-  "pedicures-podologues-ergotherapeutes-orthoptistes-et-manipul": {
-   "nom": "Classe normale",
-   "versions": []
-  },
-  "techniciens-paramedicaux-territoriaux-technicien-paramedical": {
-   "nom": "Technicien paramédical de classe normale",
-   "versions": []
-  },
-  "auxiliaires-de-puericulture-territoriaux-auxiliaire-de-pueri": {
-   "nom": "Auxiliaire de puériculture de classe normale",
-   "versions": []
-  },
-  "aides-soignants-territoriaux-aide-soignant-de-classe-normale": {
-   "nom": "Aide-soignant de classe normale",
-   "versions": []
-  },
-  "aides-soignants-territoriaux-aide-soignant-de-classe-superie": {
-   "nom": "Aide-soignant de classe supérieure",
-   "versions": []
-  },
-  "biologistes-veterinaires-et-pharmaciens-territoriaux-classe-": {
-   "nom": "Classe normale",
-   "versions": []
-  },
-  "biologistes-veterinaires-et-pharmaciens-territoriaux-hors-cl": {
-   "nom": "Hors classe",
-   "versions": []
-  },
-  "conseillers-territoriaux-socio-educatifs-conseiller-socio-ed": {
-   "nom": "Conseiller socio-éducatif",
-   "versions": []
-  },
-  "conseillers-territoriaux-socio-educatifs-conseiller-superieu": {
-   "nom": "Conseiller supérieur socio-éducatif",
-   "versions": []
-  },
-  "conseillers-territoriaux-socio-educatifs-conseiller-hors-cla": {
-   "nom": "Conseiller hors classe socio-éducatif",
-   "versions": []
-  },
-  "assistants-territoriaux-socio-educatifs-assistant-socio-educ": {
-   "nom": "Assistant socio-éducatif",
-   "versions": []
-  },
-  "educateurs-territoriaux-de-jeunes-enfants-educateur-de-jeune": {
-   "nom": "Éducateur de jeunes enfants",
-   "versions": []
-  },
-  "moniteurs-educateurs-et-intervenants-familiaux-territoriaux-": {
-   "nom": "Moniteur-éducateur et intervenant familial",
-   "versions": []
-  },
-  "directeurs-de-police-municipale-directeur-de-police-municipa": {
-   "nom": "Directeur de police municipale",
-   "versions": []
-  },
-  "directeurs-de-police-municipale-directeur-principal-de-polic": {
-   "nom": "Directeur principal de police municipale",
-   "versions": []
-  },
-  "agents-de-police-municipale-gardien-brigadier": {
-   "nom": "Gardien-brigadier",
-   "versions": []
-  },
-  "agents-de-police-municipale-brigadier-chef-principal": {
+  "agents-police-municipale-brigadier-chef-principal": {
    "nom": "Brigadier-chef principal",
-   "versions": []
+   "versions": [
+    {
+     "effet": "2023-12-01",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 373
+      },
+      {
+       "d": 24,
+       "im": 376
+      },
+      {
+       "d": 24,
+       "im": 382
+      },
+      {
+       "d": 24,
+       "im": 396
+      },
+      {
+       "d": 24,
+       "im": 415
+      },
+      {
+       "d": 30,
+       "im": 426
+      },
+      {
+       "d": 36,
+       "im": 437
+      },
+      {
+       "d": 48,
+       "im": 456
+      },
+      {
+       "d": 48,
+       "im": 484
+      },
+      {
+       "d": null,
+       "im": 508
+      }
+     ]
+    }
+   ]
   },
-  "gardes-champetres-garde-champetre-chef": {
-   "nom": "Garde champêtre chef",
-   "versions": []
+  "agents-police-municipale-chef-de-police-municipale": {
+   "nom": "Chef de police municipale",
+   "versions": [
+    {
+     "effet": "2023-12-01",
+     "echelons": [
+      {
+       "d": 27,
+       "im": 374
+      },
+      {
+       "d": 33,
+       "im": 377
+      },
+      {
+       "d": 39,
+       "im": 382
+      },
+      {
+       "d": 45,
+       "im": 403
+      },
+      {
+       "d": 48,
+       "im": 417
+      },
+      {
+       "d": 48,
+       "im": 456
+      },
+      {
+       "d": 48,
+       "im": 484
+      },
+      {
+       "d": null,
+       "im": 508
+      }
+     ]
+    }
+   ]
   },
-  "gardes-champetres-garde-champetre-chef-principal": {
-   "nom": "Garde champêtre chef principal",
-   "versions": []
+  "aides-soignants-aide-soignant-de-classe-normale": {
+   "nom": "Aide-soignant de classe normale",
+   "versions": [
+    {
+     "effet": "2022-09-01",
+     "echelons": [
+      {
+       "d": 18,
+       "im": 373
+      },
+      {
+       "d": 18,
+       "im": 375
+      },
+      {
+       "d": 24,
+       "im": 377
+      },
+      {
+       "d": 24,
+       "im": 388
+      },
+      {
+       "d": 30,
+       "im": 401
+      },
+      {
+       "d": 36,
+       "im": 414
+      },
+      {
+       "d": 36,
+       "im": 429
+      },
+      {
+       "d": 36,
+       "im": 444
+      },
+      {
+       "d": 36,
+       "im": 461
+      },
+      {
+       "d": 48,
+       "im": 485
+      },
+      {
+       "d": null,
+       "im": 517
+      }
+     ]
+    }
+   ]
   },
-  "conception-et-direction-des-spp-colonel": {
-   "nom": "Colonel",
-   "versions": []
+  "aides-soignants-aide-soignant-de-classe-superieure": {
+   "nom": "Aide-soignant de classe supérieure",
+   "versions": [
+    {
+     "effet": "2022-09-01",
+     "echelons": [
+      {
+       "d": 18,
+       "im": 387
+      },
+      {
+       "d": 24,
+       "im": 399
+      },
+      {
+       "d": 24,
+       "im": 411
+      },
+      {
+       "d": 24,
+       "im": 424
+      },
+      {
+       "d": 24,
+       "im": 442
+      },
+      {
+       "d": 30,
+       "im": 460
+      },
+      {
+       "d": 36,
+       "im": 486
+      },
+      {
+       "d": 36,
+       "im": 499
+      },
+      {
+       "d": 36,
+       "im": 519
+      },
+      {
+       "d": 48,
+       "im": 539
+      },
+      {
+       "d": null,
+       "im": 560
+      }
+     ]
+    }
+   ]
   },
-  "conception-et-direction-des-spp-colonel-hors-classe": {
-   "nom": "Colonel hors classe",
-   "versions": []
+  "infirmiers-soins-generaux-infirmier-en-soins-generaux": {
+   "nom": "Infirmier en soins généraux",
+   "versions": [
+    {
+     "effet": "2022-01-01",
+     "echelons": [
+      {
+       "d": 12,
+       "im": 395
+      },
+      {
+       "d": 18,
+       "im": 424
+      },
+      {
+       "d": 24,
+       "im": 447
+      },
+      {
+       "d": 24,
+       "im": 468
+      },
+      {
+       "d": 30,
+       "im": 491
+      },
+      {
+       "d": 36,
+       "im": 518
+      },
+      {
+       "d": 36,
+       "im": 550
+      },
+      {
+       "d": 36,
+       "im": 580
+      },
+      {
+       "d": 48,
+       "im": 610
+      },
+      {
+       "d": 48,
+       "im": 645
+      },
+      {
+       "d": null,
+       "im": 678
+      }
+     ]
+    }
+   ]
   },
-  "conception-et-direction-des-spp-controleur-general": {
-   "nom": "Contrôleur général",
-   "versions": []
+  "infirmiers-soins-generaux-infirmier-en-soins-generaux-hors-classe": {
+   "nom": "Infirmier en soins généraux hors classe",
+   "versions": [
+    {
+     "effet": "2022-01-01",
+     "echelons": [
+      {
+       "d": 18,
+       "im": 427
+      },
+      {
+       "d": 24,
+       "im": 450
+      },
+      {
+       "d": 24,
+       "im": 478
+      },
+      {
+       "d": 24,
+       "im": 506
+      },
+      {
+       "d": 24,
+       "im": 534
+      },
+      {
+       "d": 30,
+       "im": 563
+      },
+      {
+       "d": 36,
+       "im": 593
+      },
+      {
+       "d": 36,
+       "im": 624
+      },
+      {
+       "d": 48,
+       "im": 656
+      },
+      {
+       "d": 48,
+       "im": 690
+      },
+      {
+       "d": null,
+       "im": 727
+      }
+     ]
+    }
+   ]
   },
-  "capitaines-commandants-et-lieutenants-colonels-de-spp-capita": {
-   "nom": "Capitaine",
-   "versions": []
+  "puericultrices-puericultrice-hors-classe": {
+   "nom": "Puéricultrice hors classe",
+   "versions": [
+    {
+     "effet": "2022-01-01",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 520
+      },
+      {
+       "d": 24,
+       "im": 558
+      },
+      {
+       "d": 24,
+       "im": 582
+      },
+      {
+       "d": 30,
+       "im": 615
+      },
+      {
+       "d": 36,
+       "im": 648
+      },
+      {
+       "d": 36,
+       "im": 681
+      },
+      {
+       "d": 48,
+       "im": 714
+      },
+      {
+       "d": 48,
+       "im": 743
+      },
+      {
+       "d": null,
+       "im": 769
+      }
+     ]
+    }
+   ]
   },
-  "capitaines-commandants-et-lieutenants-colonels-de-spp-comman": {
-   "nom": "Commandant",
-   "versions": []
+  "cadres-sante-paramedicaux-cadre-de-sante": {
+   "nom": "Cadre de santé",
+   "versions": [
+    {
+     "effet": "2022-01-01",
+     "echelons": [
+      {
+       "d": 18,
+       "im": 465
+      },
+      {
+       "d": 24,
+       "im": 492
+      },
+      {
+       "d": 24,
+       "im": 520
+      },
+      {
+       "d": 24,
+       "im": 558
+      },
+      {
+       "d": 24,
+       "im": 582
+      },
+      {
+       "d": 30,
+       "im": 615
+      },
+      {
+       "d": 36,
+       "im": 648
+      },
+      {
+       "d": 36,
+       "im": 681
+      },
+      {
+       "d": 48,
+       "im": 714
+      },
+      {
+       "d": 48,
+       "im": 743
+      },
+      {
+       "d": null,
+       "im": 769
+      }
+     ]
+    }
+   ]
   },
-  "capitaines-commandants-et-lieutenants-colonels-de-spp-lieute": {
-   "nom": "Lieutenant-colonel",
-   "versions": []
+  "cadres-sante-paramedicaux-cadre-superieur-de-sante": {
+   "nom": "Cadre supérieur de santé",
+   "versions": [
+    {
+     "effet": "2022-01-01",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 585
+      },
+      {
+       "d": 24,
+       "im": 620
+      },
+      {
+       "d": 24,
+       "im": 655
+      },
+      {
+       "d": 30,
+       "im": 695
+      },
+      {
+       "d": 30,
+       "im": 735
+      },
+      {
+       "d": 36,
+       "im": 773
+      },
+      {
+       "d": 36,
+       "im": 811
+      },
+      {
+       "d": null,
+       "im": 826
+      }
+     ]
+    }
+   ]
   },
-  "lieutenants-de-spp-lieutenant-de-2e-classe": {
-   "nom": "Lieutenant de 2e classe",
-   "versions": []
+  "techniciens-paramedicaux-technicien-paramedical-de-classe-normale": {
+   "nom": "Technicien paramédical de classe normale",
+   "versions": [
+    {
+     "effet": "2022-09-01",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 377
+      },
+      {
+       "d": 36,
+       "im": 391
+      },
+      {
+       "d": 36,
+       "im": 408
+      },
+      {
+       "d": 48,
+       "im": 427
+      },
+      {
+       "d": 48,
+       "im": 449
+      },
+      {
+       "d": 48,
+       "im": 482
+      },
+      {
+       "d": 48,
+       "im": 520
+      },
+      {
+       "d": null,
+       "im": 559
+      }
+     ]
+    }
+   ]
   },
-  "lieutenants-de-spp-lieutenant-de-1re-classe": {
-   "nom": "Lieutenant de 1re classe",
-   "versions": []
+  "techniciens-paramedicaux-technicien-paramedical-de-classe-superieure": {
+   "nom": "Technicien paramédical de classe supérieure",
+   "versions": [
+    {
+     "effet": "2022-09-01",
+     "echelons": [
+      {
+       "d": 12,
+       "im": 460
+      },
+      {
+       "d": 24,
+       "im": 474
+      },
+      {
+       "d": 24,
+       "im": 500
+      },
+      {
+       "d": 30,
+       "im": 526
+      },
+      {
+       "d": 30,
+       "im": 549
+      },
+      {
+       "d": 30,
+       "im": 566
+      },
+      {
+       "d": 30,
+       "im": 580
+      },
+      {
+       "d": 36,
+       "im": 590
+      },
+      {
+       "d": 36,
+       "im": 605
+      },
+      {
+       "d": null,
+       "im": 625
+      }
+     ]
+    }
+   ]
   },
-  "lieutenants-de-spp-lieutenant-hors-classe": {
-   "nom": "Lieutenant hors classe",
-   "versions": []
+  "psychologues-psychologue-de-classe-normale": {
+   "nom": "Psychologue de classe normale",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 12,
+       "im": 395
+      },
+      {
+       "d": 12,
+       "im": 405
+      },
+      {
+       "d": 24,
+       "im": 416
+      },
+      {
+       "d": 24,
+       "im": 436
+      },
+      {
+       "d": 30,
+       "im": 462
+      },
+      {
+       "d": 36,
+       "im": 497
+      },
+      {
+       "d": 36,
+       "im": 524
+      },
+      {
+       "d": 42,
+       "im": 562
+      },
+      {
+       "d": 48,
+       "im": 595
+      },
+      {
+       "d": 48,
+       "im": 634
+      },
+      {
+       "d": null,
+       "im": 678
+      }
+     ]
+    }
+   ]
   },
-  "sous-officiers-de-spp-sergent": {
+  "psychologues-psychologue-hors-classe": {
+   "nom": "Psychologue hors classe",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 525
+      },
+      {
+       "d": 30,
+       "im": 595
+      },
+      {
+       "d": 30,
+       "im": 629
+      },
+      {
+       "d": 30,
+       "im": 673
+      },
+      {
+       "d": 30,
+       "im": 720
+      },
+      {
+       "d": 36,
+       "im": 768
+      },
+      {
+       "d": 36,
+       "im": 811
+      },
+      {
+       "d": null,
+       "im": 826
+      }
+     ]
+    }
+   ]
+  },
+  "sages-femmes-sage-femme-de-classe-normale": {
+   "nom": "Sage-femme de classe normale",
+   "versions": [
+    {
+     "effet": "2022-05-01",
+     "echelons": [
+      {
+       "d": 18,
+       "im": 465
+      },
+      {
+       "d": 24,
+       "im": 492
+      },
+      {
+       "d": 24,
+       "im": 515
+      },
+      {
+       "d": 24,
+       "im": 534
+      },
+      {
+       "d": 36,
+       "im": 556
+      },
+      {
+       "d": 36,
+       "im": 581
+      },
+      {
+       "d": 36,
+       "im": 610
+      },
+      {
+       "d": 48,
+       "im": 647
+      },
+      {
+       "d": 48,
+       "im": 681
+      },
+      {
+       "d": null,
+       "im": 723
+      }
+     ]
+    }
+   ]
+  },
+  "sages-femmes-sage-femme-hors-classe": {
+   "nom": "Sage-femme hors classe",
+   "versions": [
+    {
+     "effet": "2022-05-01",
+     "echelons": [
+      {
+       "d": 18,
+       "im": 568
+      },
+      {
+       "d": 24,
+       "im": 598
+      },
+      {
+       "d": 36,
+       "im": 628
+      },
+      {
+       "d": 36,
+       "im": 658
+      },
+      {
+       "d": 36,
+       "im": 693
+      },
+      {
+       "d": 36,
+       "im": 728
+      },
+      {
+       "d": 48,
+       "im": 760
+      },
+      {
+       "d": 48,
+       "im": 794
+      },
+      {
+       "d": 48,
+       "im": 832
+      },
+      {
+       "d": null,
+       "im": 835
+      }
+     ]
+    }
+   ]
+  },
+  "medecins-medecin-de-2e-classe": {
+   "nom": "Médecin de 2e classe",
+   "versions": [
+    {
+     "effet": "2019-01-01",
+     "echelons": [
+      {
+       "d": 12,
+       "im": 466
+      },
+      {
+       "d": 12,
+       "im": 510
+      },
+      {
+       "d": 24,
+       "im": 560
+      },
+      {
+       "d": 24,
+       "im": 596
+      },
+      {
+       "d": 24,
+       "im": 633
+      },
+      {
+       "d": 30,
+       "im": 672
+      },
+      {
+       "d": 30,
+       "im": 710
+      },
+      {
+       "d": 30,
+       "im": 748
+      },
+      {
+       "d": null,
+       "im": 797
+      }
+     ]
+    }
+   ]
+  },
+  "medecins-medecin-de-1re-classe": {
+   "nom": "Médecin de 1re classe",
+   "versions": [
+    {
+     "effet": "2019-01-01",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 672
+      },
+      {
+       "d": 24,
+       "im": 710
+      },
+      {
+       "d": 24,
+       "im": 748
+      },
+      {
+       "d": 24,
+       "im": 797
+      },
+      {
+       "d": 36,
+       "im": 835
+      },
+      {
+       "d": null,
+       "im": 895,
+       "chevrons": [
+        895,
+        930,
+        977
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "medecins-medecin-hors-classe": {
+   "nom": "Médecin hors classe",
+   "versions": [
+    {
+     "effet": "2019-01-01",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 748
+      },
+      {
+       "d": 24,
+       "im": 797
+      },
+      {
+       "d": 36,
+       "im": 835
+      },
+      {
+       "d": 36,
+       "im": 895,
+       "chevrons": [
+        895,
+        930,
+        977
+       ]
+      },
+      {
+       "d": null,
+       "im": 977,
+       "chevrons": [
+        977,
+        1018,
+        1072
+       ]
+      },
+      {
+       "d": null,
+       "im": 1072,
+       "chevrons": [
+        1072,
+        1100,
+        1129
+       ],
+       "lib": "Échelon spécial"
+      }
+     ]
+    }
+   ]
+  },
+  "biologistes-veterinaires-pharmaciens-biologiste-veterinaire-ou-pharmacien-de-classe-normale": {
+   "nom": "Biologiste, vétérinaire ou pharmacien de classe normale",
+   "versions": [
+    {
+     "effet": "2019-01-01",
+     "echelons": [
+      {
+       "d": 12,
+       "im": 377
+      },
+      {
+       "d": 12,
+       "im": 425
+      },
+      {
+       "d": 21,
+       "im": 451
+      },
+      {
+       "d": 26,
+       "im": 487
+      },
+      {
+       "d": 26,
+       "im": 528
+      },
+      {
+       "d": 26,
+       "im": 560
+      },
+      {
+       "d": 26,
+       "im": 596
+      },
+      {
+       "d": 26,
+       "im": 633
+      },
+      {
+       "d": 26,
+       "im": 649
+      },
+      {
+       "d": 26,
+       "im": 687
+      },
+      {
+       "d": null,
+       "im": 710
+      }
+     ]
+    }
+   ]
+  },
+  "biologistes-veterinaires-pharmaciens-biologiste-veterinaire-ou-pharmacien-hors-classe": {
+   "nom": "Biologiste, vétérinaire ou pharmacien hors classe",
+   "versions": [
+    {
+     "effet": "2019-01-01",
+     "echelons": [
+      {
+       "d": 26,
+       "im": 633
+      },
+      {
+       "d": 26,
+       "im": 672
+      },
+      {
+       "d": 26,
+       "im": 710
+      },
+      {
+       "d": 39,
+       "im": 748
+      },
+      {
+       "d": 39,
+       "im": 797
+      },
+      {
+       "d": null,
+       "im": 835
+      }
+     ]
+    }
+   ]
+  },
+  "biologistes-veterinaires-pharmaciens-biologiste-veterinaire-ou-pharmacien-de-classe-exceptionnelle": {
+   "nom": "Biologiste, vétérinaire ou pharmacien de classe exceptionnelle",
+   "versions": [
+    {
+     "effet": "2019-01-01",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 581
+      },
+      {
+       "d": 30,
+       "im": 619
+      },
+      {
+       "d": 30,
+       "im": 649
+      },
+      {
+       "d": 30,
+       "im": 694
+      },
+      {
+       "d": 42,
+       "im": 748
+      },
+      {
+       "d": 42,
+       "im": 797
+      },
+      {
+       "d": 48,
+       "im": 835
+      },
+      {
+       "d": null,
+       "im": 895,
+       "chevrons": [
+        895,
+        930,
+        977
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "assistants-socio-educatifs-assistant-socio-educatif": {
+   "nom": "Assistant socio-éducatif",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 395
+      },
+      {
+       "d": 24,
+       "im": 409
+      },
+      {
+       "d": 24,
+       "im": 420
+      },
+      {
+       "d": 24,
+       "im": 431
+      },
+      {
+       "d": 24,
+       "im": 445
+      },
+      {
+       "d": 24,
+       "im": 457
+      },
+      {
+       "d": 24,
+       "im": 470
+      },
+      {
+       "d": 24,
+       "im": 487
+      },
+      {
+       "d": 24,
+       "im": 507
+      },
+      {
+       "d": 30,
+       "im": 528
+      },
+      {
+       "d": 30,
+       "im": 551
+      },
+      {
+       "d": 36,
+       "im": 571
+      },
+      {
+       "d": 36,
+       "im": 581
+      },
+      {
+       "d": null,
+       "im": 597
+      }
+     ]
+    }
+   ]
+  },
+  "assistants-socio-educatifs-assistant-socio-educatif-de-classe-exceptionnelle": {
+   "nom": "Assistant socio-éducatif de classe exceptionnelle",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 12,
+       "im": 438
+      },
+      {
+       "d": 24,
+       "im": 453
+      },
+      {
+       "d": 24,
+       "im": 467
+      },
+      {
+       "d": 24,
+       "im": 483
+      },
+      {
+       "d": 24,
+       "im": 502
+      },
+      {
+       "d": 24,
+       "im": 527
+      },
+      {
+       "d": 30,
+       "im": 550
+      },
+      {
+       "d": 36,
+       "im": 571
+      },
+      {
+       "d": 36,
+       "im": 590
+      },
+      {
+       "d": 36,
+       "im": 610
+      },
+      {
+       "d": null,
+       "im": 632
+      }
+     ]
+    }
+   ]
+  },
+  "conseillers-socio-educatifs-conseiller-socio-educatif": {
+   "nom": "Conseiller socio-éducatif",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 18,
+       "im": 443
+      },
+      {
+       "d": 18,
+       "im": 460
+      },
+      {
+       "d": 24,
+       "im": 476
+      },
+      {
+       "d": 24,
+       "im": 493
+      },
+      {
+       "d": 24,
+       "im": 510
+      },
+      {
+       "d": 24,
+       "im": 534
+      },
+      {
+       "d": 24,
+       "im": 553
+      },
+      {
+       "d": 24,
+       "im": 571
+      },
+      {
+       "d": 30,
+       "im": 595
+      },
+      {
+       "d": 30,
+       "im": 616
+      },
+      {
+       "d": 36,
+       "im": 645
+      },
+      {
+       "d": null,
+       "im": 663
+      }
+     ]
+    }
+   ]
+  },
+  "conseillers-socio-educatifs-conseiller-superieur-socio-educatif": {
+   "nom": "Conseiller supérieur socio-éducatif",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 541
+      },
+      {
+       "d": 24,
+       "im": 566
+      },
+      {
+       "d": 30,
+       "im": 584
+      },
+      {
+       "d": 30,
+       "im": 608
+      },
+      {
+       "d": 36,
+       "im": 625
+      },
+      {
+       "d": 36,
+       "im": 650
+      },
+      {
+       "d": 36,
+       "im": 674
+      },
+      {
+       "d": null,
+       "im": 685
+      }
+     ]
+    }
+   ]
+  },
+  "conseillers-socio-educatifs-conseiller-hors-classe-socio-educatif": {
+   "nom": "Conseiller hors classe socio-éducatif",
+   "versions": [
+    {
+     "effet": "2021-01-01",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 608
+      },
+      {
+       "d": 36,
+       "im": 625
+      },
+      {
+       "d": 36,
+       "im": 655
+      },
+      {
+       "d": 36,
+       "im": 689
+      },
+      {
+       "d": 36,
+       "im": 725
+      },
+      {
+       "d": null,
+       "im": 769
+      }
+     ]
+    }
+   ]
+  },
+  "sous-officiers-spp-sergent": {
    "nom": "Sergent",
-   "versions": []
+   "versions": [
+    {
+     "effet": "2022-01-01",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 370
+      },
+      {
+       "d": 24,
+       "im": 373
+      },
+      {
+       "d": 24,
+       "im": 377
+      },
+      {
+       "d": 24,
+       "im": 390
+      },
+      {
+       "d": 36,
+       "im": 399
+      },
+      {
+       "d": 36,
+       "im": 412
+      },
+      {
+       "d": 48,
+       "im": 435
+      },
+      {
+       "d": 48,
+       "im": 456
+      },
+      {
+       "d": null,
+       "im": 481
+      }
+     ]
+    }
+   ]
   },
-  "sous-officiers-de-spp-adjudant": {
-   "nom": "Adjudant",
-   "versions": []
+  "capitaines-commandants-lieutenants-colonels-commandant": {
+   "nom": "Commandant",
+   "versions": [
+    {
+     "effet": "2025-06-14",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 470
+      },
+      {
+       "d": 24,
+       "im": 510
+      },
+      {
+       "d": 30,
+       "im": 540
+      },
+      {
+       "d": 30,
+       "im": 597
+      },
+      {
+       "d": 39,
+       "im": 650
+      },
+      {
+       "d": 39,
+       "im": 695
+      },
+      {
+       "d": 39,
+       "im": 741
+      },
+      {
+       "d": 42,
+       "im": 761
+      },
+      {
+       "d": null,
+       "im": 788
+      }
+     ]
+    }
+   ]
   },
-  "sapeurs-et-caporaux-de-spp-sapeur": {
-   "nom": "Sapeur",
-   "versions": []
-  },
-  "sapeurs-et-caporaux-de-spp-caporal": {
-   "nom": "Caporal",
-   "versions": []
-  },
-  "sapeurs-et-caporaux-de-spp-caporal-chef": {
-   "nom": "Caporal-chef",
-   "versions": []
+  "capitaines-commandants-lieutenants-colonels-lieutenant-colonel": {
+   "nom": "Lieutenant-colonel",
+   "versions": [
+    {
+     "effet": "2025-06-14",
+     "echelons": [
+      {
+       "d": 24,
+       "im": 507
+      },
+      {
+       "d": 24,
+       "im": 543
+      },
+      {
+       "d": 30,
+       "im": 609
+      },
+      {
+       "d": 30,
+       "im": 661
+      },
+      {
+       "d": 39,
+       "im": 699
+      },
+      {
+       "d": 39,
+       "im": 761
+      },
+      {
+       "d": 42,
+       "im": 811
+      },
+      {
+       "d": null,
+       "im": 826
+      },
+      {
+       "d": null,
+       "im": 895,
+       "chevrons": [
+        895,
+        930,
+        977
+       ],
+       "lib": "Échelon spécial"
+      }
+     ]
+    }
+   ]
   }
  }
 }
