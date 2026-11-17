@@ -27,3 +27,13 @@ tail = """
 """
 (here / "index.html").write_text(head + body + tail, encoding="utf-8")
 print("index.html généré")
+
+# Version autonome pour ordinateur : un seul fichier, sans manifeste ni service worker.
+import base64
+icon = base64.b64encode((here / "icon-180.png").read_bytes()).decode()
+solo = (head
+        .replace('<link rel="manifest" href="manifest.webmanifest">\n', "")
+        .replace('href="icon-180.png"', f'href="data:image/png;base64,{icon}"')
+        .replace('<link rel="icon" href="icon-512.png">', f'<link rel="icon" type="image/png" href="data:image/png;base64,{icon}">'))
+(here / "Carriere-Territoriale.html").write_text(solo + body + "\n</body>\n</html>\n", encoding="utf-8")
+print("Carriere-Territoriale.html généré")

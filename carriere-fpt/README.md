@@ -10,6 +10,9 @@ Web app iPhone (installable sur l'écran d'accueil) de suivi de carrière pour l
 
 Les données restent sur l'appareil (localStorage). Valeurs et durées indicatives : l'arrêté et le bulletin de paie font foi.
 
+## Sur ordinateur
+Ouvrir `Carriere-Territoriale.html` (fichier unique, fonctionne hors connexion) en double-cliquant dessus. Les données sont gardées dans le navigateur utilisé : toujours l'ouvrir avec le même, et exporter une sauvegarde de temps en temps.
+
 ## Fichiers
 - `app.html` : source de l'app (contenu de la page).
 - `build.py` : génère `index.html` (ajoute l'en-tête iOS, le manifeste et le service worker). Lancer `python3 build.py` après modification.
