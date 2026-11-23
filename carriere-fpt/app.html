@@ -206,10 +206,12 @@ function exemple(){
     v:1, exemple:true,
     profil:{nom:"Camille Exemple",collectivite:"Commune de Saint-Exemple",categorie:"C",filiere:"Administrative",
       cadre:"Adjoints administratifs territoriaux",grade:"Adjoint administratif principal de 2e classe",statut:"Titulaire",
-      echelon:6,dateEchelon:"2025-03-01",dateEntree:"2016-09-01",quotite:100,grilleRef:"ech-c2"},
+      echelon:6,dateEchelon:"2026-03-01",dateEntree:"2016-09-01",quotite:100,grilleRef:"ech-c2"},
     grilleMode:"ref",
     grille:{nom:"Ma grille",echelons:[]},
-    remu:{point:POINT_DEFAUT,nbi:0,ifse:260,cia:300,sft:0,residence:0,pas:0},
+    remu:{point:POINT_DEFAUT,nbi:0,ifse:260,cia:300,sft:0,residence:0,pas:0,lignes:[
+      {id:uid(),libelle:"Indemnité compensatrice hausse de la CSG",montant:19.2,type:"gain"},
+      {id:uid(),libelle:"Mutuelle",montant:42.5,type:"retenue"}]},
     conges:{annee:2026,joursSemaine:5,rtt:0,cet:6,reportCA:0,absences:[
       {id:uid(),type:"CA",du:"2026-02-16",au:"2026-02-20",note:"Vacances d'hiver"},
       {id:uid(),type:"CA",du:"2026-07-20",au:"2026-08-07",note:"Été"},
@@ -234,7 +236,7 @@ function vide(){
   s.profil={nom:"",collectivite:"",categorie:"C",filiere:"Administrative",cadre:"",grade:"",statut:"Titulaire",echelon:1,dateEchelon:iso(new Date()),dateEntree:iso(new Date()),quotite:100,grilleRef:null};
   s.grilleMode="ref";
   s.grille={nom:"Ma grille",echelons:[24,24,24,24,24,null].map(d=>({d,im:null}))};
-  s.remu={point:POINT_DEFAUT,nbi:0,ifse:0,cia:0,sft:0,residence:0,pas:0};
+  s.remu={point:POINT_DEFAUT,nbi:0,ifse:0,cia:0,sft:0,residence:0,pas:0,lignes:[]};
   s.conges={annee:new Date().getFullYear(),joursSemaine:5,rtt:0,cet:0,reportCA:0,absences:[]};
   s.formations=[]; s.cpf={solde:0,majore:false}; s.echeances=[]; s.journal=[];
   return s;
@@ -313,13 +315,16 @@ function paie(imOverride){
   const im=imOverride!=null?imOverride:carriere().im;
   const ti=im*pt*q, nbi=num(r.nbi)*pt*q, ir=ti*num(r.residence)/100, sft=num(r.sft);
   const primes=(num(r.ifse)+num(r.cia)/12)*q;
-  const brut=ti+nbi+ir+sft+primes;
+  const lignes=Array.isArray(r.lignes)?r.lignes:[];
+  const somme=t=>lignes.filter(l=>l.type===t).reduce((a,l)=>a+num(l.montant),0);
+  const gainsC=somme("gain"),gainsN=somme("gainNet"),retenues=somme("retenue");
+  const brut=ti+nbi+ir+sft+primes+gainsC;
   const cnracl=(ti+nbi)*0.111;
-  const rafp=Math.min(primes+ir+sft,ti*0.20)*0.05;
+  const rafp=Math.min(primes+ir+sft+gainsC,ti*0.20)*0.05;
   const csg=brut*0.9825*0.092, crds=brut*0.9825*0.005;
   const ret=cnracl+rafp+csg+crds;
-  const net=brut-ret, pas=net*num(r.pas)/100;
-  return {im,ti,nbi,ir,sft,primes,brut,cnracl,rafp,csg,crds,ret,net,pas,netApres:net-pas};
+  const net=brut-ret+gainsN-retenues, pas=(brut-ret)*num(r.pas)/100;
+  return {im,ti,nbi,ir,sft,primes,gainsC,gainsN,retenues,lignes,brut,cnracl,rafp,csg,crds,ret,net,pas,netApres:net-pas};
 }
 function conges(){
   const c=S.conges,jps=num(c.joursSemaine,5),an=num(c.annee,today().getFullYear());
@@ -422,9 +427,9 @@ function vSalaire(){
   <div class="group" style="margin-top:16px">
     <div class="net"><div><span>Net à payer estimé</span><br><b>${eur(p.net,0)}</b></div><div style="text-align:right"><span>Brut</span><br><strong style="font-variant-numeric:tabular-nums">${eur(p.brut,0)}</strong></div></div>
     <div class="bars"><div class="bar"><div class="top"><span>Répartition du brut</span></div>
-      <div class="track" role="img" aria-label="Traitement ${Math.round(p.ti/tot*100)} %, primes ${Math.round(p.primes/tot*100)} %, autres ${Math.round((p.nbi+p.ir+p.sft)/tot*100)} %">
-        <i style="width:${p.ti/tot*100}%;background:var(--accent)"></i><i style="width:${p.primes/tot*100}%;background:var(--ok)"></i><i style="width:${(p.nbi+p.ir+p.sft)/tot*100}%;background:var(--warn)"></i></div>
-      <div class="legend"><span><i style="background:var(--accent)"></i>Traitement</span><span><i style="background:var(--ok)"></i>Régime indemnitaire</span><span><i style="background:var(--warn)"></i>NBI, résidence, SFT</span></div></div></div>
+      <div class="track" role="img" aria-label="Traitement ${Math.round(p.ti/tot*100)} %, primes ${Math.round(p.primes/tot*100)} %, autres ${Math.round((p.nbi+p.ir+p.sft+p.gainsC)/tot*100)} %">
+        <i style="width:${p.ti/tot*100}%;background:var(--accent)"></i><i style="width:${p.primes/tot*100}%;background:var(--ok)"></i><i style="width:${(p.nbi+p.ir+p.sft+p.gainsC)/tot*100}%;background:var(--warn)"></i></div>
+      <div class="legend"><span><i style="background:var(--accent)"></i>Traitement</span><span><i style="background:var(--ok)"></i>Régime indemnitaire</span><span><i style="background:var(--warn)"></i>NBI, résidence, SFT, autres</span></div></div></div>
   </div>
   <h2>Détail façon bulletin de paie</h2>
   <div class="group payslip">
@@ -433,19 +438,43 @@ function vSalaire(){
     ${p.ir?line(`Indemnité de résidence <small>${num(r.residence)} %</small>`,p.ir):""}
     ${p.sft?line("Supplément familial de traitement",p.sft):""}
     ${line(`RIFSEEP <small>IFSE ${eur(num(r.ifse),0)} + CIA ${eur(num(r.cia),0)}/an lissé</small>`,p.primes)}
+    ${lignesHTML(p.lignes,"gain")}
     <div class="row total"><div class="lbl">Total brut</div><div class="val">${eur(p.brut)}</div></div>
     ${line("Retenue pension CNRACL <small>11,10 %</small>",p.cnracl,"minus")}
     ${line("RAFP <small>5 % des primes</small>",p.rafp,"minus")}
     ${line("CSG <small>9,2 % sur 98,25 %</small>",p.csg,"minus")}
     ${line("CRDS <small>0,5 % sur 98,25 %</small>",p.crds,"minus")}
-    <div class="row total"><div class="lbl">Net avant impôt</div><div class="val">${eur(p.net)}</div></div>
+    ${lignesHTML(p.lignes,"gainNet")}${lignesHTML(p.lignes,"retenue")}
+    <div class="row total"><div class="lbl">Net à payer avant impôt</div><div class="val">${eur(p.net)}</div></div>
     ${p.pas?line(`Prélèvement à la source <small>${num(r.pas)} %</small>`,p.pas,"minus")+`<div class="row total"><div class="lbl">Net après impôt</div><div class="val">${eur(p.netApres)}</div></div>`:""}
   </div>
+  <h2>Mes lignes personnalisées</h2>
+  <div class="group">${(r.lignes||[]).map(l=>`<button class="row tap" data-act="ligne" data-id="${l.id}"><div class="lbl">${esc(l.libelle)}<small>${TYPES_LIGNE[l.type]}</small></div><div class="val" style="color:${l.type==="retenue"?"var(--bad)":"var(--ok)"}">${l.type==="retenue"?"−":"+"} ${eur(num(l.montant))}</div></button>`).join("")}
+  <button class="add" data-act="ligne">+ Ajouter une ligne (prime, indemnité, retenue…)</button></div>
+  <p class="note">Recopiez les lignes de votre bulletin de paie que l'app ne calcule pas : indemnité compensatrice de la hausse de la CSG, GIPA, heures supplémentaires, forfait mobilités durables, mutuelle, cotisation syndicale…</p>
   ${next?`<h2>Au prochain échelon</h2><div class="group"><div class="row"><div class="lbl">${libE(c.n+1)} · IM ${next.im}<small>${fdate(c.prochain)}</small></div><div class="val"><span class="pill ok">+${eur(next.net-p.net,0)} net</span></div></div></div>`:""}
   <div class="btnrow"><button class="btn" data-act="remu">Modifier primes et paramètres</button></div>
-  <p class="note">Estimation pour un fonctionnaire affilié à la CNRACL (hors cotisations mutuelle, transfert primes/points, GIPA ou heures supplémentaires). Pour un contractuel, les cotisations diffèrent (IRCANTEC, sécurité sociale). Votre bulletin de paie fait foi.</p>`;
+  <p class="note">Estimation pour un fonctionnaire affilié à la CNRACL (hors transfert primes/points ; ajoutez vos autres lignes ci-dessus). Pour un contractuel, les cotisations diffèrent (IRCANTEC, sécurité sociale). Votre bulletin de paie fait foi.</p>`;
 }
 
+const TYPES_LIGNE={gain:"Gain soumis à cotisations (ajouté au brut)",gainNet:"Gain non soumis (ajouté au net)",retenue:"Retenue (déduite du net)"};
+function lignesHTML(lignes,type){return lignes.filter(l=>l.type===type).map(l=>`<div class="row ${type==="retenue"?"minus":""}"><div class="lbl">${esc(l.libelle)}</div><div class="val">${type==="retenue"?"− ":""}${eur(num(l.montant))}</div></div>`).join("")}
+function sheetLigne(id){
+  const r=S.remu;if(!Array.isArray(r.lignes))r.lignes=[];
+  const l=r.lignes.find(x=>x.id===id)||{libelle:"",montant:"",type:"gain"};
+  const sugg=["Indemnité compensatrice hausse de la CSG","GIPA (garantie individuelle du pouvoir d'achat)","Heures supplémentaires (IHTS)","Prime de fin d'année","Forfait mobilités durables","Remboursement transport domicile-travail","Participation employeur mutuelle","Mutuelle","Prévoyance (maintien de salaire)","Cotisation syndicale","Retenue pour absence"];
+  openSheet(id?"Modifier la ligne":"Nouvelle ligne",`<div class="group">
+    ${F("l_lib","Libellé",l.libelle,"text",'list="l_sugg" placeholder="ex. Indemnité compensatrice CSG"')}<datalist id="l_sugg">${sugg.map(x=>`<option value="${esc(x)}">`).join("")}</datalist>
+    ${F("l_mt","Montant mensuel (€)",l.montant,"number",'min="0"')}
+    ${SEL("l_type","Type",l.type,Object.entries(TYPES_LIGNE))}</div>
+  <p class="note">Gain soumis à cotisations : la plupart des primes et indemnités (CSG et CRDS s'appliquent). Gain non soumis : remboursements de frais, forfait mobilités durables. Retenue : mutuelle, cotisation syndicale, prévoyance… Indiquez le montant tel qu'il figure sur le bulletin.</p>
+  ${id?del("Supprimer la ligne"):""}`,()=>{
+    const lib=val("l_lib"),mt=num(val("l_mt"),NaN);
+    if(!lib){toast("Indiquez un libellé");return false}if(!isFinite(mt)||mt<0){toast("Indiquez un montant positif");return false}
+    const o={libelle:lib,montant:Math.round(mt*100)/100,type:val("l_type")};
+    if(id)Object.assign(l,o);else r.lignes.push({id:uid(),...o});toast("Ligne enregistrée")},id?"OK":"Ajouter");
+  bindDel(()=>{r.lignes=r.lignes.filter(x=>x.id!==id)});
+}
 function vConges(){
   const c=conges(),S2=S.conges;
   const bar=(lbl,pris,total,color)=>{const pct=total>0?Math.min(100,pris/total*100):0;return `<div class="bar"><div class="top"><span>${lbl}</span><b>${fmtJ(total-pris)} restants</b></div><div class="track"><i style="width:${pct}%;background:${color}"></i></div><div class="top" style="font-size:13px;color:var(--muted);margin:6px 0 0"><span>${fmtJ(pris)} pris</span><span>sur ${fmtJ(total)}</span></div></div>`};
@@ -682,6 +711,7 @@ app.addEventListener("click",e=>{
   else if(a==="absence")sheetAbsence(id);
   else if(a==="echeance"||a==="formation"||a==="journal")sheetList(a,id);
   else if(a==="cpf")sheetCpf();
+  else if(a==="ligne")sheetLigne(id);
   else if(a==="fait"){const x=S.echeances.find(z=>z.id===id);if(x){x.fait=!x.fait;commit()}}
   else if(a==="annee"){S.conges.annee=num(S.conges.annee)+num(el.dataset.d);commit()}
   else if(a==="export")exporter();
