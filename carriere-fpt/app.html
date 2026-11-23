@@ -317,14 +317,14 @@ function paie(imOverride){
   const primes=(num(r.ifse)+num(r.cia)/12)*q;
   const lignes=Array.isArray(r.lignes)?r.lignes:[];
   const somme=t=>lignes.filter(l=>l.type===t).reduce((a,l)=>a+num(l.montant),0);
-  const gainsC=somme("gain"),gainsN=somme("gainNet"),retenues=somme("retenue");
-  const brut=ti+nbi+ir+sft+primes+gainsC;
+  const gainsC=somme("gain"),gainsN=somme("gainNet"),retenues=somme("retenue"),retenuesB=somme("retenueBrut");
+  const brut=ti+nbi+ir+sft+primes+gainsC-retenuesB;
   const cnracl=(ti+nbi)*0.111;
   const rafp=Math.min(primes+ir+sft+gainsC,ti*0.20)*0.05;
   const csg=brut*0.9825*0.092, crds=brut*0.9825*0.005;
   const ret=cnracl+rafp+csg+crds;
   const net=brut-ret+gainsN-retenues, pas=(brut-ret)*num(r.pas)/100;
-  return {im,ti,nbi,ir,sft,primes,gainsC,gainsN,retenues,lignes,brut,cnracl,rafp,csg,crds,ret,net,pas,netApres:net-pas};
+  return {im,ti,nbi,ir,sft,primes,gainsC,gainsN,retenues,retenuesB,lignes,brut,cnracl,rafp,csg,crds,ret,net,pas,netApres:net-pas};
 }
 function conges(){
   const c=S.conges,jps=num(c.joursSemaine,5),an=num(c.annee,today().getFullYear());
@@ -438,7 +438,7 @@ function vSalaire(){
     ${p.ir?line(`Indemnité de résidence <small>${num(r.residence)} %</small>`,p.ir):""}
     ${p.sft?line("Supplément familial de traitement",p.sft):""}
     ${line(`RIFSEEP <small>IFSE ${eur(num(r.ifse),0)} + CIA ${eur(num(r.cia),0)}/an lissé</small>`,p.primes)}
-    ${lignesHTML(p.lignes,"gain")}
+    ${lignesHTML(p.lignes,"gain")}${lignesHTML(p.lignes,"retenueBrut")}
     <div class="row total"><div class="lbl">Total brut</div><div class="val">${eur(p.brut)}</div></div>
     ${line("Retenue pension CNRACL <small>11,10 %</small>",p.cnracl,"minus")}
     ${line("RAFP <small>5 % des primes</small>",p.rafp,"minus")}
@@ -449,7 +449,7 @@ function vSalaire(){
     ${p.pas?line(`Prélèvement à la source <small>${num(r.pas)} %</small>`,p.pas,"minus")+`<div class="row total"><div class="lbl">Net après impôt</div><div class="val">${eur(p.netApres)}</div></div>`:""}
   </div>
   <h2>Mes lignes personnalisées</h2>
-  <div class="group">${(r.lignes||[]).map(l=>`<button class="row tap" data-act="ligne" data-id="${l.id}"><div class="lbl">${esc(l.libelle)}<small>${TYPES_LIGNE[l.type]}</small></div><div class="val" style="color:${l.type==="retenue"?"var(--bad)":"var(--ok)"}">${l.type==="retenue"?"−":"+"} ${eur(num(l.montant))}</div></button>`).join("")}
+  <div class="group">${(r.lignes||[]).map(l=>`<button class="row tap" data-act="ligne" data-id="${l.id}"><div class="lbl">${esc(l.libelle)}<small>${TYPES_LIGNE[l.type]}</small></div><div class="val" style="color:${estRetenue(l.type)?"var(--bad)":"var(--ok)"}">${estRetenue(l.type)?"−":"+"} ${eur(num(l.montant))}</div></button>`).join("")}
   <button class="add" data-act="ligne">+ Ajouter une ligne (prime, indemnité, retenue…)</button></div>
   <p class="note">Recopiez les lignes de votre bulletin de paie que l'app ne calcule pas : indemnité compensatrice de la hausse de la CSG, GIPA, heures supplémentaires, forfait mobilités durables, mutuelle, cotisation syndicale…</p>
   ${next?`<h2>Au prochain échelon</h2><div class="group"><div class="row"><div class="lbl">${libE(c.n+1)} · IM ${next.im}<small>${fdate(c.prochain)}</small></div><div class="val"><span class="pill ok">+${eur(next.net-p.net,0)} net</span></div></div></div>`:""}
@@ -457,17 +457,18 @@ function vSalaire(){
   <p class="note">Estimation pour un fonctionnaire affilié à la CNRACL (hors transfert primes/points ; ajoutez vos autres lignes ci-dessus). Pour un contractuel, les cotisations diffèrent (IRCANTEC, sécurité sociale). Votre bulletin de paie fait foi.</p>`;
 }
 
-const TYPES_LIGNE={gain:"Gain soumis à cotisations (ajouté au brut)",gainNet:"Gain non soumis (ajouté au net)",retenue:"Retenue (déduite du net)"};
-function lignesHTML(lignes,type){return lignes.filter(l=>l.type===type).map(l=>`<div class="row ${type==="retenue"?"minus":""}"><div class="lbl">${esc(l.libelle)}</div><div class="val">${type==="retenue"?"− ":""}${eur(num(l.montant))}</div></div>`).join("")}
+const TYPES_LIGNE={gain:"Gain soumis à cotisations (ajouté au brut)",retenueBrut:"Retenue sur le brut (avant cotisations)",gainNet:"Gain non soumis (ajouté au net)",retenue:"Retenue sur le net (après cotisations)"};
+const estRetenue=t=>t==="retenue"||t==="retenueBrut";
+function lignesHTML(lignes,type){return lignes.filter(l=>l.type===type).map(l=>`<div class="row ${estRetenue(type)?"minus":""}"><div class="lbl">${esc(l.libelle)}</div><div class="val">${estRetenue(type)?"− ":""}${eur(num(l.montant))}</div></div>`).join("")}
 function sheetLigne(id){
   const r=S.remu;if(!Array.isArray(r.lignes))r.lignes=[];
   const l=r.lignes.find(x=>x.id===id)||{libelle:"",montant:"",type:"gain"};
-  const sugg=["Indemnité compensatrice hausse de la CSG","GIPA (garantie individuelle du pouvoir d'achat)","Heures supplémentaires (IHTS)","Prime de fin d'année","Forfait mobilités durables","Remboursement transport domicile-travail","Participation employeur mutuelle","Mutuelle","Prévoyance (maintien de salaire)","Cotisation syndicale","Retenue pour absence"];
+  const sugg=["Indemnité compensatrice hausse de la CSG","GIPA (garantie individuelle du pouvoir d'achat)","Heures supplémentaires (IHTS)","Prime de fin d'année","Forfait mobilités durables","Remboursement transport domicile-travail","Participation employeur mutuelle","Mutuelle","Prévoyance (maintien de salaire)","Cotisation syndicale","Retenue pour absence","Jour de carence","Transfert primes/points"];
   openSheet(id?"Modifier la ligne":"Nouvelle ligne",`<div class="group">
     ${F("l_lib","Libellé",l.libelle,"text",'list="l_sugg" placeholder="ex. Indemnité compensatrice CSG"')}<datalist id="l_sugg">${sugg.map(x=>`<option value="${esc(x)}">`).join("")}</datalist>
     ${F("l_mt","Montant mensuel (€)",l.montant,"number",'min="0"')}
     ${SEL("l_type","Type",l.type,Object.entries(TYPES_LIGNE))}</div>
-  <p class="note">Gain soumis à cotisations : la plupart des primes et indemnités (CSG et CRDS s'appliquent). Gain non soumis : remboursements de frais, forfait mobilités durables. Retenue : mutuelle, cotisation syndicale, prévoyance… Indiquez le montant tel qu'il figure sur le bulletin.</p>
+  <p class="note">Gain soumis à cotisations : la plupart des primes et indemnités (CSG et CRDS s'appliquent). Gain non soumis : remboursements de frais, forfait mobilités durables. Retenue sur le brut : jour de carence, absence (service non fait), transfert primes/points ; elle réduit aussi la CSG et la CRDS. Retenue sur le net : mutuelle, cotisation syndicale, prévoyance… Indiquez le montant tel qu'il figure sur le bulletin.</p>
   ${id?del("Supprimer la ligne"):""}`,()=>{
     const lib=val("l_lib"),mt=num(val("l_mt"),NaN);
     if(!lib){toast("Indiquez un libellé");return false}if(!isFinite(mt)||mt<0){toast("Indiquez un montant positif");return false}
